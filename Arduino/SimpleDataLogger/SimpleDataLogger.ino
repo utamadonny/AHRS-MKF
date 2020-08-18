@@ -7,15 +7,15 @@
 #define OLED_RESET 4 //pin OLED 4
 Adafruit_SSD1306 display(OLED_RESET);
 MPU9250 IMU(Wire, 0x68); // an MPU9250 object with the MPU-9250 sensor on I2C bus 0 with address 0x68
-
 int status;
 unsigned long previousMillis = 0;   // set timer dengan fungsi milis (milisecond) ms
 unsigned long interval = 100;   // set timer untuk bekerja tiap intervar 100ms
 const int chipSelect = 10;     // pin  sd card  CS
-File Time;    //nama file yang mau disimpan
-File Accel;   //nama file yang mau disimpan
-File Gyro;   //nama file yang mau disimpan
-File Magneto;
+SdFat SD;
+File TimeFile;    //nama file yang mau disimpan
+File AccelFile;   //nama file yang mau disimpan
+File GyroFile;   //nama file yang mau disimpan
+File MagnetFile;
 
 
 
@@ -52,7 +52,6 @@ void loop() {
       TimeFile.println(currentMillis);
       TimeFile.close();
     }
-
     AccelFile = SD.open("Accel.txt", FILE_WRITE);    //simpan file
     if (AccelFile) {
       AccelFile.print(IMU.getAccelX_mss(), 4);
@@ -60,14 +59,28 @@ void loop() {
       AccelFile.print(IMU.getAccelY_mss(), 4);
       AccelFile.print(" ");
       AccelFile.print(IMU.getAccelZ_mss(), 4);
-      AccelFile.print(" ");
+      AccelFile.println();
       AccelFile.close();
     }
-
-    GyroFile = SD.open("CUR.txt", FILE_WRITE);      //simpan file
-    if (CurFile) {
-      CurFile.println(current_mA);
-      CurFile.close();
+    GyroFile = SD.open("Gyro.txt", FILE_WRITE);      //simpan file
+    if (GyroFile) {
+      GyroFile.print(IMU.getGyroX_rads(), 4);
+      GyroFile.print(" ");
+      GyroFile.print(IMU.getGyroY_rads(), 4);
+      GyroFile.print(" ");
+      GyroFile.print(IMU.getGyroZ_rads(), 4);
+      GyroFile.println();
+      GyroFile.close();
+    }
+    MagnetFile = SD.open("Magneto.txt", FILE_WRITE);      //simpan file
+    if (MagnetFile) {
+      MagnetFile.print(IMU.getMagX_uT(), 4);
+      MagnetFile.print(" ");
+      MagnetFile.print(IMU.getMagY_uT(), 4);
+      MagnetFile.print(" ");
+      MagnetFile.print(IMU.getMagZ_uT(), 4);
+      MagnetFile.println();
+      MagnetFile.close();
     }
     displaydata();    //tampilkan pada layar OLED
   }
@@ -100,19 +113,19 @@ void displaydata() {
   display.setTextColor(WHITE);
   display.setTextSize(1);
   display.setCursor(0, 0);
-  display.println(loadvoltage);
+  //display.println(loadvoltage);
   display.setCursor(35, 0);
   display.println("V");
   display.setCursor(50, 0);
-  display.println(current_mA);
+  //display.println(current_mA);
   display.setCursor(95, 0);
   display.println("mA");
   display.setCursor(0, 10);
-  display.println(loadvoltage * current_mA);
+  //display.println(loadvoltage * current_mA);
   display.setCursor(65, 10);
   display.println("mW");
   display.setCursor(0, 20);
-  display.println(energy);
+  //display.println(energy);
   display.setCursor(65, 20);
   display.println("mWh");
   display.display();
