@@ -17,8 +17,6 @@ File AccelFile;   //nama file yang mau disimpan
 File GyroFile;   //nama file yang mau disimpan
 File MagnetFile;
 
-
-
 void setup() {
   SD.begin(chipSelect);
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
