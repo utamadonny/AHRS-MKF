@@ -43,7 +43,6 @@ void loop() {
   if (currentMillis - previousMillis >= interval) // ketika waktu currentMillis - previousMillis >= interval maka eksekusi penyimpanan file
   {
     previousMillis = currentMillis;    // ubah previousMillis=currentMillis supaya mereset nilai
-    IMUserialdata();                     // melakukan kalkulasi tegangan dan arus
 
     TimeFile = SD.open("TIME.txt", FILE_WRITE);   // simpan file
     if (TimeFile) {
@@ -81,6 +80,7 @@ void loop() {
       MagnetFile.close();
     }
     displaydata();    //tampilkan pada layar OLED
+    IMUserialdata(); //Show Serial DataLogger
   }
 }
 
