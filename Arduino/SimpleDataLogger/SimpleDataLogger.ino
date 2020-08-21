@@ -85,6 +85,7 @@ void loop() {
     }
     displaydata();    //tampilkan pada layar OLED
     IMUserialdata(); //Show Serial DataLogger
+    plotloop();
   }
 }
 
