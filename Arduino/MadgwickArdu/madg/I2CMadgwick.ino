@@ -79,7 +79,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 //  - affects your setting for MFILTER_SAMPLE_FREQ_HZ, below
 //  - affect your setting for the DLPF, you should poll/readSensor
 //    at least twice as often as whatever is set in there
-#define IMU_POLL_DELAY_MS         5
+#define IMU_POLL_DELAY_MS         2
 
 // MFILTER_SAMPLE_FREQ_HZ -- tells the Madgwick filter "how
 // long each update applies"...
