@@ -3,5 +3,7 @@ This is my final project for bachelor degree. AHRS using Madgwick and Kalman Fil
 
 ## Reference
 MPU9250 library : https://github.com/bolderflight/MPU9250
+
 GPS Readings : https://github.com/mikalhart/TinyGPSPlus
+
 Madgwick filter: https://x-io.co.uk/open-source-imu-and-ahrs-algorithms/
