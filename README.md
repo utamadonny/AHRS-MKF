@@ -4,7 +4,7 @@ This is my final project for bachelor degree. AHRS using Madgwick and Kalman Fil
 ## Reference
 MPU9250 library : https://github.com/bolderflight/MPU9250
 
-myfork library : https://github.com/utamadonny/MPU9250
+myfork library : https://github.com/utamadonny/MPU9250/tree/MadgwickAHRS
 
 GPS Readings : https://github.com/mikalhart/TinyGPSPlus
 
