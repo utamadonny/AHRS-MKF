@@ -129,6 +129,7 @@ typedef union {
     float roll;
     float pitch;
     float yaw;
+    float Q0,Q1,Q2,Q3;
   };
   uint8_t valArray[sizeof(float) * 3];
 } NotifBytesBunch;
@@ -260,6 +261,10 @@ void loop() {
     AHRSValues.roll = rolly;
     AHRSValues.pitch = AHRSFilter.getPitch();
     AHRSValues.yaw = AHRSFilter.getYaw();
+    AHRSValues.Q0  = AHRSFilter.getq0();
+    AHRSValues.Q1  = AHRSFilter.getq1();
+    AHRSValues.Q2  = AHRSFilter.getq2();
+    AHRSValues.Q3  = AHRSFilter.getq3();
 
     // now you can do something with the AHRSValues
 
@@ -267,11 +272,18 @@ void loop() {
 
     Serial.print("R: ");
     Serial.print(rolly, 2);
-
     Serial.print("\tP: ");
     Serial.print(AHRSValues.pitch , 2);
     Serial.print("\tY: ");
     Serial.println(AHRSValues.yaw, 2);
+    Serial.print("\tq1: ");
+    Serial.println(AHRSValues.Q0, 2);
+    Serial.print("\tq2: ");
+    Serial.println(AHRSValues.Q1, 2);
+    Serial.print("\tq3: ");
+    Serial.println(AHRSValues.Q2, 2);
+    Serial.print("\tq4: ");
+    Serial.println(AHRSValues.Q3, 2);
   }
 
   delay(IMU_POLL_DELAY_MS);
