@@ -118,34 +118,56 @@ uint8_t loopCount = 0;
 
 void loop() {
   IMU.readSensor(AHRSFilter);
-  if (loopCount++ > 10) {
-    loopCount = 0;
-    float rolly = AHRSFilter.getRoll();
-    if (rolly < 0) {
-      rolly = 360.0 + rolly;
-    }
-    AHRSValues.roll = rolly;
-    AHRSValues.pitch = AHRSFilter.getPitch();
-    AHRSValues.yaw = AHRSFilter.getYaw();
-    AHRSValues.Q0  = AHRSFilter.getq0();
-    AHRSValues.Q1  = AHRSFilter.getq1();
-    AHRSValues.Q2  = AHRSFilter.getq2();
-    AHRSValues.Q3  = AHRSFilter.getq3();
+  // if (loopCount++ > 10) {
+  //   loopCount = 0;
+  //   float rolly = AHRSFilter.getRoll();
+  //   if (rolly < 0) {
+  //     rolly = 360.0 + rolly;
+  //   }
+  //   AHRSValues.roll = rolly;
+  //   AHRSValues.pitch = AHRSFilter.getPitch();
+  //   AHRSValues.yaw = AHRSFilter.getYaw();
+  //   AHRSValues.Q0  = AHRSFilter.getq0();
+  //   AHRSValues.Q1  = AHRSFilter.getq1();
+  //   AHRSValues.Q2  = AHRSFilter.getq2();
+  //   AHRSValues.Q3  = AHRSFilter.getq3();
 
-    Serial.print("R: ");
-    Serial.print(rolly, 2);
-    Serial.print("\tP: ");
-    Serial.print(AHRSValues.pitch , 2);
-    Serial.print("\tY: ");
-    Serial.println(AHRSValues.yaw, 2);
-    Serial.print("\tq1: ");
-    Serial.println(AHRSValues.Q0, 2);
-    Serial.print("\tq2: ");
-    Serial.println(AHRSValues.Q1, 2);
-    Serial.print("\tq3: ");
-    Serial.println(AHRSValues.Q2, 2);
-    Serial.print("\tq4: ");
-    Serial.println(AHRSValues.Q3, 2);
-  }
+    // Serial.print("R: ");
+    // Serial.print(rolly, 2);
+    // Serial.print("\tP: ");
+    // Serial.print(AHRSValues.pitch , 2);
+    // Serial.print("\tY: ");
+    // Serial.println(AHRSValues.yaw, 2);
+    // Serial.print("\tq1: ");
+    // Serial.println(AHRSValues.Q0, 2);
+    // Serial.print("\tq2: ");
+    // Serial.println(AHRSValues.Q1, 2);
+    // Serial.print("\tq3: ");
+    // Serial.println(AHRSValues.Q2, 2);
+    // Serial.print("\tq4: ");
+    // Serial.println(AHRSValues.Q3, 2);
+    SerialOut();
+  // }
   delay(IMU_POLL_DELAY_MS);
+}
+
+void SerialOut(){
+Serial.print(IMU.getAccelX_mss(),4); 
+    Serial.print(" ");
+    Serial.print(IMU.getAccelY_mss(),4); 
+    Serial.print(" ");
+    Serial.print(IMU.getAccelZ_mss(),4); 
+    Serial.print(" ");
+    Serial.print(IMU.getGyroX_rads(),4); 
+    Serial.print(" ");
+    Serial.print(IMU.getGyroY_rads(),4); 
+    Serial.print(" ");
+    Serial.print(IMU.getGyroZ_rads(),4); 
+    Serial.print(" ");
+    Serial.print(IMU.getMagX_uT(),4); 
+    Serial.print(" ");
+    Serial.print(IMU.getMagY_uT(),4); 
+    Serial.print(" ");
+    Serial.print(IMU.getMagZ_uT(),4); 
+    Serial.println(); 
 }
