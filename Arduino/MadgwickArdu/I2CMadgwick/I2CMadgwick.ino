@@ -45,9 +45,9 @@ void setup() {
 #ifdef ACC_CALIB_DONE
   #ifndef CALIB_DISABLE
   // params are the bias/scaleFactor reported by calib step
-  IMU.setAccelCalX(0.239477/1.008962);
-  IMU.setAccelCalY(0.239477/1.004149);
-  IMU.setAccelCalZ(0.112572/0.994379);
+  IMU.setAccelCalX(0.206961/1.004013);
+  IMU.setAccelCalY( 0.206961/1.001330);
+  IMU.setAccelCalZ(0.108950/0.998576);
 #endif
 #else
   Serial.println(F("********** ACC calib **************"));
@@ -89,9 +89,9 @@ void setup() {
 #ifdef MAG_CALIB_DONE
  #ifndef CALIB_DISABLE
   // params are the bias/scaleFactor reported by calib step
-  IMU.setMagCalX(46.214962/0.936178);
-  IMU.setMagCalY(43.776355/1.006211);
-  IMU.setMagCalZ(-40.626705/1.066099);
+  IMU.setMagCalX(39.428947/0.995109);
+  IMU.setMagCalY(35.713481/0.953820);
+  IMU.setMagCalZ(-31.296545/1.056335);
  #endif
 #else
   Serial.print(F("CALIB MAG -- move in figure 8s until I say stop!!!"));
