@@ -27,7 +27,7 @@ clc;                                % clear the command terminal
 
 %% Import and plot sensor data
 
-load('IMUdiamBR1.mat');
+load('IMUdiamDonny2.mat');
 
 figure('Name', 'Sensor Data');
 axis(1) = subplot(3,1,1);
