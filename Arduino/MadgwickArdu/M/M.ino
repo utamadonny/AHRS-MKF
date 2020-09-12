@@ -1,5 +1,4 @@
 #include "MPU9250.h" 
-#include "MadgwickAHRS.h"
 
 MPU9250 IMU(Wire,0x68); // an MPU9250 object with the MPU-9250 sensor on I2C bus 0 with address 0x68 
 int status;
