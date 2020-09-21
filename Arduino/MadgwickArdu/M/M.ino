@@ -41,7 +41,7 @@ void loop() {
     // display the data 
     Declare();
     SerialOut();
-    // SerialFilter(); //
+    SerialFilter();
     delay(200);
 }
 void Declare(){
@@ -83,7 +83,8 @@ void SerialOut(){
     Serial.print(",");
     Serial.print(hz,6); 
     Serial.print(",");
-    //! =============================== !//
+}
+void SerialFilter(){
     Serial.print(axf,6); //+0.055
     Serial.print(",");
     Serial.print(ayf,6); //+0.46
