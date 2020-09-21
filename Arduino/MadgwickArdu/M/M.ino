@@ -1,5 +1,7 @@
 #include "MPU9250.h" 
+#include <Ewma.h>  
 
+Ewma adcFilter1(0.05); //filter used to smooth sensor data
 
 //#define CALIB_DISABLE
  #define ACC_CALIB_DONE
@@ -28,15 +30,24 @@ void loop() {
     // read the sensor 
     IMU.readSensor();
     // display the data 
+    ax=IMU.getAccelX_mss()+0.04;
+    ay=IMU.getAccelY_mss()+0.36;
+    az=IMU.getAccelZ_mss();
+    float axf = adcFilter1.filter(ax);
+    float ayf = adcFilter1.filter(ay);
+    float azf = adcFilter1.filter(az);
+
     SerialOut();
     delay(200);
 }
 void SerialOut(){
-    Serial.print(IMU.getAccelX_mss()+0.04,6); //+0.055
+    Serial.print(ax,6); //+0.055
     Serial.print(",");
-    Serial.print(IMU.getAccelY_mss()+0.36,6); //+0.46
+    Serial.print(axf,6); //+0.055
     Serial.print(",");
-    Serial.print(IMU.getAccelZ_mss(),6); //-0.01  
+    Serial.print(ay,6); //+0.46
+    Serial.print(",");
+    Serial.print(az,6); //-0.01  
     Serial.print(",");
     Serial.print(IMU.getGyroX_rads(),6); 
     Serial.print(",");
