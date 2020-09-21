@@ -41,7 +41,7 @@ void Declare(){
     ay=IMU.getAccelY_mss()+0.36;
     az=IMU.getAccelZ_mss();
     gx=IMU.getGyroX_rads();
-    gy=IMu.getGyroY_rads();
+    gy=IMU.getGyroY_rads();
     gz=IMU.getGyroZ_rads();
     hx=IMU.getMagX_uT();
     hy=IMU.getMagY_uT();
@@ -67,7 +67,7 @@ void SerialOut(){
     Serial.print(",");
     Serial.print(hy,6); 
     Serial.print(",");
-    Serial.print(hz),6); 
+    Serial.print(hz,6); 
 }
 void SerialFilter(){
     Serial.print(axf,6); //+0.055
