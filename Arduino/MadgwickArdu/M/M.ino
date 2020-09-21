@@ -2,6 +2,14 @@
 #include <Ewma.h>  
 
 Ewma adcFilter1(0.05); //filter used to smooth sensor data
+Ewma adcFilter2(0.05); //filter used to smooth sensor data
+Ewma adcFilter3(0.05); //filter used to smooth sensor data
+Ewma adcFilter4(0.05); //filter used to smooth sensor data
+Ewma adcFilter5(0.05); //filter used to smooth sensor data
+Ewma adcFilter6(0.05); //filter used to smooth sensor data
+Ewma adcFilter7(0.05); //filter used to smooth sensor data
+Ewma adcFilter8(0.05); //filter used to smooth sensor data
+Ewma adcFilter9(0.05); //filter used to smooth sensor data
 
 //#define CALIB_DISABLE
  #define ACC_CALIB_DONE
@@ -38,17 +46,23 @@ void loop() {
 }
 void Declare(){
     ax=IMU.getAccelX_mss()+0.04;
-    ay=IMU.getAccelY_mss()+0.36;
-    az=IMU.getAccelZ_mss();
-    gx=IMU.getGyroX_rads();
-    gy=IMU.getGyroY_rads();
-    gz=IMU.getGyroZ_rads();
-    hx=IMU.getMagX_uT();
-    hy=IMU.getMagY_uT();
-    hz=IMU.getMagZ_uT();
+    ay=IMU.getAccelY_mss()+0.36,6;
+    az=IMU.getAccelZ_mss(),6;
+    gx=IMU.getGyroX_rads(),6;
+    gy=IMU.getGyroY_rads(),6;
+    gz=IMU.getGyroZ_rads(),6;
+    hx=IMU.getMagX_uT(),6;
+    hy=IMU.getMagY_uT(),6;
+    hz=IMU.getMagZ_uT(),6;
     axf = adcFilter1.filter(ax);
-    ayf = adcFilter1.filter(ay);
-    azf = adcFilter1.filter(az);
+    ayf = adcFilter2.filter(ay);
+    azf = adcFilter3.filter(az);
+    gxf = adcFilter4.filter(gx);
+    gyf = adcFilter5.filter(gy);
+    gzf = adcFilter6.filter(gz);
+    hxf = adcFilter7.filter(hx);
+    hyf = adcFilter8.filter(hy);
+    hzf = adcFilter9.filter(hz);
 }
 void SerialOut(){
     Serial.print(ax,6); //+0.055
@@ -89,7 +103,6 @@ void SerialFilter(){
     Serial.print(hzf,6); 
     Serial.println(); 
 }
-
 void CalibrationSetup(){
     #ifdef ACC_CALIB_DONE
   #ifndef CALIB_DISABLE
