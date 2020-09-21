@@ -1,0 +1,12 @@
+digraph test {
+    splines="FALSE";
+
+    /* Entities */
+    Ax [label="Ax", shape="rectangle"]
+    Ay [label="Ay", shape="rectangle"]
+    
+    
+    /* Relationships */
+    Ax -> Ay
+
+}

@@ -9,7 +9,7 @@
 % plots the output as Euler angles.
 %
 % Note that the Euler angle plot shows erratic behaviour in phi and psi
-% when theta approaches ±90 degrees. This due to a singularity in the Euler
+% when theta approaches Â±90 degrees. This due to a singularity in the Euler
 % angle sequence known as 'Gimbal lock'.  This issue does not exist for a
 % quaternion or rotation matrix representation.
 %
@@ -75,7 +75,7 @@ end
 
 %% Plot algorithm output as Euler angles
 % The first and third Euler angles in the sequence (phi and psi) become
-% unreliable when the middle angles of the sequence (theta) approaches ±90
+% unreliable when the middle angles of the sequence (theta) approaches Â±90
 % degrees. This problem c ommonly referred to as Gimbal Lock.
 % See: http://en.wikipedia.org/wiki/Gimbal_lock
 
@@ -92,4 +92,34 @@ ylabel('Angle (deg)');
 legend('\phi', '\theta', '\psi');
 hold off;
 
+%%
+eulerdot(:,1) = gradient(euler(:,1))./gradient(time(:));
+eulerdot(:,2) = gradient(euler(:,2))./gradient(time(:));
+eulerdot(:,3) = gradient(euler(:,3))./gradient(time(:));
+
+figure('Name', 'EulerDot Angles');
+hold on;
+plot(time, eulerdot(:,1), 'r');
+plot(time, eulerdot(:,2), 'g');
+plot(time, eulerdot(:,3), 'b');
+title('EulerDot angles');
+xlabel('Time (s)');
+ylabel('\omega (deg/s)');
+legend('\dot{phi}', '\dot{theta}', '\dot{psi}');
+hold off;
+%%
+eulerdot1(:,1) = diff([eps;euler(:,1)])./diff([eps;time(:)]);
+eulerdot1(:,2) = diff([eps;euler(:,2)])./diff([eps;time(:)]);
+eulerdot1(:,3) = diff([eps;euler(:,3)])./diff([eps;time(:)]);
+
+figure('Name', 'EulerDot Angles');
+hold on;
+plot(time, eulerdot1(:,1), 'r');
+plot(time, eulerdot1(:,2), 'g');
+plot(time, eulerdot1(:,3), 'b');
+title('EulerDot angles');
+xlabel('Time (s)');
+ylabel('\omega (deg/s)');
+legend('\dot{phi}', '\dot{theta}', '\dot{psi}');
+hold off;
 %% End of script

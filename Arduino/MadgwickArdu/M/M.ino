@@ -1,5 +1,6 @@
 #include "MPU9250.h" 
 
+
 //#define CALIB_DISABLE
  #define ACC_CALIB_DONE
  #define MAG_CALIB_DONE
@@ -31,11 +32,11 @@ void loop() {
     delay(200);
 }
 void SerialOut(){
-    Serial.print(IMU.getAccelX_mss(),6); 
+    Serial.print(IMU.getAccelX_mss()+0.04,6); //+0.055
     Serial.print(",");
-    Serial.print(IMU.getAccelY_mss(),6); 
+    Serial.print(IMU.getAccelY_mss()+0.36,6); //+0.46
     Serial.print(",");
-    Serial.print(IMU.getAccelZ_mss(),6); 
+    Serial.print(IMU.getAccelZ_mss(),6); //-0.01  
     Serial.print(",");
     Serial.print(IMU.getGyroX_rads(),6); 
     Serial.print(",");
@@ -55,9 +56,9 @@ void CalibrationSetup(){
     #ifdef ACC_CALIB_DONE
   #ifndef CALIB_DISABLE
   // params are the bias/scaleFactor reported by calib step
-  IMU.setAccelCalX(0.179314,1.002417);
-  IMU.setAccelCalY(0.101385,1.002250);
-  IMU.setAccelCalZ(0.167875,0.996245);
+  IMU.setAccelCalX(0.185998,1.001139);
+  IMU.setAccelCalY(0.089138,1.001757);
+  IMU.setAccelCalZ(0.141277,0.993996);
 #endif
 #else
   Serial.println(F("********** ACC calib **************"));
@@ -85,23 +86,23 @@ void CalibrationSetup(){
   Serial.println(F("Vals: "));
   Serial.print(F("X: "));
   Serial.print(IMU.getAccelBiasX_mss(), 6);
-  Serial.print('/');
+  Serial.print(',');
   Serial.println(IMU.getAccelScaleFactorX(), 6);
   Serial.print(F("Y: "));
   Serial.print(IMU.getAccelBiasY_mss(), 6);
-  Serial.print('/');
+  Serial.print(',');
   Serial.println(IMU.getAccelScaleFactorY(), 6);
   Serial.print(F("Z: "));
   Serial.print(IMU.getAccelBiasZ_mss(), 6);
-  Serial.print('/');
+  Serial.print(',');
   Serial.println(IMU.getAccelScaleFactorZ(), 6);
 #endif
 #ifdef MAG_CALIB_DONE
  #ifndef CALIB_DISABLE
   // params are the bias/scaleFactor reported by calib step
-  IMU.setMagCalX(39.858528,1.04263);
-  IMU.setMagCalY(11.006292,0.913933);
-  IMU.setMagCalZ(-11.607842,1.056283);
+  IMU.setMagCalX(47.140327,0.897625);
+  IMU.setMagCalY(33.622200,1.047886);
+  IMU.setMagCalZ(-17.663494,1.073368);
  #endif
 #else
   Serial.print(F("CALIB MAG -- move in figure 8s until I say stop!!!"));
@@ -111,15 +112,15 @@ void CalibrationSetup(){
 
   Serial.print(F("X: "));
   Serial.print(IMU.getMagBiasX_uT(), 6);
-  Serial.print('/');
+  Serial.print(',');
   Serial.println(IMU.getMagScaleFactorX(), 6);
   Serial.print(F("Y: "));
   Serial.print(IMU.getMagBiasY_uT(), 6);
-  Serial.print('/');
+  Serial.print(',');
   Serial.println(IMU.getMagScaleFactorY(), 6);
   Serial.print(F("Z: "));
   Serial.print(IMU.getMagBiasZ_uT(), 6);
-  Serial.print('/');
+  Serial.print(',');
   Serial.println(IMU.getMagScaleFactorZ(), 6);
 #endif
 }

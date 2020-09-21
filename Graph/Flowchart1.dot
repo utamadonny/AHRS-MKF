@@ -1,0 +1,11 @@
+digraph mygraph {
+    /* Entities */
+    ar [label="Raw Accelerometer", shape="rectangle"]
+    gr [label="Raw Gyroscope", shape="rectangle"]
+    hy [label="Raw Magnetometer", shape="rectangle"]
+    Mad [label="Madgwick Filter", shape="rectangle"]
+
+    # Relation
+    ar -> Mad 
+    hy -> Mad
+} 
