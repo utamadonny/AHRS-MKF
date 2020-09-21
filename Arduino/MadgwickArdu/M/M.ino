@@ -9,6 +9,7 @@ Ewma adcFilter1(0.05); //filter used to smooth sensor data
 
 MPU9250 IMU(Wire,0x68); // an MPU9250 object with the MPU-9250 sensor on I2C bus 0 with address 0x68 
 int status;
+float ax,ay,az,gx,gy,gz,hx,hy,hz,axf,ayf,azf,gxf,gyf,gzf,hyf,hxf,hzf;
 
 void setup() {
     // serial to display data
@@ -30,36 +31,62 @@ void loop() {
     // read the sensor 
     IMU.readSensor();
     // display the data 
+    Declare();
+    SerialOut();
+    SerialFilter();
+    delay(200);
+}
+void Declare(){
     ax=IMU.getAccelX_mss()+0.04;
     ay=IMU.getAccelY_mss()+0.36;
     az=IMU.getAccelZ_mss();
-    float axf = adcFilter1.filter(ax);
-    float ayf = adcFilter1.filter(ay);
-    float azf = adcFilter1.filter(az);
-
-    SerialOut();
-    delay(200);
+    gx=IMU.getGyroX_rads();
+    gy=IMu.getGyroY_rads();
+    gz=IMU.getGyroZ_rads();
+    hx=IMU.getMagX_uT();
+    hy=IMU.getMagY_uT();
+    hz=IMU.getMagZ_uT();
+    axf = adcFilter1.filter(ax);
+    ayf = adcFilter1.filter(ay);
+    azf = adcFilter1.filter(az);
 }
 void SerialOut(){
     Serial.print(ax,6); //+0.055
-    Serial.print(",");
-    Serial.print(axf,6); //+0.055
     Serial.print(",");
     Serial.print(ay,6); //+0.46
     Serial.print(",");
     Serial.print(az,6); //-0.01  
     Serial.print(",");
-    Serial.print(IMU.getGyroX_rads(),6); 
+    Serial.print(gx,6); 
     Serial.print(",");
-    Serial.print(IMU.getGyroY_rads(),6); 
+    Serial.print(gy,6); 
     Serial.print(",");
-    Serial.print(IMU.getGyroZ_rads(),6); 
+    Serial.print(gz,6); 
     Serial.print(",");
-    Serial.print(IMU.getMagX_uT(),6); 
+    Serial.print(hx,6); 
     Serial.print(",");
-    Serial.print(IMU.getMagY_uT(),6); 
+    Serial.print(hy,6); 
     Serial.print(",");
-    Serial.print(IMU.getMagZ_uT(),6); 
+    Serial.print(hz),6); 
+}
+void SerialFilter(){
+    Serial.print(axf,6); //+0.055
+    Serial.print(",");
+    Serial.print(ayf,6); //+0.46
+    Serial.print(",");
+    Serial.print(azf,6); //-0.01  
+    Serial.print(",");
+    Serial.print(gxf,6); 
+    Serial.print(",");
+    Serial.print(gyf,6); 
+    Serial.print(",");
+    Serial.print(gzf,6); 
+    Serial.print(",");
+    Serial.print(hxf,6); 
+    Serial.print(",");
+    Serial.print(hyf,6); 
+    Serial.print(",");
+    Serial.print(hzf,6); 
     Serial.println(); 
 }
 
