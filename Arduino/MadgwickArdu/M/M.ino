@@ -1,15 +1,15 @@
 #include "MPU9250.h" 
 #include <Ewma.h>  
 
-Ewma adcFilter1(0.05); //filter used to smooth sensor data
-Ewma adcFilter2(0.05); //filter used to smooth sensor data
-Ewma adcFilter3(0.05); //filter used to smooth sensor data
-Ewma adcFilter4(0.05); //filter used to smooth sensor data
-Ewma adcFilter5(0.05); //filter used to smooth sensor data
-Ewma adcFilter6(0.05); //filter used to smooth sensor data
-Ewma adcFilter7(0.05); //filter used to smooth sensor data
-Ewma adcFilter8(0.05); //filter used to smooth sensor data
-Ewma adcFilter9(0.05); //filter used to smooth sensor data
+Ewma adcFilter1(0.1); //* filter used to smooth sensor data
+Ewma adcFilter2(0.1); //? Less smoothing - faster to detect changes, but more prone to noise
+Ewma adcFilter3(0.1); //? More smoothing - less prone to noise, but slower to detect changes
+Ewma adcFilter4(0.1); 
+Ewma adcFilter5(0.1); 
+Ewma adcFilter6(0.1); 
+Ewma adcFilter7(0.1); 
+Ewma adcFilter8(0.1); 
+Ewma adcFilter9(0.1); 
 
 //#define CALIB_DISABLE
  #define ACC_CALIB_DONE
@@ -17,7 +17,7 @@ Ewma adcFilter9(0.05); //filter used to smooth sensor data
 
 MPU9250 IMU(Wire,0x68); // an MPU9250 object with the MPU-9250 sensor on I2C bus 0 with address 0x68 
 int status;
-float ax,ay,az,gx,gy,gz,hx,hy,hz,axf,ayf,azf,gxf,gyf,gzf,hyf,hxf,hzf;
+float ax,ay,az,gx,gy,gz,hx,hy,hz,axf,ayf,azf,gxf,gyf,gzf,hxf,hyf,hzf;
 
 void setup() {
     // serial to display data
@@ -41,19 +41,19 @@ void loop() {
     // display the data 
     Declare();
     SerialOut();
-    SerialFilter();
+    // SerialFilter(); //
     delay(200);
 }
 void Declare(){
     ax=IMU.getAccelX_mss()+0.04;
-    ay=IMU.getAccelY_mss()+0.36,6;
-    az=IMU.getAccelZ_mss(),6;
-    gx=IMU.getGyroX_rads(),6;
-    gy=IMU.getGyroY_rads(),6;
-    gz=IMU.getGyroZ_rads(),6;
-    hx=IMU.getMagX_uT(),6;
-    hy=IMU.getMagY_uT(),6;
-    hz=IMU.getMagZ_uT(),6;
+    ay=IMU.getAccelY_mss()+0.36;
+    az=IMU.getAccelZ_mss();
+    gx=IMU.getGyroX_rads();
+    gy=IMU.getGyroY_rads();
+    gz=IMU.getGyroZ_rads();
+    hx=IMU.getMagX_uT();
+    hy=IMU.getMagY_uT();
+    hz=IMU.getMagZ_uT();
     axf = adcFilter1.filter(ax);
     ayf = adcFilter2.filter(ay);
     azf = adcFilter3.filter(az);
@@ -82,8 +82,8 @@ void SerialOut(){
     Serial.print(hy,6); 
     Serial.print(",");
     Serial.print(hz,6); 
-}
-void SerialFilter(){
+    Serial.print(",");
+    //! =============================== !//
     Serial.print(axf,6); //+0.055
     Serial.print(",");
     Serial.print(ayf,6); //+0.46
