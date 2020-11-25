@@ -11,7 +11,7 @@ Ewma adcFilter7(0.1);
 Ewma adcFilter8(0.1); 
 Ewma adcFilter9(0.1); 
 
-// #define CALIB_DISABLE
+//#define CALIB_DISABLE
  #define ACC_CALIB_DONE
  #define MAG_CALIB_DONE
 
@@ -45,8 +45,8 @@ void loop() {
     delay(200);
 }
 void Declare(){
-    ax=IMU.getAccelX_mss()-0.47;
-    ay=IMU.getAccelY_mss();
+    ax=IMU.getAccelX_mss()+0.04;
+    ay=IMU.getAccelY_mss()+0.36;
     az=IMU.getAccelZ_mss();
     gx=IMU.getGyroX_rads();
     gy=IMU.getGyroY_rads();
@@ -109,9 +109,9 @@ void CalibrationSetup(){
     #ifdef ACC_CALIB_DONE
   #ifndef CALIB_DISABLE
   // params are the bias/scaleFactor reported by calib step
-  IMU.setAccelCalX(0.164282,1.003690);
-  IMU.setAccelCalY(0.164282,1.002627);
-  IMU.setAccelCalZ( 0.130044,0.995739);
+  IMU.setAccelCalX(0.185998,1.001139);
+  IMU.setAccelCalY(0.089138,1.001757);
+  IMU.setAccelCalZ(0.141277,0.993996);
 #endif
 #else
   Serial.println(F("********** ACC calib **************"));
@@ -153,9 +153,9 @@ void CalibrationSetup(){
 #ifdef MAG_CALIB_DONE
  #ifndef CALIB_DISABLE
   // params are the bias/scaleFactor reported by calib step
-  IMU.setMagCalX(40.168468,0.877424);
-  IMU.setMagCalY(1.935320,1.022440);
-  IMU.setMagCalZ(-15.859953,1.133468);
+  IMU.setMagCalX(47.140327,0.897625);
+  IMU.setMagCalY(33.622200,1.047886);
+  IMU.setMagCalZ(-17.663494,1.073368);
  #endif
 #else
   Serial.print(F("CALIB MAG -- move in figure 8s until I say stop!!!"));
