@@ -27,7 +27,13 @@ clc;                                % clear the command terminal
 
 %% Import and plot sensor data
 
-load('IMUdiamBR1bno.mat');
+load('SFTdiamBR1.mat');
+% Gyroscope = ld.sensorData.AngularVelocity;
+% Accelerometer = ld.sensorData.Acceleration;
+% Magnetometer=ld.sensorData.MagneticField;
+% time= 1:1:1600;
+% Fs=200;
+% time = (0:decim:size(Accelerometer,1)-1)/Fs;
 
 figure('Name', 'Sensor Data');
 axis(1) = subplot(3,1,1);
