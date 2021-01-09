@@ -14,7 +14,7 @@ clc;
 addpath('quaternion_library');clear all;close all;clc;
 ld = load ('SFTdiamBR1.mat');
 decim=2;
-acc = ld.sensorData.Accelerometer;
+acc = ld.sensorData.Accelerometer; %ld.sensorData.Accelerometer(:,1) = ax
 gyro = ld.sensorData.Gyroscope;
 mag = ld.sensorData.Magnetometer;
 time = (0:decim:size(acc,1)-1)/ld.Fs;  %hmmm ???

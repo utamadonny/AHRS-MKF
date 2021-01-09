@@ -60,10 +60,10 @@ void loop()
   sAccAnalog = bno.getAxis(BNO::eAxisAcc); // read acceleration
   sMagAnalog = bno.getAxis(BNO::eAxisMag); // read geomagnetic
   sGyrAnalog = bno.getAxis(BNO::eAxisGyr); // read gyroscope
-                                           //  sLiaAnalog = bno.getAxis(BNO::eAxisLia);    // read linear acceleration
-                                           //  sGrvAnalog = bno.getAxis(BNO::eAxisGrv);    // read gravity vector
-                                           //  sEulAnalog = bno.getEul();                  // read euler angle
-                                           //  sQuaAnalog = bno.getQua();                  // read quaternion
+  sLiaAnalog = bno.getAxis(BNO::eAxisLia);    // read linear acceleration
+  sGrvAnalog = bno.getAxis(BNO::eAxisGrv);    // read gravity vector
+  sEulAnalog = bno.getEul();                  // read euler angle
+  sQuaAnalog = bno.getQua();                  // read quaternionzzzzz
                                            //  Serial.println();
                                            //  Serial.println("======== analog data print start ========");
                                            //  Serial.print("acc analog: (unit mg)       "); printAxisData(sAccAnalog);
@@ -79,25 +79,25 @@ void loop()
   //  printAxisData(sGyrAnalog); // 1 rps
   //  printAxisData(sMagAnalog); // 1 uTs
 
-  Serial.print(",");
+  // Serial.print(",");
   Serial.print(sAccAnalog.x);
-  Serial.print(",");
+  Serial.print(F(", "));
   Serial.print(sAccAnalog.y);
-  Serial.print(",");
+  Serial.print(F(", "));
   Serial.print(sAccAnalog.z);
-  Serial.print(",");
+  Serial.print(F(", "));
   Serial.print(sGyrAnalog.x);
-  Serial.print(",");
+  Serial.print(F(", "));
   Serial.print(sGyrAnalog.y);
-  Serial.print(",");
+  Serial.print(F(", "));
   Serial.print(sGyrAnalog.z);
-  Serial.print(",");
+  Serial.print(F(", "));
   Serial.print(sMagAnalog.x);
-  Serial.print(",");
+  Serial.print(F(", "));
   Serial.print(sMagAnalog.y);
-  Serial.print(",");
+  Serial.print(F(", "));
   Serial.print(sMagAnalog.z);
-  Serial.println(",");
+  Serial.println(F(""));
 
   delay(100);
 }
