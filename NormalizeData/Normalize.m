@@ -1,18 +1,18 @@
 clc; clear;
  
-ax = xlsread('D:\DONNY\Documents\AHRS-MKF\NormalizeData\IMUdiam1.xlsx','B2:B411');
-ay =xlsread('D:\DONNY\Documents\AHRS-MKF\NormalizeData\IMUdiam1.xlsx','C2:C411');
-az =xlsread('D:\DONNY\Documents\AHRS-MKF\NormalizeData\IMUdiam1.xlsx','D2:D411');
-Accelerometer =xlsread('D:\DONNY\Documents\AHRS-MKF\NormalizeData\IMUdiam1.xlsx',1,'B2:D411');
-gx =xlsread('D:\DONNY\Documents\AHRS-MKF\NormalizeData\IMUdiam1.xlsx','E2:E411');
-gy =xlsread('D:\DONNY\Documents\AHRS-MKF\NormalizeData\IMUdiam1.xlsx','F2:F411');
-gz =xlsread('D:\DONNY\Documents\AHRS-MKF\NormalizeData\IMUdiam1.xlsx','G2:G411');
-Gyroscope = xlsread('D:\DONNY\Documents\AHRS-MKF\NormalizeData\IMUdiam1.xlsx','E2:G411');
-hx =xlsread('D:\DONNY\Documents\AHRS-MKF\NormalizeData\IMUdiam1.xlsx','H2:H411');
-hy =xlsread('D:\DONNY\Documents\AHRS-MKF\NormalizeData\IMUdiam1.xlsx','I2:I411');
-hz =xlsread('D:\DONNY\Documents\AHRS-MKF\NormalizeData\IMUdiam1.xlsx','J2:J411');
-Magnetometer = xlsread('D:\DONNY\Documents\AHRS-MKF\NormalizeData\IMUdiam1.xlsx',1,'H2:J411');
-time = xlsread('D:\DONNY\Documents\AHRS-MKF\NormalizeData\IMUdiam1.xlsx','K2:K411');
+ax = xlsread('IMUdiam1.xlsx','B2:B411');
+ay =xlsread('IMUdiam1.xlsx','C2:C411');
+az =xlsread('IMUdiam1.xlsx','D2:D411');
+Accelerometer =xlsread('IMUdiam1.xlsx',1,'B2:D411');
+gx =xlsread('IMUdiam1.xlsx','E2:E411');
+gy =xlsread('IMUdiam1.xlsx','F2:F411');
+gz =xlsread('IMUdiam1.xlsx','G2:G411');
+Gyroscope = xlsread('IMUdiam1.xlsx','E2:G411');
+hx =xlsread('IMUdiam1.xlsx','H2:H411');
+hy =xlsread('IMUdiam1.xlsx','I2:I411');
+hz =xlsread('IMUdiam1.xlsx','J2:J411');
+Magnetometer = xlsread('IMUdiam1.xlsx',1,'H2:J411');
+time = xlsread('IMUdiam1.xlsx','K2:K411');
  
 %% Proses Normalisasi Data per Data
 max_ax = max(max(ax));
@@ -141,7 +141,7 @@ legend('X', 'Y', 'Z');
 xlabel('Time (s)');
 ylabel('Angular rate (deg/s)');
 title('Gyroscope Raw');
-axis ([0 30 0 1]);  
+axis ([0 30 0 10]);  
 hold off
 subplot(3,1,2);
 hold on
@@ -152,7 +152,7 @@ legend('X', 'Y', 'Z');
 xlabel('Time (s)');
 ylabel('Angular rate (deg/s)');
 title('Gyroscope Norm /data');
-axis ([0 30 0 1]);
+axis ([0 30 0 10]);
 hold off
 subplot(3,1,3);
 hold on
@@ -163,4 +163,4 @@ legend('X', 'Y', 'Z');
 xlabel('Time (s)');
 ylabel('Angular rate (deg/s)');
 title('Gyroscope Norm semua data');
-axis ([0 30 0 1]);
+axis ([0 30 0 10]);
