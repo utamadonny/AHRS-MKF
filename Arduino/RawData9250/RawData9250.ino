@@ -6,17 +6,7 @@ int status;
 void setup() {
     // serial to display data
     Serial.begin(115200);
-    while(!Serial) {
-    }
-    // start communication with IMU
-    status = IMU.begin();
-    if (status < 0) {
-        Serial.println("IMU initialization unsuccessful");
-        Serial.println("Check IMU wiring or try cycling power");
-        Serial.print("Status: ");
-        Serial.println(status);
-        while(1) {}
-        }
+    IMU.begin();
 }
 
 void loop() {
