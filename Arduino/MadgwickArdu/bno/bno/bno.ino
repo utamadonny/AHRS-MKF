@@ -37,7 +37,7 @@ void setup()
   bno.reset();
   while (bno.begin() != BNO::eStatusOK)
   {
-    Serial.println("bno begin faild");
+    Serial.println("bno begin faild"
     printLastOperateStatus(bno.lastOperateStatus);
     delay(2000);
   }
@@ -57,6 +57,7 @@ void loop()
   BNO::sAxisAnalog_t sAccAnalog, sMagAnalog, sGyrAnalog, sLiaAnalog, sGrvAnalog;
   BNO::sEulAnalog_t sEulAnalog;
   BNO::sQuaAnalog_t sQuaAnalog;
+  // BNO::sRegCalibState_t sCalib;
   sAccAnalog = bno.getAxis(BNO::eAxisAcc); // read acceleration
   sMagAnalog = bno.getAxis(BNO::eAxisMag); // read geomagnetic
   sGyrAnalog = bno.getAxis(BNO::eAxisGyr); // read gyroscope
@@ -64,6 +65,7 @@ void loop()
   sGrvAnalog = bno.getAxis(BNO::eAxisGrv);    // read gravity vector
   sEulAnalog = bno.getEul();                  // read euler angle
   sQuaAnalog = bno.getQua();                  // read quaternionzzzzz
+  // sCalib = bno.getCal();
                                            //  Serial.println();
                                            //  Serial.println("======== analog data print start ========");
                                            //  Serial.print("acc analog: (unit mg)       "); printAxisData(sAccAnalog);
@@ -97,6 +99,14 @@ void loop()
   Serial.print(sMagAnalog.y);
   Serial.print(F(", "));
   Serial.print(sMagAnalog.z);
+  // Serial.print(F(","));
+  // Serial.print(sCalib.ACC);
+  // Serial.print(F(","));
+  // Serial.print(sCalib.GYR);
+  // Serial.print(F(","));
+  // Serial.print(sCalib.MAG);
+  // Serial.print(F(","));
+  // Serial.print(sCalib.SYS);
   Serial.println(F(""));
 
   delay(100);

@@ -47,13 +47,13 @@ void loop(void)
   // - VECTOR_LINEARACCEL   - m/s^2
   // - VECTOR_GRAVITY       - m/s^2
   int8_t boardTemp = bno.getTemp();
-  Serial.println();
-  Serial.print(F("temperature: "));
-  Serial.println(boardTemp);
+  // Serial.println();
+  // Serial.print(F("temperature: "));
+  // Serial.println(boardTemp);
 
   uint8_t system, gyro, accel, mag = 0;
   bno.getCalibration(&system, &gyro, &accel, &mag);
-  Serial.println();
+  // Serial.println();
   Serial.print("Calibration: Sys=");
   Serial.print(system);
   Serial.print(" Gyro=");
@@ -108,13 +108,13 @@ void printEvent(sensors_event_t* event) {
   else {
     Serial.print("Unk:");
   }
-
-  Serial.print("\tx= ");
+  Serial.print(",");
   Serial.print(x);
-  Serial.print(" |\ty= ");
+  Serial.print(",");
   Serial.print(y);
-  Serial.print(" |\tz= ");
-  Serial.println(z);
+  Serial.print(",");
+  Serial.print(z);
+  Serial.print(",");
 }
 
 
