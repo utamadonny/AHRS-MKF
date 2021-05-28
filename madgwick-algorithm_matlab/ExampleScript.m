@@ -27,7 +27,7 @@ clc;                                % clear the command terminal
 
 %% Import and plot sensor data
 
-load('IMUdiamBR1.mat');
+load('bnosrc.mat');
 % Gyroscope = ld.sensorData.AngularVelocity;
 % Accelerometer = ld.sensorData.Acceleration;
 % Magnetometer=ld.sensorData.MagneticField;
