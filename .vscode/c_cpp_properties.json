@@ -20,6 +20,8 @@
                 "C:\\Program Files\\Arduino\\hardware\\arduino\\avr\\libraries\\Wire\\src",
                 "E:\\Documents\\Arduino\\libraries\\Adafruit_Unified_Sensor",
                 "E:\\Documents\\Arduino\\libraries\\Adafruit_BNO055",
+                "E:\\Documents\\Arduino\\libraries\\Bolder_Flight_Systems_MPU9250\\src",
+                "C:\\Program Files\\Arduino\\hardware\\arduino\\avr\\libraries\\SPI\\src",
                 "c:\\program files\\arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include",
                 "c:\\program files\\arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include-fixed",
                 "c:\\program files\\arduino\\hardware\\tools\\avr\\avr\\include"

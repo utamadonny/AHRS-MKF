@@ -1,15 +1,15 @@
 #include "MPU9250.h" 
-#include <Ewma.h>  
+// #include <Ewma.h>  
 
-Ewma adcFilter1(0.1); //* filter used to smooth sensor data
-Ewma adcFilter2(0.1); //? Less smoothing - faster to detect changes, but more prone to noise
-Ewma adcFilter3(0.1); //? More smoothing - less prone to noise, but slower to detect changes
-Ewma adcFilter4(0.1); 
-Ewma adcFilter5(0.1); 
-Ewma adcFilter6(0.1); 
-Ewma adcFilter7(0.1); 
-Ewma adcFilter8(0.1); 
-Ewma adcFilter9(0.1); 
+// Ewma adcFilter1(0.1); //* filter used to smooth sensor data
+// Ewma adcFilter2(0.1); //? Less smoothing - faster to detect changes, but more prone to noise
+// Ewma adcFilter3(0.1); //? More smoothing - less prone to noise, but slower to detect changes
+// Ewma adcFilter4(0.1); 
+// Ewma adcFilter5(0.1); 
+// Ewma adcFilter6(0.1); 
+// Ewma adcFilter7(0.1); 
+// Ewma adcFilter8(0.1); 
+// Ewma adcFilter9(0.1); 
 
 // #define CALIB_DISABLE
  #define ACC_CALIB_DONE
@@ -54,15 +54,15 @@ void Declare(){
     hx=IMU.getMagX_uT();
     hy=IMU.getMagY_uT();
     hz=IMU.getMagZ_uT();
-    axf = adcFilter1.filter(ax);
-    ayf = adcFilter2.filter(ay);
-    azf = adcFilter3.filter(az);
-    gxf = adcFilter4.filter(gx);
-    gyf = adcFilter5.filter(gy);
-    gzf = adcFilter6.filter(gz);
-    hxf = adcFilter7.filter(hx);
-    hyf = adcFilter8.filter(hy);
-    hzf = adcFilter9.filter(hz);
+    // axf = adcFilter1.filter(ax);
+    // ayf = adcFilter2.filter(ay);
+    // azf = adcFilter3.filter(az);
+    // gxf = adcFilter4.filter(gx);
+    // gyf = adcFilter5.filter(gy);
+    // gzf = adcFilter6.filter(gz);
+    // hxf = adcFilter7.filter(hx);
+    // hyf = adcFilter8.filter(hy);
+    // hzf = adcFilter9.filter(hz);
 }
 void SerialOut(){
     Serial.print(ax,6); //+0.055

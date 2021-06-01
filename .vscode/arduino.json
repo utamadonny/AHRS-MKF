@@ -3,5 +3,5 @@
     "board": "arduino:avr:nano",
     "programmer": "arduino:avrispmkii",
     "port": "COM8",
-    "sketch": "Arduino\\MadgwickArdu\\bno\\rawadafruit\\rawadaftuit.ino"
+    "sketch": "Arduino\\Fixcopy\\Fixcopy.ino"
 }
