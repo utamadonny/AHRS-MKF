@@ -1,6 +1,9 @@
+#include <MadgwickAHRS.h>
 #include "MPU9250.h" 
-// #include <Ewma.h>  
 
+// #include <Ewma.h>  
+Madgwick filter;
+unsigned long microsPerReading, microsPrevious;
 // Ewma adcFilter1(0.1); //* filter used to smooth sensor data
 // Ewma adcFilter2(0.1); //? Less smoothing - faster to detect changes, but more prone to noise
 // Ewma adcFilter3(0.1); //? More smoothing - less prone to noise, but slower to detect changes
@@ -18,6 +21,7 @@
 MPU9250 IMU(Wire,0x68); // an MPU9250 object with the MPU-9250 sensor on I2C bus 0 with address 0x68 
 int status;
 float ax,ay,az,gx,gy,gz,hx,hy,hz,axf,ayf,azf,gxf,gyf,gzf,hxf,hyf,hzf;
+float roll, pitch, heading;
 
 void setup() {
     // serial to display data
@@ -36,13 +40,20 @@ void setup() {
 CalibrationSetup();
 }
 void loop() {
+    
+    unsigned microsNow;
+
+    if (microsNow - microsPrevious >=microsPerReading){
     // read the sensor 
     IMU.readSensor();
-    // display the data 
     Declare();
+    // display the data 
+    
     SerialOut();
+    microsPrevious = microsPrevious + microsPerReading;
+    }
     // SerialFilter();
-    delay(200);
+    // delay(200);
 }
 void Declare(){
     ax=IMU.getAccelX_mss()-0.47;
@@ -54,6 +65,10 @@ void Declare(){
     hx=IMU.getMagX_uT();
     hy=IMU.getMagY_uT();
     hz=IMU.getMagZ_uT();
+    filter.update(gx,gy,gz,ax,ay,az,hx,hy,hz);
+    roll = filter.getRoll();
+    pitch = filter.getPitch();
+    heading = filter.getYaw();
     // axf = adcFilter1.filter(ax);
     // ayf = adcFilter2.filter(ay);
     // azf = adcFilter3.filter(az);
@@ -82,6 +97,11 @@ void SerialOut(){
     Serial.print(hy,6); 
     Serial.print(",");
     Serial.print(hz,6); 
+    Serial.print(",");
+    Serial.print(heading);
+    Serial.print(",");
+    Serial.print(pitch);
+    Serial.print(roll);
     Serial.print(",");
     Serial.println();
 }

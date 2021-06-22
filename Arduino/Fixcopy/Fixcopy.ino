@@ -3,7 +3,14 @@
 #include <Adafruit_BNO055.h>
 #include <utility/imumaths.h>
 #include "MPU9250.h" 
+#include <MadgwickAHRS.h>
 
+Madgwick filter;
+float rollm,pitchm,yawm;
+// unsigned long microsPerReading, microsPrevious;
+
+// float rollm2, pitchm2, yawm2, rollb2,pitchb2,yawb2, rollm3, pitchm3, yawm3, rollb3,pitchb3,yawb3;
+// Orient:,359.94,8.81,-2.13,Rot:,0.00,-0.12,-0.06,Linear:,-0.08,-0.04,-0.54,Mag:,10.06,23.37,-0.75,Accl:,1.42,0.32,9.13,Accl:,1.50,0.36,9.68,Calibration: Sys=,0, Gyro=,3, Accel=,0, Mag=,0,0.287925,2.605595,-9.456173,0.000956,-0.000377,0.000180,33.799571,33.293048,8.876404,
 MPU9250 IMU(Wire,0x68); // an MPU9250 object with the MPU-9250 sensor on I2C bus 0 with address 0x68 
 Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);
 int status;
@@ -26,7 +33,7 @@ void setup() {
     // serial to display data
     // Serial.begin(115200);
   Serial.begin(115200);
-  Serial.println("Orientation Sensor Test"); Serial.println(" ");
+  // Serial.println("Orientation Sensor Test"); Serial.println(" ");
   // delay(200);
   tcaselect(1);
    status = IMU.begin();
@@ -38,14 +45,14 @@ void setup() {
       while(1);
       // status = 1;
       }
-  Serial.println("MPU Pass");
+  // Serial.println("MPU Pass");
   tcaselect(0); // 0 = BNO, 1=MPU
   if (!bno.begin())
   {
     Serial.print("Ooops, no BNO055 detected ... Check your wiring or I2C ADDR!");
     while (1);
   }
-  Serial.println("BNO pass");
+  // Serial.println("BNO pass");
   delay(200);
   // tcaselect(1);
   // while(!Serial) {
@@ -113,7 +120,7 @@ void AllBNO(){
 }
 
 void AllMPU(){
-    ax=IMU.getAccelX_mss()-0.47;
+    ax=IMU.getAccelX_mss();
     ay=IMU.getAccelY_mss();
     az=IMU.getAccelZ_mss();
     gx=IMU.getGyroX_rads();
@@ -122,6 +129,14 @@ void AllMPU(){
     hx=IMU.getMagX_uT();
     hy=IMU.getMagY_uT();
     hz=IMU.getMagZ_uT();
+    // filterm2.updateIMU(gx,gy,gz,ax,ay,az);
+    filter.update(gx,gy,gz,ax,ay,az,hx,hy,hz);
+    rollm = filter.getRoll();
+    pitchm = filter.getPitch();
+    yawm = filter.getYaw();
+    // rollm3 = filterm3.getRoll();
+    // pitchm3 = filterm3.getPitch();
+    // yawm3 = filterm3.getYaw();
     // axf = adcFilter1.filter(ax);
     // ayf = adcFilter2.filter(ay);
     // azf = adcFilter3.filter(az);
@@ -131,24 +146,38 @@ void AllMPU(){
     // hxf = adcFilter7.filter(hx);
     // hyf = adcFilter8.filter(hy);
     // hzf = adcFilter9.filter(hz);
-    Serial.print(ax,6); //+0.055
+    Serial.print(ax,2); //+0.055
     Serial.print(",");
-    Serial.print(ay,6); //+0.46
+    Serial.print(ay,2); //+0.46
     Serial.print(",");
-    Serial.print(az,6); //-0.01  
+    Serial.print(az,2); //-0.01  
     Serial.print(",");
-    Serial.print(gx,6); 
+    Serial.print(gx,2); 
     Serial.print(",");
-    Serial.print(gy,6); 
+    Serial.print(gy,2); 
     Serial.print(",");
-    Serial.print(gz,6); 
+    Serial.print(gz,2); 
     Serial.print(",");
-    Serial.print(hx,6); 
+    Serial.print(hx,2); 
     Serial.print(",");
-    Serial.print(hy,6); 
+    Serial.print(hy,2); 
     Serial.print(",");
-    Serial.print(hz,6); 
+    Serial.print(hz,2);
     Serial.print(",");
+    Serial.print(yawm);
+    Serial.print(",");
+    Serial.print(pitchm);
+    Serial.print(",");
+    Serial.print(rollm);
+    // Serial.print(",");
+    // Serial.print(yawm3);
+    // Serial.print(",");
+    // Serial.print(pitchm3);
+    // Serial.print(",");
+    // Serial.print(rollm3);
+    // Serial.print(",");
+    // Serial.println(); 
+    // Serial.print(",");
     Serial.println();
 }
 // void SerialFilter(){
@@ -175,36 +204,35 @@ void CalibrationBNO(){
   uint8_t system, gyro, accel, mag = 0;
   bno.getCalibration(&system, &gyro, &accel, &mag);
   // Serial.println();
-  Serial.print("Calibration: Sys=");
-  Serial.print(",");
+  // Serial.print("Calibration: Sys=");
+  // Serial.print(",");
   Serial.print(system);
   Serial.print(",");
-  Serial.print(" Gyro=");
-  Serial.print(",");
+  // Serial.print(" Gyro=");
+  // Serial.print(",");
   Serial.print(gyro);
   Serial.print(",");
-  Serial.print(" Accel=");
-  Serial.print(",");
+  // Serial.print(" Accel=");
+  // Serial.print(",");
   Serial.print(accel);
   Serial.print(",");
-  Serial.print(" Mag=");
-  Serial.print(",");
+  // Serial.print(" Mag=");
+  // Serial.print(",");
   Serial.print(mag);
   Serial.print(",");
 }
 void CalibrationMPU(){
-  #ifdef ACC_CALIB_DONE
+    #ifdef ACC_CALIB_DONE
   #ifndef CALIB_DISABLE
   // params are the bias/scaleFactor reported by calib step
-  IMU.setAccelCalX(0.164282,1.003690);
-  IMU.setAccelCalY(0.164282,1.002627);
-  IMU.setAccelCalZ( 0.130044,0.995739);
+  tcaselect(1);
+  IMU.setAccelCalX( -0.252987,1.045735);
+  IMU.setAccelCalY(0.000000,1.000000);
+  IMU.setAccelCalZ( 0.126709,0.997062);
 #endif
 #else
   Serial.println(F("********** ACC calib **************"));
-
   char * dirs[6] = { "X+", "X-", "Y+", "Y-", "Z+", "Z-"};
-
   for (uint8_t i = 0; i < 6; i++) {
     Serial.print(F("Enter when ready for dir "));
     Serial.print((int)(i + 1));
@@ -220,6 +248,7 @@ void CalibrationMPU(){
       Serial.print('.');
     }
     Serial.println();
+    tcaselect(1);
     IMU.calibrateAccel();
   }
   Serial.println(F("Acc calib done"));
@@ -240,13 +269,15 @@ void CalibrationMPU(){
 #ifdef MAG_CALIB_DONE
  #ifndef CALIB_DISABLE
   // params are the bias/scaleFactor reported by calib step
-  IMU.setMagCalX(40.168468,0.877424);
-  IMU.setMagCalY(1.935320,1.022440);
-  IMU.setMagCalZ(-15.859953,1.133468);
+  tcaselect(1);
+  IMU.setMagCalX(51.597270,0.900159);
+  IMU.setMagCalY(6.342345,1.004222);
+  IMU.setMagCalZ(-6.588032,1.119457);
  #endif
 #else
   Serial.print(F("CALIB MAG -- move in figure 8s until I say stop!!!"));
   delay(500);
+  tcaselect(1);
   IMU.calibrateMag();
   Serial.println(F(" done!"));
 
@@ -268,37 +299,37 @@ void CalibrationMPU(){
 void printEvent(sensors_event_t* event) {
   double x = -1000000, y = -1000000 , z = -1000000; //dumb values, easy to spot problem
   if (event->type == SENSOR_TYPE_ACCELEROMETER) {
-    Serial.print("Accl:");
+    // Serial.print("Accl:");
     x = event->acceleration.x;
     y = event->acceleration.y;
     z = event->acceleration.z;
   }
   else if (event->type == SENSOR_TYPE_ORIENTATION) {
-    Serial.print("Orient:");
+    // Serial.print("Orient:");
     x = event->orientation.x;
     y = event->orientation.y;
     z = event->orientation.z;
   }
   else if (event->type == SENSOR_TYPE_MAGNETIC_FIELD) {
-    Serial.print("Mag:");
+    // Serial.print("Mag:");
     x = event->magnetic.x;
     y = event->magnetic.y;
     z = event->magnetic.z;
   }
   else if (event->type == SENSOR_TYPE_GYROSCOPE) {
-    Serial.print("Gyro:");
+    // Serial.print("Gyro:");
     x = event->gyro.x;
     y = event->gyro.y;
     z = event->gyro.z;
   }
   else if (event->type == SENSOR_TYPE_ROTATION_VECTOR) {
-    Serial.print("Rot:");
+    // Serial.print("Rot:");
     x = event->gyro.x;
     y = event->gyro.y;
     z = event->gyro.z;
   }
   else if (event->type == SENSOR_TYPE_LINEAR_ACCELERATION) {
-    Serial.print("Linear:");
+    // Serial.print("Linear:");
     x = event->acceleration.x;
     y = event->acceleration.y;
     z = event->acceleration.z;
@@ -306,7 +337,7 @@ void printEvent(sensors_event_t* event) {
   else {
     Serial.print("Unk:");
   }
-  Serial.print(",");
+  // Serial.print(",");
   Serial.print(x);
   Serial.print(",");
   Serial.print(y);

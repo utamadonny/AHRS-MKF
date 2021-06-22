@@ -1,7 +1,7 @@
 {
-    "configuration": "cpu=atmega328old",
+    "port": "COM8",
     "board": "arduino:avr:nano",
     "programmer": "arduino:avrispmkii",
-    "port": "COM8",
-    "sketch": "Arduino\\Fixcopy\\Fixcopy.ino"
+    "sketch": "Arduino\\Fixcopy\\Fixcopy.ino",
+    "configuration": "cpu=atmega328old"
 }
