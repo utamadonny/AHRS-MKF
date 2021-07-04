@@ -3,7 +3,7 @@
     "configurations": [
         {
             "name": "Arduino",
-            "compilerPath": "C:\\Users\\utama\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\bin\\avr-g++",
+            "compilerPath": "/home/donny/Downloads/arduino-1.8.13/hardware/tools/avr/bin/avr-g++",
             "compilerArgs": [
                 "-std=gnu++11",
                 "-fpermissive",
@@ -15,20 +15,19 @@
             ],
             "intelliSenseMode": "gcc-x64",
             "includePath": [
-                "C:\\Users\\utama\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\cores\\arduino",
-                "C:\\Users\\utama\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\variants\\eightanaloginputs",
-                "C:\\Users\\utama\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\Wire\\src",
-                "E:\\Documents\\Arduino\\libraries\\Adafruit_Unified_Sensor",
-                "E:\\Documents\\Arduino\\libraries\\Adafruit_BNO055",
-                "E:\\Documents\\Arduino\\libraries\\Bolder_Flight_Systems_MPU9250\\src",
-                "C:\\Users\\utama\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\SPI\\src",
-                "E:\\Documents\\Arduino\\libraries\\Madgwick\\src",
-                "c:\\users\\utama\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\lib\\gcc\\avr\\7.3.0\\include",
-                "c:\\users\\utama\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\lib\\gcc\\avr\\7.3.0\\include-fixed",
-                "c:\\users\\utama\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\avr\\include"
+                "/home/donny/Downloads/arduino-1.8.13/hardware/arduino/avr/cores/arduino",
+                "/home/donny/Downloads/arduino-1.8.13/hardware/arduino/avr/variants/eightanaloginputs",
+                "/home/donny/Downloads/arduino-1.8.13/hardware/arduino/avr/libraries/Wire/src",
+                "/home/donny/Arduino/libraries/Adafruit_Unified_Sensor",
+                "/home/donny/Arduino/libraries/Adafruit_BNO055",
+                "/home/donny/Arduino/libraries/Madgwick/src",
+                "/home/donny/Arduino/libraries/Mahony/src",
+                "/home/donny/Downloads/arduino-1.8.13/hardware/tools/avr/lib/gcc/avr/7.3.0/include",
+                "/home/donny/Downloads/arduino-1.8.13/hardware/tools/avr/lib/gcc/avr/7.3.0/include-fixed",
+                "/home/donny/Downloads/arduino-1.8.13/hardware/tools/avr/avr/include"
             ],
             "forcedInclude": [
-                "C:\\Users\\utama\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\cores\\arduino\\Arduino.h"
+                "/home/donny/Downloads/arduino-1.8.13/hardware/arduino/avr/cores/arduino/Arduino.h"
             ],
             "cStandard": "c11",
             "cppStandard": "c++11",
