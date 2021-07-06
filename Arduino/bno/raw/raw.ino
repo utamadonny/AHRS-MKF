@@ -7,16 +7,15 @@
 
 /* This driver reads raw data from the BNO055
 
-   Connections
-   ===========
-   Connect SCL to analog 5
-   Connect SDA to analog 4
-   Connect VDD to 3.3V DC
-   Connect GROUND to common ground
-
-   History
-   =======
-   2015/MAR/03  - First release (KTOWN)
+  Connections
+  ===========
+  Connect SCL to analog 5
+  Connect SDA to analog 4
+  Connect VDD to 3.3V DC
+  Connect GROUND to common ground
+  History
+  =======
+  2015/MAR/03  - First release (KTOWN)
 */
 
 /* Set the delay between fresh samples */
@@ -61,8 +60,9 @@ void setup()
   Serial.println(" C");
   Serial.println("");
 
-  bno.setExtCrystalUse(true);
-
+  bno.setExtCrystalUse(true);  
+  // bno.setAxisRemap(REMAP_CONFIG_P6);
+  // bno.setAxisSign(REMAP_SIGN_P6);
   Serial.println("Calibration status values: 0=uncalibrated, 3=fully calibrated");
 }
 
@@ -81,39 +81,39 @@ void loop()
   // - VECTOR_EULER         - degrees
   // - VECTOR_LINEARACCEL   - m/s^2
   // - VECTOR_GRAVITY       - m/s^2
- 
+
   imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
   /* Display the floating point data */
   // Serial.print("Orientation: ");
-  Serial.print(euler.x());
+  Serial.print(euler.x()); //yaw
   Serial.print(",");
-  Serial.print(euler.y());
+  Serial.print(euler.y()); //pitch 
   Serial.print(",");
-  Serial.print(euler.z());
+  Serial.print(euler.z()); //roll
 
- imu::Vector<3> acc = bno.getVector(Adafruit_BNO055::VECTOR_ACCELEROMETER);
- Serial.print(",");
- Serial.print(acc.x());
- Serial.print(",");
- Serial.print(acc.y());
- Serial.print(",");
- Serial.print(acc.z());
+  imu::Vector<3> acc = bno.getVector(Adafruit_BNO055::VECTOR_ACCELEROMETER);
+  Serial.print(",");
+  Serial.print(acc.x());
+  Serial.print(",");
+  Serial.print(acc.y());
+  Serial.print(",");
+  Serial.print(acc.z());
 
- imu::Vector<3> gyr = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
- Serial.print(",");
- Serial.print(gyr.x());
- Serial.print(",");
- Serial.print(gyr.y());
- Serial.print(",");
- Serial.print(gyr.z());
+  imu::Vector<3> gyr = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
+  Serial.print(",");
+  Serial.print(gyr.x());
+  Serial.print(",");
+  Serial.print(gyr.y());
+  Serial.print(",");
+  Serial.print(gyr.z());
 
- imu::Vector<3> hag = bno.getVector(Adafruit_BNO055::VECTOR_MAGNETOMETER);
- Serial.print(",");
- Serial.print(hag.x());
- Serial.print(",");
- Serial.print(hag.y());
- Serial.print(",");
- Serial.print(hag.z());
+  imu::Vector<3> hag = bno.getVector(Adafruit_BNO055::VECTOR_MAGNETOMETER);
+  Serial.print(",");
+  Serial.print(hag.x());
+  Serial.print(",");
+  Serial.print(hag.y());
+  Serial.print(",");
+  Serial.print(hag.z());
 //  // Quaternion data/
 //  imu::Quaternion quat = bno.getQuat();
 //  Serial.print("qW: ");
@@ -127,10 +127,31 @@ void loop()
 //  Serial.print(" ");
 //! Choose 6  DoF or 9 DoF. Mahony only use 6 DoF
   // filter.updateIMU(gyr.x(),gyr.y(),gyr.z(),acc.x(),acc.y(),acc.z());
-  filter.update(gyr.x(),gyr.y(),gyr.z(),acc.x(),acc.y(),acc.z(),hag.x(),hag.y(),hag.z());
+  // if(bno.isFullyCalibrated()){
+  filter.update(gyr.y(),gyr.x(),-gyr.z(),-acc.y(),-acc.x(),acc.z(),-hag.y(),hag.x(),hag.z());
+  /* Discussion about NED : 
+  https://github.com/kriswiner/MPU9250/issues/345
+  https://github.com/kriswiner/MPU9250/issues/418
+  https://answers.ros.org/question/339362/nwu-to-enu-conversion-for-a-homemade-imu/
+  https://github.com/mavlink/mavros/issues/49
+  https://answers.ros.org/question/336814/how-to-change-ned-to-enu/
+  https://stackoverflow.com/questions/49790453/enu-ned-frame-conversion-using-quaternions
+  https://theory.frydom.org/src/coordinate_systems.html
+  */
+   /* a,g,h
+    x=y, y=x, z=z ==> SWU, pitch = roll, roll=pitch, 90=270 | 180=0/360 
+    x=-y y=x, z=z ==> NED with opposite rotation on yaw. pitch = roll, roll = -pitch , yield = 0
+    x=-y y=-x z=z ==> NED perfect for yaw but not roll and pitch. pitch = -roll, roll = -pitch , diff=0.5d
+    (g,g,-g,-a,-a,a,-h,-h,h) ==> NED more perfect 
+    (g,g,-g,-a,-a,a,-h,h,h) ==>  NWD (Wrong)
+    (g,g,g)
+
+
+  */ 
+  
 //! ---------------------------
-  roll=filter.getRoll();
-  pitch=filter.getPitch();
+  pitch=filter.getRoll(); //? swit h for NED ?
+  roll=filter.getPitch();
   yaw=filter.getYaw();
   Serial.print(",");
   Serial.print(yaw);
@@ -138,7 +159,8 @@ void loop()
   Serial.print(pitch);
   Serial.print(",");
   Serial.print(roll);
-
+  Serial.print(",");
+  // }
   /* Display calibration status for each sensor. */
   uint8_t system, gyro, accel, mag = 0;
   bno.getCalibration(&system, &gyro, &accel, &mag);
