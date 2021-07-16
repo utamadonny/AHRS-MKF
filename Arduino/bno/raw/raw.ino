@@ -128,7 +128,7 @@ void loop()
 //! Choose 6  DoF or 9 DoF. Mahony only use 6 DoF
   // filter.updateIMU(gyr.x(),gyr.y(),gyr.z(),acc.x(),acc.y(),acc.z());
   // if(bno.isFullyCalibrated()){
-  filter.update(gyr.y(),gyr.x(),-gyr.z(),-acc.y(),-acc.x(),acc.z(),-hag.y(),hag.x(),hag.z());
+  filter.update(gyr.y(),gyr.x(),-gyr.z(),-acc.y(),-acc.x(),acc.z(),-hag.y(),-hag.x(),hag.z());
   /* Discussion about NED : 
   https://github.com/kriswiner/MPU9250/issues/345
   https://github.com/kriswiner/MPU9250/issues/418
@@ -138,20 +138,24 @@ void loop()
   https://stackoverflow.com/questions/49790453/enu-ned-frame-conversion-using-quaternions
   https://theory.frydom.org/src/coordinate_systems.html
   */
-   /* a,g,h
+  /* a,g,h
     x=y, y=x, z=z ==> SWU, pitch = roll, roll=pitch, 90=270 | 180=0/360 
     x=-y y=x, z=z ==> NED with opposite rotation on yaw. pitch = roll, roll = -pitch , yield = 0
     x=-y y=-x z=z ==> NED perfect for yaw but not roll and pitch. pitch = -roll, roll = -pitch , diff=0.5d
-    (g,g,-g,-a,-a,a,-h,-h,h) ==> NED more perfect 
+    (y,x,z,y,x,z,y,x,z) == format below
+    (g,g,-g,-a,-a,a,-h,-h,h) ==> NED more perfect diff=0.3 on pitch and roll
     (g,g,-g,-a,-a,a,-h,h,h) ==>  NWD (Wrong)
-    (g,g,g)
-
+    (g,g,-g,-a,-a,a,-h,-h,-h) ==> NED , diff=5d on yawc 
+    (g,g,-g,-a,-a,a,h,h,h)==> wrong orientation
+    (g,g,g,-a,-a,a,-h,-h,h) ==> NED , diff=0.5d on pitch and 0.2d on roll 
+    (-g,-g,-g,-a,-a,a,-h,-h,h) ==> NED , diff=1d on pitch, 0.25 on roll
+    (g,-g,-g,-a,-a,a,-h,-h,-h) ==> NED , diff=0.3 on pitch, 0.6 on roll
 
   */ 
   
 //! ---------------------------
-  pitch=filter.getRoll(); //? swit h for NED ?
-  roll=filter.getPitch();
+  pitch=-1*filter.getRoll(); //? swit h for NED ?
+  roll=-1*filter.getPitch();
   yaw=filter.getYaw();
   Serial.print(",");
   Serial.print(yaw);
