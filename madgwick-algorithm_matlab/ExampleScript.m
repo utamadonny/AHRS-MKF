@@ -89,15 +89,18 @@ Gyroscope1=tuker(Gyroscope1,1,2);
 % linkaxes(axis, 'x');
 
 %% Process sensor data through algorithm
-SamplePeriode = 512;
-BetaQ= 0.1;
+SamplePeriode = 256;
+BetaQ= 1;
+Kp= 10; Ki=0;
 % AHRS = MadgwickAHRS('SamplePeriod', 1/256, 'Beta', 0.1);
 AHRS = MadgwickAHRS('SamplePeriod', 1/SamplePeriode, 'Beta', BetaQ); % Tuning Sampleperiod and Beta
-% AHRS = MahonyAHRS('SamplePeriod', 1/256, 'Kp', 0.5);
+% AHRS = MahonyAHRS('SamplePeriod', 1/SamplePeriode, 'Kp', Kp, 'Ki',Ki);
 
 quaternion = zeros(length(time), 4);
 for t = 1:length(time)
-    AHRS.Update(Gyroscope1(t,:) * (pi/180), Accelerometer1(t,:), Magnetometer1(t,:));	% gyroscope units must be radians
+%     AHRS.Update(Gyroscope1(t,:) * (pi/180), Accelerometer1(t,:), Magnetometer1(t,:));
+%     AHRS.UpdateIMU(Gyroscope1(t,:) * (pi/180), Accelerometer1(t,:)); %, Magnetometer1(t,:));
+    AHRS.Update(Gyroscope1(t,:)* (pi/180), Accelerometer1(t,:), Magnetometer1(t,:));% gyroscope units must be radians
     quaternion(t, :) = AHRS.Quaternion;
 end
 
@@ -108,6 +111,7 @@ end
 % See: http://en.wikipedia.org/wiki/Gimbal_lock
 
 euler = quatern2euler(quaternConj(quaternion)) * (180/pi);	% use conjugate for sensor frame relative to Earth and convert to degrees.
+% euler = quatern2euler(quaternConj(quaternion));
 offset = 180;
 euler(:,3)=euler(:,3)+offset; % yaw membutuhkan offset
 euler=tuker(euler,1,3); % menukar roll dan yaw, agar formatnya sama seperti data real dan realtime
@@ -128,14 +132,15 @@ plot(time, reuler(:,1)); %yaw
 title('Euler angles');
 xlabel('Time (s)');
 ylabel('Angle (deg)');
-% legend('\phi', '\theta', '\psi','m\phi', 'm\theta', 'm\psi');
+% legend('\phi', '\theta', '\psi')
+% legend('\phi', '\theta', '\psi','a\phi', 'a\theta', 'a\psi');
 legend('matlab\phi', 'matlab\theta', 'matlab\psi','arduino\phi', 'arduino\theta', 'arduino\psi','real\phi', 'real\theta', 'real\psi');
 hold off;
 
 %% End of script
 rmsey = sqrt(mean((euler(1:3000,1) - reuler(1:3000,1)).^2));
-rmsep = sqrt(mean((euler(1:3000,2) - reuler(1:3000,2)).^2));
-rmser = sqrt(mean((euler(1:3000,3) - reuler(1:3000,3)).^2));
+rmsep = sqrt(mean((euler(1:10000,2) - reuler(1:10000,2)).^2));
+rmser = sqrt(mean((euler(1:10000,3) - reuler(1:10000,3)).^2));
 rmsey
 rmsep
 rmser

@@ -24,7 +24,7 @@ addpath('ximu_matlab_library');
 %clear;
 %clc;
 
-ld = load ('bnosrc.mat');
+ld = load ('Data/2021-07-16 21-43-46.mat');
 % acc = ld.sensorData.Accelerometer; %ld.sensorData.Accelerometer(:,1) = ax
 % gyro = ld.sensorData.Gyroscope;
 % mag = ld.sensorData.Magnetometer;
@@ -36,25 +36,33 @@ ld = load ('bnosrc.mat');
 
 samplePeriod = 1/256;
 %xIMUdata = xIMUdataClass(filePath, 'InertialMagneticSampleRate', 1/samplePeriod);
-time = ld.sensorData.time;
-gyrX = ld.sensorData.Gyroscope(:,1);
-gyrY = ld.sensorData.Gyroscope(:,2);
-gyrZ = ld.sensorData.Gyroscope(:,3);
-accX = ld.sensorData.Accelerometer(:,1);
-accY = ld.sensorData.Accelerometer(:,2);
-accZ = ld.sensorData.Accelerometer(:,3);
+% time = ld.sensorData.time;
+% gyrX = ld.sensorData.Gyroscope(:,1);
+% gyrY = ld.sensorData.Gyroscope(:,2);
+% gyrZ = ld.sensorData.Gyroscope(:,3);
+% accX = ld.sensorData.Accelerometer(:,1);
+% accY = ld.sensorData.Accelerometer(:,2);
+% accZ = ld.sensorData.Accelerometer(:,3);
+time = ld.time;
+gyrX = ld.Gyroscope(:,1);
+gyrY = ld.Gyroscope(:,2);
+gyrZ = ld.Gyroscope(:,3);
+accX = ld.Accelerometer(:,1);
+accY = ld.Accelerometer(:,2);
+accZ = ld.Accelerometer(:,3);
 clear('xIMUdata');
 
 %% -------------------------------------------------------------------------
 % Manually frame data
 
-% startTime = 0;
-% stopTime  = 10;
+startTime = 0;
+stopTime  = 33;
 
 indexSel = find(sign(time-startTime)+1, 1) : find(sign(time-stopTime)+1, 1);
-time = time(indexSel);filePath = 'Datasets/spiralStairs';
-startTime = 4;
-stopTime = 47;
+time = time(indexSel);
+% filePath = 'Datasets/spiralStairs';
+% startTime = 4;
+% stopTime = 47;
 
 gyrX = gyrX(indexSel, :);
 gyrY = gyrY(indexSel, :);
@@ -147,7 +155,7 @@ acc = quaternRotate([accX accY accZ], quaternConj(quat));
 % acc = acc - [zeros(length(time), 2) ones(length(time), 1)];     % unnecessary due to velocity integral drift compensation
 
 % Convert acceleration measurements to m/s/s
-acc = acc * 9.81;
+% acc = acc * 9.81; %! no convert
 
 % Plot translational accelerations
 figure('Position', [9 39 900 300], 'NumberTitle', 'off', 'Name', 'Accelerations');

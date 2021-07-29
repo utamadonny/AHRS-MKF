@@ -17,10 +17,6 @@
             "includePath": [
                 "/home/donny/Downloads/arduino-1.8.13/hardware/arduino/avr/cores/arduino",
                 "/home/donny/Downloads/arduino-1.8.13/hardware/arduino/avr/variants/eightanaloginputs",
-                "/home/donny/Downloads/arduino-1.8.13/hardware/arduino/avr/libraries/Wire/src",
-                "/home/donny/Arduino/libraries/Adafruit_Unified_Sensor",
-                "/home/donny/Arduino/libraries/Adafruit_BNO055",
-                "/home/donny/Arduino/libraries/Madgwick/src",
                 "/home/donny/Downloads/arduino-1.8.13/hardware/tools/avr/lib/gcc/avr/7.3.0/include",
                 "/home/donny/Downloads/arduino-1.8.13/hardware/tools/avr/lib/gcc/avr/7.3.0/include-fixed",
                 "/home/donny/Downloads/arduino-1.8.13/hardware/tools/avr/avr/include"
