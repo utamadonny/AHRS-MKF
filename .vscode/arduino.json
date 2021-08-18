@@ -1,7 +1,7 @@
 {
-    "port": "/dev/ttyUSB0",
+    "port": "COM8",
     "board": "arduino:avr:nano",
     "programmer": "arduino:avrispmkii",
-    "sketch": "pserial/pserial.ino",
+    "sketch": "Arduino\\bno\\raw\\raw.ino",
     "configuration": "cpu=atmega328"
 }

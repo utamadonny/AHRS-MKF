@@ -3,8 +3,9 @@
     "configurations": [
         {
             "name": "Arduino",
-            "compilerPath": "/home/donny/Downloads/arduino-1.8.13/hardware/tools/avr/bin/avr-g++",
+            "compilerPath": "C:\\Users\\utama\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\bin\\avr-g++",
             "compilerArgs": [
+                "-w",
                 "-std=gnu++11",
                 "-fpermissive",
                 "-fno-exceptions",
@@ -15,20 +16,24 @@
             ],
             "intelliSenseMode": "gcc-x64",
             "includePath": [
-                "/home/donny/Downloads/arduino-1.8.13/hardware/arduino/avr/cores/arduino",
-                "/home/donny/Downloads/arduino-1.8.13/hardware/arduino/avr/variants/eightanaloginputs",
-                "/home/donny/Downloads/arduino-1.8.13/hardware/tools/avr/lib/gcc/avr/7.3.0/include",
-                "/home/donny/Downloads/arduino-1.8.13/hardware/tools/avr/lib/gcc/avr/7.3.0/include-fixed",
-                "/home/donny/Downloads/arduino-1.8.13/hardware/tools/avr/avr/include"
+                "C:\\Users\\utama\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\cores\\arduino",
+                "C:\\Users\\utama\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\variants\\eightanaloginputs",
+                "C:\\Users\\utama\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\Wire\\src",
+                "F:\\Arduino\\libraries\\Adafruit_Unified_Sensor",
+                "F:\\Arduino\\libraries\\Adafruit_BNO055",
+                "F:\\Arduino\\libraries\\Madgwick\\src",
+                "c:\\users\\utama\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\lib\\gcc\\avr\\7.3.0\\include",
+                "c:\\users\\utama\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\lib\\gcc\\avr\\7.3.0\\include-fixed",
+                "c:\\users\\utama\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\avr\\include"
             ],
             "forcedInclude": [
-                "/home/donny/Downloads/arduino-1.8.13/hardware/arduino/avr/cores/arduino/Arduino.h"
+                "C:\\Users\\utama\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\cores\\arduino\\Arduino.h"
             ],
             "cStandard": "c11",
             "cppStandard": "c++11",
             "defines": [
                 "F_CPU=16000000L",
-                "ARDUINO=10813",
+                "ARDUINO=10815",
                 "ARDUINO_AVR_NANO",
                 "ARDUINO_ARCH_AVR",
                 "__DBL_MIN_EXP__=(-125)",

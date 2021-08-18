@@ -28,7 +28,7 @@ clc;                                % clear the command terminal
 
 %% Import and plot sensor data
 
-load('Data/2021-07-16 21-43-46.mat');
+load('Data/2021-07-02 08-47-47.mat');
 % Gyroscope = ld.sensorData.AngularVelocity;
 % Accelerometer = ld.sensorData.Acceleration;
 % Magnetometer=ld.sensorData.MagneticField;
@@ -89,8 +89,8 @@ Gyroscope1=tuker(Gyroscope1,1,2);
 % linkaxes(axis, 'x');
 
 %% Process sensor data through algorithm
-SamplePeriode = 256;
-BetaQ= 1;
+SamplePeriode = 100;
+BetaQ= 0.1;
 Kp= 10; Ki=0;
 % AHRS = MadgwickAHRS('SamplePeriod', 1/256, 'Beta', 0.1);
 AHRS = MadgwickAHRS('SamplePeriod', 1/SamplePeriode, 'Beta', BetaQ); % Tuning Sampleperiod and Beta
@@ -123,9 +123,9 @@ hold on;
 plot(time, euler(:,3), 'r'); %roll
 plot(time, euler(:,2), 'g'); %pitch
 plot(time, euler(:,1), 'b'); %yaw
-plot(time, meuler(:,3)); %roll
-plot(time, meuler(:,2)); %pitch
-plot(time, meuler(:,1)); %yaw
+plot(time, aeuler(:,3)); %roll
+plot(time, aeuler(:,2)); %pitch
+plot(time, aeuler(:,1)); %yaw
 plot(time, reuler(:,3)); %roll
 plot(time, reuler(:,2)); %pitch
 plot(time, reuler(:,1)); %yaw
@@ -138,9 +138,12 @@ legend('matlab\phi', 'matlab\theta', 'matlab\psi','arduino\phi', 'arduino\theta'
 hold off;
 
 %% End of script
-rmsey = sqrt(mean((euler(1:3000,1) - reuler(1:3000,1)).^2));
-rmsep = sqrt(mean((euler(1:10000,2) - reuler(1:10000,2)).^2));
-rmser = sqrt(mean((euler(1:10000,3) - reuler(1:10000,3)).^2));
+rmsey = sqrt(mean((euler(3000:10000,1) - reuler(3000:10000,1)).^2));
+rmsep = sqrt(mean((euler(3000:10000,2) - reuler(3000:10000,2)).^2));
+rmser = sqrt(mean((euler(3000:10000,3) - reuler(3000:10000,3)).^2));
+% rmsey = sqrt(mean((euler(:,1) - reuler(:,1)).^2));
+% rmsep = sqrt(mean((euler(:,2) - reuler(:,2)).^2));
+% rmser = sqrt(mean((euler(:,3) - reuler(:,3)).^2));
 rmsey
 rmsep
 rmser
@@ -152,12 +155,12 @@ T1=array2table(fd.euler);
 T1.Properties.VariableNames(1:3) = {'myaw','mpitch','mroll'};
 T2=array2table(fd.reuler);
 T2.Properties.VariableNames(1:3) = {'yaw','pitch','roll'};
-T3=array2table(fd.meuler);
+T3=array2table(fd.aeuler);
 T3.Properties.VariableNames(1:3) = {'ayaw','apitch','aroll'};
 timet=array2table(time);
 % writematrix( 
 Nums=[T2 T3 T1 timet];
-writetable(Nums,'2021-07-16 21-43-46M1.csv');
+writetable(Nums,'2021-07-02 08-47-47M1.csv');
 % Nums=[reuler meuler euler time];
 % writematrix(Nums,'dummy.csv')
 % csvwrite('2021-07-16 21-43-46M.csv',filedata.reuler,filedata.meuler,filedata.euler)
