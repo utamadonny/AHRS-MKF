@@ -4,7 +4,7 @@
 
 /* CSV File Reading */
 File file;
-int SC = 53;  //SC - Pin 53 Arduino Mega
+int SC = 10;  //SC - Pin 53 Arduino Mega
 char location;
 
 bool readLine(File &f, char* line, size_t maxLen) {
@@ -82,7 +82,7 @@ void setup()
     Serial.println("begin error");
     return;
   }
-  file = SD.open("gps.CSV", FILE_READ);
+  file = SD.open("Book1.CSV", FILE_READ);
   if (!file) {
     Serial.println("open error");
     return;
@@ -92,14 +92,15 @@ void setup()
 
 void loop() // run over and over
 { 
-floast ax, ay, az, gx,gy,gz,mx,my,mz;
+float ax, ay, az, gx,gy,gz,mx,my,mz;
 String loc,loc2;
-  while (readVais(&ax, &ay, &az, &gx, &gy, &gz,&mx,&my,&mz)) {
+  while (readVals(&ax, &ay, &az, &gx, &gy, &gz,&mx,&my,&mz)) {
     
     //First 4 float datatype variables 
     Serial.println(ax);
     Serial.println(ay);
     Serial.println(az);
+    delay(100);
 //     Serial.println(k);
 //     //Last 2 String type variables
 //     Serial.println(loc);
