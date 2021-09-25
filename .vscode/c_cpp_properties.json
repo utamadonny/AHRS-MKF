@@ -21,7 +21,9 @@
                 "C:\\Users\\utama\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\Wire\\src",
                 "F:\\Arduino\\libraries\\Adafruit_Unified_Sensor",
                 "F:\\Arduino\\libraries\\Adafruit_BNO055",
+                "F:\\Arduino\\libraries\\Adafruit_BusIO",
                 "F:\\Arduino\\libraries\\Madgwick\\src",
+                "C:\\Users\\utama\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.3\\libraries\\SPI\\src",
                 "c:\\users\\utama\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\lib\\gcc\\avr\\7.3.0\\include",
                 "c:\\users\\utama\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\lib\\gcc\\avr\\7.3.0\\include-fixed",
                 "c:\\users\\utama\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\avr\\include"

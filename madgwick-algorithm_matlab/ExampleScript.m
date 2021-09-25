@@ -21,14 +21,24 @@
 %% Start of script
 
 addpath('quaternion_library');      % include quaternion library
-% addpath('Data');                    % add data
+% addpath('Data');                  % add data
 close all;                          % close all figures
 clear;                              % clear all variables
 clc;                                % clear the command terminal
 
 %% Import and plot sensor data
 
-load('Data/2021-07-02 08-47-47.mat');
+% load('Data/2021-08-20 16-51-34.mat'); %Beta = 5
+load('Data/2021-09-08 15-42-01'); %Beta = 2
+% load('Data/2021-08-20 16-33-38.mat'); %Beta = 1
+% load('Data/2021-08-18 18-04-30.mat'); %Beta = 0.5
+
+% load('Data/2021-08-17 11-14-48.mat'); %Beta = 0.1
+% load('Data/2021-09-08 17-19-10'); %Beta = 0.05 ga dapet
+% load('Data/2021-09-08 15-58-12'); %Beta = 0.01 ga dapet kurang data
+% load('Data/2021-07-08 22-03-03.mat'); % salah, Hz =100
+% load('Data/2021-07-16 21-43-46.mat'); % yang katanya ada delay, Hz=100 Beta=0.1
+% Note: beta arduino = 5 ==> beta matlab =0.5
 % Gyroscope = ld.sensorData.AngularVelocity;
 % Accelerometer = ld.sensorData.Acceleration;
 % Magnetometer=ld.sensorData.MagneticField;
@@ -55,43 +65,43 @@ Magnetometer1 = tuker(Magnetometer1,1,2);
 Accelerometer1=tuker(Accelerometer1,1,2);
 Gyroscope1=tuker(Gyroscope1,1,2);
 %% Plot
-% figure('Name', 'Sensor Data');
-% axis(1) = subplot(3,1,1);
-% hold on;
-% plot(time, Gyroscope(:,1), 'r');
-% plot(time, Gyroscope(:,2), 'g');
-% plot(time, Gyroscope(:,3), 'b');
-% legend('X', 'Y', 'Z');
-% xlabel('Time (s)');
-% ylabel('Angular rate (deg/s)');
-% title('Gyroscope');
-% hold off;
-% axis(2) = subplot(3,1,2);
-% hold on;
-% plot(time, Accelerometer(:,1), 'r');
-% plot(time, Accelerometer(:,2), 'g');
-% plot(time, Accelerometer(:,3), 'b');
-% legend('X', 'Y', 'Z');
-% xlabel('Time (s)');
-% ylabel('Acceleration (g)');
-% title('Accelerometer');
-% hold off;
-% axis(3) = subplot(3,1,3);
-% hold on;
-% plot(time, Magnetometer(:,1), 'r');
-% plot(time, Magnetometer(:,2), 'g');
-% plot(time, Magnetometer(:,3), 'b');
-% legend('X', 'Y', 'Z');
-% xlabel('Time (s)');
-% ylabel('Flux (G)');
-% title('Magnetometer');
-% hold off;
-% linkaxes(axis, 'x');
+figure('Name', 'Sensor Data');
+axis(1) = subplot(3,1,1);
+hold on;
+plot(time, Gyroscope(:,1), 'r');
+plot(time, Gyroscope(:,2), 'g');
+plot(time, Gyroscope(:,3), 'b');
+legend('X', 'Y', 'Z');
+xlabel('Time (s)');
+ylabel('Angular rate (deg/s)');
+title('Gyroscope');
+hold off;
+axis(2) = subplot(3,1,2);
+hold on;
+plot(time, Accelerometer(:,1), 'r');
+plot(time, Accelerometer(:,2), 'g');
+plot(time, Accelerometer(:,3), 'b');
+legend('X', 'Y', 'Z');
+xlabel('Time (s)');
+ylabel('Acceleration (g)');
+title('Accelerometer');
+hold off;
+axis(3) = subplot(3,1,3);
+hold on;
+plot(time, Magnetometer(:,1), 'r');
+plot(time, Magnetometer(:,2), 'g');
+plot(time, Magnetometer(:,3), 'b');
+legend('X', 'Y', 'Z');
+xlabel('Time (s)');
+ylabel('Flux (G)');
+title('Magnetometer');
+hold off;
+linkaxes(axis, 'x');
 
 %% Process sensor data through algorithm
 SamplePeriode = 100;
-BetaQ= 0.1;
-Kp= 10; Ki=0;
+BetaQ= 0.2;
+% Kp= 10; Ki=0;
 % AHRS = MadgwickAHRS('SamplePeriod', 1/256, 'Beta', 0.1);
 AHRS = MadgwickAHRS('SamplePeriod', 1/SamplePeriode, 'Beta', BetaQ); % Tuning Sampleperiod and Beta
 % AHRS = MahonyAHRS('SamplePeriod', 1/SamplePeriode, 'Kp', Kp, 'Ki',Ki);
@@ -138,15 +148,23 @@ legend('matlab\phi', 'matlab\theta', 'matlab\psi','arduino\phi', 'arduino\theta'
 hold off;
 
 %% End of script
-rmsey = sqrt(mean((euler(3000:10000,1) - reuler(3000:10000,1)).^2));
-rmsep = sqrt(mean((euler(3000:10000,2) - reuler(3000:10000,2)).^2));
-rmser = sqrt(mean((euler(3000:10000,3) - reuler(3000:10000,3)).^2));
+sta = 877; stb = 19448;
+rmsey = sqrt(mean((euler(sta:stb,1) - reuler(sta:stb,1)).^2));
+rmsep = sqrt(mean((euler(sta:stb,2) - reuler(sta:stb,2)).^2));
+rmser = sqrt(mean((euler(sta:stb,3) - reuler(sta:stb,3)).^2));
+amsey = sqrt(mean((euler(sta:stb,1) - aeuler(sta:stb,1)).^2));
+amsep = sqrt(mean((euler(sta:stb,2) - aeuler(sta:stb,2)).^2));
+amser = sqrt(mean((euler(sta:stb,3) - aeuler(sta:stb,3)).^2));
 % rmsey = sqrt(mean((euler(:,1) - reuler(:,1)).^2));
 % rmsep = sqrt(mean((euler(:,2) - reuler(:,2)).^2));
 % rmser = sqrt(mean((euler(:,3) - reuler(:,3)).^2));
 rmsey
 rmsep
 rmser
+
+amsey
+amsep
+amser
 
 %% Save to CSV
 save('dummy.mat');

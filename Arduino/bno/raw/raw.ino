@@ -54,7 +54,7 @@
 
 /* Set the delay between fresh samples */
 #define HZ (100)
-#define BetaNN (0.5)
+#define BetaNN (0.01)
 #define BNO055_SAMPLERATE_DELAY_MS (1000/HZ) // Periode = 10ms = 0.01s --> SampleRate = 1/0.01 = 100Hz 
 // #define Rad_to_degrees (57.2957795)
 //#define BNO055_SAMPLERATE_DELAY_MS (1000/512)
