@@ -22,18 +22,25 @@
 
 addpath('quaternion_library');      % include quaternion library
 % addpath('Data');                  % add data
-close all;                          % close all figures
-clear;                              % clear all variables
-clc;                                % clear the command terminal
+%% Clear 
+% close all;                          % close all figures
+% clear;                              % clear all variables
+% clc;                                % clear the command terminal
 
-%% Import and plot sensor data
+%% (1) Import and plot sensor data
 
-% load('Data/2021-08-20 16-51-34.mat'); %Beta = 5
-load('Data/2021-09-08 15-42-01'); %Beta = 2
-% load('Data/2021-08-20 16-33-38.mat'); %Beta = 1
-% load('Data/2021-08-18 18-04-30.mat'); %Beta = 0.5
-
-% load('Data/2021-08-17 11-14-48.mat'); %Beta = 0.1
+% load('Data/5v.mat');% load('Data/2021-08-20 16-51-34.mat'); %Beta = 5
+% load('Data/2v.mat');% load('Data/2021-09-08 15-42-01'); %Beta = 2
+% load('Data/1v.mat');% load('Data/2021-08-20 16-33-38.mat'); %Beta = 1
+% load('Data/0c5v.mat');   % 1.0921 |0.0570 |0.0852 | 52
+% load('Data/0c5v0.mat');  % 0.3862 |0.1387 |0.0483 | 53
+% load('Data/0c5v1.mat');  % 0.5399 |0.1218 |0.0762 | 49
+% load('Data/0c5v2.mat');  % 0.9983 |0.1726 |0.0542 | 65
+% load('Data/0c5v3.mat');  % 0.7166 |0.0854 |0.0533 | 10
+% load('Data/0c5v4.mat');  % 0.2174 |0.1159 |0.0382 | 72
+% load('Data/0c5v5.mat');  % 0.5318 |0.1283 |0.0297 | 95 
+% load('0c1v.mat');% load('Data/2021-08-17 11-14-48.mat'); %Beta = 0.1
+% load('Data/0c1v0.mat');
 % load('Data/2021-09-08 17-19-10'); %Beta = 0.05 ga dapet
 % load('Data/2021-09-08 15-58-12'); %Beta = 0.01 ga dapet kurang data
 % load('Data/2021-07-08 22-03-03.mat'); % salah, Hz =100
@@ -45,7 +52,7 @@ load('Data/2021-09-08 15-42-01'); %Beta = 2
 % time= 1:1:1600;
 % Fs=200;
 % time = (0:decim:size(Accelerometer,1)-1)/Fs;
-%% Preprocess to NED
+%% (2) Preprocess to NED
 %  filter.update(gyr.y(),gyr.x(),-gyr.z(),-acc.y(),-acc.x(),acc.z(),-hag.y(),-hag.x(),hag.z());
 %  working
 Gyroscope1=Gyroscope;
@@ -60,11 +67,11 @@ Accelerometer1(:,2)=-1*Accelerometer(:,2);
 Magnetometer1(:,1)=-1*Magnetometer(:,1);
 Magnetometer1(:,2)=-1*Magnetometer(:,2);
 % Magnetometer1(:,3)=-1*Magnetometer(:,3);
-%% tuker axis
+%% (2a) tuker axis
 Magnetometer1 = tuker(Magnetometer1,1,2);
 Accelerometer1=tuker(Accelerometer1,1,2);
 Gyroscope1=tuker(Gyroscope1,1,2);
-%% Plot
+%% (3) Plot Sensor Data
 figure('Name', 'Sensor Data');
 axis(1) = subplot(3,1,1);
 hold on;
@@ -98,9 +105,9 @@ title('Magnetometer');
 hold off;
 linkaxes(axis, 'x');
 
-%% Process sensor data through algorithm
+%% (4) Process sensor data through algorithm
 SamplePeriode = 100;
-BetaQ= 0.2;
+BetaQ= 0.05;
 % Kp= 10; Ki=0;
 % AHRS = MadgwickAHRS('SamplePeriod', 1/256, 'Beta', 0.1);
 AHRS = MadgwickAHRS('SamplePeriod', 1/SamplePeriode, 'Beta', BetaQ); % Tuning Sampleperiod and Beta
@@ -114,7 +121,7 @@ for t = 1:length(time)
     quaternion(t, :) = AHRS.Quaternion;
 end
 
-%% Plot algorithm output as Euler angles
+%% (5) Plot algorithm output as Euler angles
 % The first and third Euler angles in the sequence (phi and psi) become
 % unreliable when the middle angles of the sequence (theta) approaches ±90
 % degrees. This problem c ommonly referred to as Gimbal Lock.
@@ -127,7 +134,7 @@ euler(:,3)=euler(:,3)+offset; % yaw membutuhkan offset
 euler=tuker(euler,1,3); % menukar roll dan yaw, agar formatnya sama seperti data real dan realtime
 euler(:,2:3)=-1*euler(:,2:3); % Switch for NED 
 euler=tuker(euler,2,3); % NED roll dan pitch tertukar
-%% Plot Euler
+%% (6) Plot Euler
 figure('Name', 'Euler Angles');
 hold on;
 plot(time, euler(:,3), 'r'); %roll
@@ -148,20 +155,21 @@ legend('matlab\phi', 'matlab\theta', 'matlab\psi','arduino\phi', 'arduino\theta'
 hold off;
 
 %% End of script
-sta = 877; stb = 19448;
+% sta = 1911; stb = length(time);
 rmsey = sqrt(mean((euler(sta:stb,1) - reuler(sta:stb,1)).^2));
 rmsep = sqrt(mean((euler(sta:stb,2) - reuler(sta:stb,2)).^2));
 rmser = sqrt(mean((euler(sta:stb,3) - reuler(sta:stb,3)).^2));
 amsey = sqrt(mean((euler(sta:stb,1) - aeuler(sta:stb,1)).^2));
 amsep = sqrt(mean((euler(sta:stb,2) - aeuler(sta:stb,2)).^2));
 amser = sqrt(mean((euler(sta:stb,3) - aeuler(sta:stb,3)).^2));
+
 % rmsey = sqrt(mean((euler(:,1) - reuler(:,1)).^2));
 % rmsep = sqrt(mean((euler(:,2) - reuler(:,2)).^2));
 % rmser = sqrt(mean((euler(:,3) - reuler(:,3)).^2));
+
 rmsey
 rmsep
 rmser
-
 amsey
 amsep
 amser
