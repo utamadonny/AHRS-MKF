@@ -9,7 +9,7 @@
 % plots the output as Euler angles.
 %
 % Note that the Euler angle plot shows erratic behaviour in phi and psi
-% when theta approaches ±90 degrees. This due to a singularity in the Euler
+% when theta approaches ï¿½90 degrees. This due to a singularity in the Euler
 % angle sequence known as 'Gimbal lock'.  This issue does not exist for a
 % quaternion or rotation matrix representation.
 %
@@ -23,24 +23,30 @@
 addpath('quaternion_library');      % include quaternion library
 % addpath('Data');                  % add data
 %% Clear 
-% close all;                          % close all figures
+close all;                          % close all figures
 % clear;                              % clear all variables
 % clc;                                % clear the command terminal
 
 %% (1) Import and plot sensor data
-
-% load('Data/5v.mat');% load('Data/2021-08-20 16-51-34.mat'); %Beta = 5
-% load('Data/2v.mat');% load('Data/2021-09-08 15-42-01'); %Beta = 2
-% load('Data/1v.mat');% load('Data/2021-08-20 16-33-38.mat'); %Beta = 1
-% load('Data/0c5v.mat');   % 1.0921 |0.0570 |0.0852 | 52
-% load('Data/0c5v0.mat');  % 0.3862 |0.1387 |0.0483 | 53
-% load('Data/0c5v1.mat');  % 0.5399 |0.1218 |0.0762 | 49
-% load('Data/0c5v2.mat');  % 0.9983 |0.1726 |0.0542 | 65
-% load('Data/0c5v3.mat');  % 0.7166 |0.0854 |0.0533 | 10
-% load('Data/0c5v4.mat');  % 0.2174 |0.1159 |0.0382 | 72
-% load('Data/0c5v5.mat');  % 0.5318 |0.1283 |0.0297 | 95 
-% load('0c1v.mat');% load('Data/2021-08-17 11-14-48.mat'); %Beta = 0.1
-% load('Data/0c1v0.mat');
+% load("Nilai Beta");          |       RMSE             | Learning
+                          %Beta| Yaw    | Pitch | Roll  | Time
+% load('Data/5v.mat');    %  5 | 1.7704 |0.1025 |0.2390 | 5.5
+% load('Data/2v.mat');    %  2 | 1.1717 |0.2047 |0.1244 | 22
+% load('Data/1v.mat');    %  1 | 0.6149	|0.2388 |0.2217 | 29
+% load('Data/0c5v.mat');  % 0.5| 1.0921 |0.0570 |0.0852 | 52
+% load('Data/0c5v0.mat'); % 0.5| 0.3862 |0.1387 |0.0483 | 53
+% load('Data/0c5v1.mat'); % 0.5| 0.5399 |0.1218 |0.0762 | 49
+% load('Data/0c5v2.mat'); % 0.5| 0.9983 |0.1726 |0.0542 | 65
+% load('Data/0c5v3.mat'); % 0.5| 0.7166 |0.0854 |0.0533 | 10
+% load('Data/0c5v4.mat'); % 0.5| 0.2174 |0.1159 |0.0382 | 72
+% load('Data/0c5v5.mat'); % 0.5| 0.5318 |0.1283 |0.0297 | 95 
+% load('Data/0c3v.mat');  % 0.3| 1.1467 |0.3711 |0.1276 | 42
+% load('Data/0c3v0.mat'); % 0.3| 1.4519 |0.2390 |0.3436 | 34
+% load('Data/0c3v1.mat'); % 0.3| 0.2668 |0.3145 |0.3635 | 130
+% load('Data/0c3v2.mat'); % 0.3| 0.1829 |0.2612 |0.2934 | 131
+% load('Data/1v0.mat');   %  1 | 0.3006	|0.2033 |0.3064 | 5
+% load('Data/0c1v.mat');  % 0.1| 0.5294 |0.2695 |0.0706 | 270
+% load('Data/0c1v0.mat'); % 0.1| 0.0610 |0.1356 |0.0579 | 416
 % load('Data/2021-09-08 17-19-10'); %Beta = 0.05 ga dapet
 % load('Data/2021-09-08 15-58-12'); %Beta = 0.01 ga dapet kurang data
 % load('Data/2021-07-08 22-03-03.mat'); % salah, Hz =100
@@ -52,6 +58,12 @@ addpath('quaternion_library');      % include quaternion library
 % time= 1:1:1600;
 % Fs=200;
 % time = (0:decim:size(Accelerometer,1)-1)/Fs;
+%%
+% sta = 5225; stb = length(time);
+SamplePeriode = 100;
+BetaQ= 0.03;
+% save('Data\aaaaa.mat');
+% Kp= 10; Ki=0;
 %% (2) Preprocess to NED
 %  filter.update(gyr.y(),gyr.x(),-gyr.z(),-acc.y(),-acc.x(),acc.z(),-hag.y(),-hag.x(),hag.z());
 %  working
@@ -104,10 +116,11 @@ ylabel('Flux (G)');
 title('Magnetometer');
 hold off;
 linkaxes(axis, 'x');
+% fig2plotly()
 
 %% (4) Process sensor data through algorithm
-SamplePeriode = 100;
-BetaQ= 0.05;
+% SamplePeriode = 100;
+% BetaQ= 0.05;
 % Kp= 10; Ki=0;
 % AHRS = MadgwickAHRS('SamplePeriod', 1/256, 'Beta', 0.1);
 AHRS = MadgwickAHRS('SamplePeriod', 1/SamplePeriode, 'Beta', BetaQ); % Tuning Sampleperiod and Beta
@@ -123,7 +136,7 @@ end
 
 %% (5) Plot algorithm output as Euler angles
 % The first and third Euler angles in the sequence (phi and psi) become
-% unreliable when the middle angles of the sequence (theta) approaches ±90
+% unreliable when the middle angles of the sequence (theta) approaches ï¿½90
 % degrees. This problem c ommonly referred to as Gimbal Lock.
 % See: http://en.wikipedia.org/wiki/Gimbal_lock
 
@@ -153,9 +166,10 @@ ylabel('Angle (deg)');
 % legend('\phi', '\theta', '\psi','a\phi', 'a\theta', 'a\psi');
 legend('matlab\phi', 'matlab\theta', 'matlab\psi','arduino\phi', 'arduino\theta', 'arduino\psi','real\phi', 'real\theta', 'real\psi');
 hold off;
+% fig2plotly()
 
 %% End of script
-% sta = 1911; stb = length(time);
+% sta = 1167; stb = length(time);
 rmsey = sqrt(mean((euler(sta:stb,1) - reuler(sta:stb,1)).^2));
 rmsep = sqrt(mean((euler(sta:stb,2) - reuler(sta:stb,2)).^2));
 rmser = sqrt(mean((euler(sta:stb,3) - reuler(sta:stb,3)).^2));
@@ -174,6 +188,8 @@ amsey
 amsep
 amser
 
+% max(euler(sta:length(euler),1))  % For Scale Max range
+
 %% Save to CSV
 save('dummy.mat');
 fd= load('dummy.mat');
@@ -190,3 +206,4 @@ writetable(Nums,'2021-07-02 08-47-47M1.csv');
 % Nums=[reuler meuler euler time];
 % writematrix(Nums,'dummy.csv')
 % csvwrite('2021-07-16 21-43-46M.csv',filedata.reuler,filedata.meuler,filedata.euler)
+% save('Data/0c3v.mat');
