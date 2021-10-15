@@ -28,10 +28,11 @@ close all;                          % close all figures
 % clc;                                % clear the command terminal
 
 %% (1) Import and plot sensor data
+A='Time (s) \beta = 0.3 Data=0c3v0';
 % load("Nilai Beta");          |       RMSE             | Learning
                           %Beta| Yaw    | Pitch | Roll  | Time
 % load('Data/5v.mat');    %  5 | 1.7704 |0.1025 |0.2390 | 5.5
-% load('Data/2v.mat');    %  2 | 1.1717 |0.2047 |0.1244 | 22
+% load('Data/2v.mat');    %  2 | 0.5802 |0.1795 |0.1252 | 22
 % load('Data/1v.mat');    %  1 | 0.6149	|0.2388 |0.2217 | 29
 % load('Data/0c5v.mat');  % 0.5| 1.0921 |0.0570 |0.0852 | 52
 % load('Data/0c5v0.mat'); % 0.5| 0.3862 |0.1387 |0.0483 | 53
@@ -39,18 +40,22 @@ close all;                          % close all figures
 % load('Data/0c5v2.mat'); % 0.5| 0.9983 |0.1726 |0.0542 | 65
 % load('Data/0c5v3.mat'); % 0.5| 0.7166 |0.0854 |0.0533 | 10
 % load('Data/0c5v4.mat'); % 0.5| 0.2174 |0.1159 |0.0382 | 72
-% load('Data/0c5v5.mat'); % 0.5| 0.5318 |0.1283 |0.0297 | 95 
-% load('Data/0c3v.mat');  % 0.3| 1.1467 |0.3711 |0.1276 | 42
-% load('Data/0c3v0.mat'); % 0.3| 1.4519 |0.2390 |0.3436 | 34
+% load('Data/0c5v5.mat'); % 0.5| 0.5318 |0.1283 |0.0297 | 95
+% load('Data/0c3v.mat');  % 0.3| 1.1805 |0.3711 |0.0646 | 108
+% load('Data/0c3v0.mat'); % 0.3| 0.3291 |0.1873 |0.1282 | 109
 % load('Data/0c3v1.mat'); % 0.3| 0.2668 |0.3145 |0.3635 | 130
 % load('Data/0c3v2.mat'); % 0.3| 0.1829 |0.2612 |0.2934 | 131
-% load('Data/1v0.mat');   %  1 | 0.3006	|0.2033 |0.3064 | 5
+% load('Data/0c3v3.mat'); % 0.3| 0.3759 |0.3245 |0.4334 | 120
+% load('Data/0c3v4.mat'); % 0.3| 0.2295 |0.0993 |0.2221 | 117
+% load('Data/0c3v5.mat'); % 0.3| 1.0563 |0.3481 |0.0790 | 112
+
 % load('Data/0c1v.mat');  % 0.1| 0.5294 |0.2695 |0.0706 | 270
 % load('Data/0c1v0.mat'); % 0.1| 0.0610 |0.1356 |0.0579 | 416
 % load('Data/2021-09-08 17-19-10'); %Beta = 0.05 ga dapet
 % load('Data/2021-09-08 15-58-12'); %Beta = 0.01 ga dapet kurang data
 % load('Data/2021-07-08 22-03-03.mat'); % salah, Hz =100
 % load('Data/2021-07-16 21-43-46.mat'); % yang katanya ada delay, Hz=100 Beta=0.1
+% load('Data/1v0.mat');   %  1 | 0.3006	|0.2033 |0.3064 | 5
 % Note: beta arduino = 5 ==> beta matlab =0.5
 % Gyroscope = ld.sensorData.AngularVelocity;
 % Accelerometer = ld.sensorData.Acceleration;
@@ -59,7 +64,7 @@ close all;                          % close all figures
 % Fs=200;
 % time = (0:decim:size(Accelerometer,1)-1)/Fs;
 %%
-% sta = 5225; stb = length(time);
+sta = 5586; stb = length(time);
 SamplePeriode = 100;
 BetaQ= 0.03;
 % save('Data\aaaaa.mat');
@@ -148,6 +153,7 @@ euler=tuker(euler,1,3); % menukar roll dan yaw, agar formatnya sama seperti data
 euler(:,2:3)=-1*euler(:,2:3); % Switch for NED 
 euler=tuker(euler,2,3); % NED roll dan pitch tertukar
 %% (6) Plot Euler
+
 figure('Name', 'Euler Angles');
 hold on;
 plot(time, euler(:,3), 'r'); %roll
@@ -160,11 +166,13 @@ plot(time, reuler(:,3)); %roll
 plot(time, reuler(:,2)); %pitch
 plot(time, reuler(:,1)); %yaw
 title('Euler angles');
-xlabel('Time (s)');
+xlabel(A);
 ylabel('Angle (deg)');
 % legend('\phi', '\theta', '\psi')
 % legend('\phi', '\theta', '\psi','a\phi', 'a\theta', 'a\psi');
-legend('matlab\phi', 'matlab\theta', 'matlab\psi','arduino\phi', 'arduino\theta', 'arduino\psi','real\phi', 'real\theta', 'real\psi');
+legend('matlab\phi', 'matlab\theta', 'matlab\psi'...
+    ,'arduino\phi', 'arduino\theta', 'arduino\psi'...
+    ,'real\phi', 'real\theta', 'real\psi');
 hold off;
 % fig2plotly()
 
