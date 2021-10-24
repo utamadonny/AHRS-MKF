@@ -24,16 +24,35 @@ addpath('quaternion_library');      % include quaternion library
 % addpath('Data');                  % add data
 %% Clear 
 close all;                          % close all figures
-% clear;                              % clear all variables
-% clc;                                % clear the command terminal
-
-%% (1) Import and plot sensor data
-A='Time (s) \beta = 0.3 Data=0c3v0';
+clear;                              % clear all variables
+clc;                                % clear the command terminal
+%% Debug#0 export csv test
+% file = 'F:\Git Ubuntu\BelajarJulia\ahrs\0c5d250v.csv';
+% Time = readmatrix(file ,'range','A:A','OutputType','datetime');
+% reuler = readmatrix(file ,'range','B:D','OutputType','double');
+% Accelerometer = readmatrix(file ,'range','E:G','OutputType','double');
+% Gyroscope = readmatrix(file ,'range','H:J','OutputType','double');
+% Magnetometer = readmatrix(file ,'range','K:M','OutputType','double');
+% aeuler = readmatrix(file ,'range','N:P','OutputType','double');
+% time = readmatrix(file ,'range','Y:Y','OutputType','double');
+%% (1a) Import and plot sensor data
 % load("Nilai Beta");          |       RMSE             | Learning
                           %Beta| Yaw    | Pitch | Roll  | Time
 % load('Data/5v.mat');    %  5 | 1.7704 |0.1025 |0.2390 | 5.5
 % load('Data/2v.mat');    %  2 | 0.5802 |0.1795 |0.1252 | 22
+% load('Data/2v0.mat');   %  2 | 0.6981	|0.1878 |0.1182 | 2.2
+% load('Data/2v1.mat');   %  2 | 0.6615	|0.1509 |0.1189 | 2.5
+% load('Data/2v2.mat');   %  2 | 0.8225 |0.1575 |0.1158 | 2.3
+% save('Data/2v3.mat');   %  2 | 0.7945	|0.1159 |0.0598 |
+% save('Data/2v4.mat');   %  2 | 0.4829	|0.1157 |0.0586 |
+% save('Data/2v5.mat');   %  2 | 0.3933	|0.0945 |0.0608 | 
 % load('Data/1v.mat');    %  1 | 0.6149	|0.2388 |0.2217 | 29
+% load('Data/1v0.mat');   %  1 | 0.7743	|0.1031 |0.0901 | 20 
+% load('Data/1v1.mat');   %  1 | 0.7632	|0.0960 |0.0868 | 22
+% load('Data/1v2.mat');   %  1 | 0.4812	|0.0657 |0.0917 | 20
+% load('Data/1v3.mat');   %  1 | 0.2862	|0.1743 |0.2434 | 37
+% load('Data/1v4.mat');   %  1 | 0.2748	|0.0548 |0.1821 | 30
+% load('Data/1v5.mat');   %  1 | 0.3933	|0.0945 |0.0608 | 10
 % load('Data/0c5v.mat');  % 0.5| 1.0921 |0.0570 |0.0852 | 52
 % load('Data/0c5v0.mat'); % 0.5| 0.3862 |0.1387 |0.0483 | 53
 % load('Data/0c5v1.mat'); % 0.5| 0.5399 |0.1218 |0.0762 | 49
@@ -48,14 +67,61 @@ A='Time (s) \beta = 0.3 Data=0c3v0';
 % load('Data/0c3v3.mat'); % 0.3| 0.3759 |0.3245 |0.4334 | 120
 % load('Data/0c3v4.mat'); % 0.3| 0.2295 |0.0993 |0.2221 | 117
 % load('Data/0c3v5.mat'); % 0.3| 1.0563 |0.3481 |0.0790 | 112
-
 % load('Data/0c1v.mat');  % 0.1| 0.5294 |0.2695 |0.0706 | 270
 % load('Data/0c1v0.mat'); % 0.1| 0.0610 |0.1356 |0.0579 | 416
+
 % load('Data/2021-09-08 17-19-10'); %Beta = 0.05 ga dapet
 % load('Data/2021-09-08 15-58-12'); %Beta = 0.01 ga dapet kurang data
 % load('Data/2021-07-08 22-03-03.mat'); % salah, Hz =100
 % load('Data/2021-07-16 21-43-46.mat'); % yang katanya ada delay, Hz=100 Beta=0.1
 % load('Data/1v0.mat');   %  1 | 0.3006	|0.2033 |0.3064 | 5
+
+% KESIMPULAN : Learning time vary karena derajat akhir/goal nya
+%% (1b) Import and plot sensor data  (Semua di 100derajat yaw)
+% load("Nilai Beta");           |       RMSE             | Learning
+                          %Beta | Yaw    | Pitch | Roll  | Time
+% load('Data2/5d100v.mat');    %  5 | 0.7674 |0.1086 |0.2211 |   5
+% load('Data2/5d100v0.mat');   %  5 | 0.8946 |0.1176 |0.2417 |   5
+% load('Data2/5d100v1.mat');   %  5 | 0.8390 |0.1241 |0.2539 |   5
+% load('Data2/2d100v.mat');    %  2 | 1.1868 |0.1599 |0.2730 |  12
+% load('Data2/2d100v0.mat');   %  2 | 1.2675 |0.1645 |0.2739 |  12
+% load('Data2/2d100v1.mat');   %  2 | 1.0851 |0.1694 |0.2712 |  10
+
+% load('Data2/1d100v.mat');    %  1 | 0.8913 |0.0592 |0.1051 |  22
+% load('Data2/1d100v0.mat');   %  1 | 0.5818 |0.0711 |0.1401 |  21
+% load('Data2/1d100v1.mat');   %  1 | 0.8867 |0.0944 |0.1691 |  21
+
+% load('Data2/1d150v.mat');    %  1 | 0.7892 |0.0800 |0.0730 |   8
+% load('Data2/1d150v0.mat');   %  1 | 0.7832 |0.0811 |0.0676 |   6
+% load('Data2/1d150v1.mat');   %  1 | 0.6540 |0.0807 |0.0651 |   7
+
+% load('Data2/0c5d100v.mat');  % 0.5| 0.5620 |0.0572 |0.0856 |  41
+% load('Data2/0c5d100v0.mat'); % 0.5| 0.3617 |0.0797 |0.1247 |  41
+% load('Data2/0c5d100v1.mat'); % 0.5| 0.6390 |0.0830 |0.1108 |  41
+
+% load('Data2/0c5d150v.mat');  % 0.5| 0.2675 |0.0607 |0.0615 |  16
+% load('Data2/0c5d150v0.mat'); % 0.5| 0.2751 |0.0542 |0.0427 |  15
+% load('Data2/0c5d150v1.mat'); % 0.5| 0.2223 |0.0503 |0.0391 |  15
+
+load('Data2/0c5d250v.mat');  % 0.5| 0.2675 |0.0607 |0.0615 |  36
+% load('Data2/0c5d250v0.mat'); % 0.5| 0.2751 |0.0542 |0.0427 |  
+% load('Data2/0c5d250v1.mat'); % 0.5| 0.2223 |0.0503 |0.0391 |  
+
+% load('Data2/0c3d100v.mat');  % 0.3| 1.1805 |0.3711 |0.0646 | 
+% load('Data2/0c3d100v0.mat'); % 0.3| 0.3291 |0.1873 |0.1282 | 
+% load('Data2/0c3d100v1.mat'); % 0.3| 0.2668 |0.3145 |0.3635 | 
+
+% load('Data2/0c1d100v.mat');  % 0.1| 0.8591 |0.0529 |0.0560 | 220
+% load('Data2/0c1d100v0.mat'); % 0.1| 1.2564 |0.0499 |0.1374 | 220
+% laod('Data2/0c1d100v1.mat'); % 0.1| 1.1304 |0.0461 |0.1239 | 220
+%% Set Parameter
+A='Time (s) \beta=0.1 Data2=0cvd150v1';
+sta = 695; stb = length(time);
+SamplePeriode = 100;
+BetaQ= 0.05;
+% save('Data\aaaaa.mat');
+% Kp= 10; Ki=0;
+%% Debug#1
 % Note: beta arduino = 5 ==> beta matlab =0.5
 % Gyroscope = ld.sensorData.AngularVelocity;
 % Accelerometer = ld.sensorData.Acceleration;
@@ -63,12 +129,31 @@ A='Time (s) \beta = 0.3 Data=0c3v0';
 % time= 1:1:1600;
 % Fs=200;
 % time = (0:decim:size(Accelerometer,1)-1)/Fs;
-%%
-sta = 5586; stb = length(time);
-SamplePeriode = 100;
-BetaQ= 0.03;
-% save('Data\aaaaa.mat');
-% Kp= 10; Ki=0;
+%% Debug#2
+% dat1 = load('Data2/2v.mat');    %  2 | 1.1868 |0.1599 |0.2730 | 12
+% dat2 = load('Data2/1v.mat');    %  1 | 0.8913 |0.0592 |0.1051 | 22
+% dat3 = load('Data2/0c5v.mat');  % 0.5| 0.5620 |0.0572 |0.0856 | 41
+% figure('Name', 'Euler Angles');
+% hold on;
+% plot(dat1.time, dat1.euler(:,1), 'b'); %yaw
+% % plot(dat1.time, dat1.aeuler(:,1)); %yaw
+% plot(dat1.time, dat1.reuler(:,1)); %yaw
+% plot(dat2.time, dat2.euler(:,1), 'b'); %yaw
+% % plot(dat2.time, dat2.aeuler(:,1)); %yaw
+% plot(dat2.time, dat2.reuler(:,1)); %yaw
+% plot(dat3.time, dat3.euler(:,1), 'b'); %yaw
+% % plot(dat3.time, dat3.aeuler(:,1)); %yaw
+% plot(dat3.time, dat3.reuler(:,1)); %yaw
+% title('Euler angles');
+% xlabel('Time (s)');
+% ylabel('Angle (deg)');
+% % legend('\phi', '\theta', '\psi')
+% % legend('\phi', '\theta', '\psi','a\phi', 'a\theta', 'a\psi');
+% % legend('matlab\phi', 'matlab\theta', 'matlab\psi'...
+% %     ,'arduino\phi', 'arduino\theta', 'arduino\psi'...
+% %     ,'real\phi', 'real\theta', 'real\psi');
+% hold off;
+
 %% (2) Preprocess to NED
 %  filter.update(gyr.y(),gyr.x(),-gyr.z(),-acc.y(),-acc.x(),acc.z(),-hag.y(),-hag.x(),hag.z());
 %  working
@@ -89,41 +174,41 @@ Magnetometer1 = tuker(Magnetometer1,1,2);
 Accelerometer1=tuker(Accelerometer1,1,2);
 Gyroscope1=tuker(Gyroscope1,1,2);
 %% (3) Plot Sensor Data
-figure('Name', 'Sensor Data');
-axis(1) = subplot(3,1,1);
-hold on;
-plot(time, Gyroscope(:,1), 'r');
-plot(time, Gyroscope(:,2), 'g');
-plot(time, Gyroscope(:,3), 'b');
-legend('X', 'Y', 'Z');
-xlabel('Time (s)');
-ylabel('Angular rate (deg/s)');
-title('Gyroscope');
-hold off;
-axis(2) = subplot(3,1,2);
-hold on;
-plot(time, Accelerometer(:,1), 'r');
-plot(time, Accelerometer(:,2), 'g');
-plot(time, Accelerometer(:,3), 'b');
-legend('X', 'Y', 'Z');
-xlabel('Time (s)');
-ylabel('Acceleration (g)');
-title('Accelerometer');
-hold off;
-axis(3) = subplot(3,1,3);
-hold on;
-plot(time, Magnetometer(:,1), 'r');
-plot(time, Magnetometer(:,2), 'g');
-plot(time, Magnetometer(:,3), 'b');
-legend('X', 'Y', 'Z');
-xlabel('Time (s)');
-ylabel('Flux (G)');
-title('Magnetometer');
-hold off;
-linkaxes(axis, 'x');
-% fig2plotly()
+% figure('Name', 'Sensor Data');
+% axis(1) = subplot(3,1,1);
+% hold on;
+% plot(time, Gyroscope(:,1), 'r');
+% plot(time, Gyroscope(:,2), 'g');
+% plot(time, Gyroscope(:,3), 'b');
+% legend('X', 'Y', 'Z');
+% xlabel('Time (s)');
+% ylabel('Angular rate (deg/s)');
+% title('Gyroscope');
+% hold off;
+% axis(2) = subplot(3,1,2);
+% hold on;
+% plot(time, Accelerometer(:,1), 'r');
+% plot(time, Accelerometer(:,2), 'g');
+% plot(time, Accelerometer(:,3), 'b');
+% legend('X', 'Y', 'Z');
+% xlabel('Time (s)');
+% ylabel('Acceleration (g)');
+% title('Accelerometer');
+% hold off;
+% axis(3) = subplot(3,1,3);
+% hold on;
+% plot(time, Magnetometer(:,1), 'r');
+% plot(time, Magnetometer(:,2), 'g');
+% plot(time, Magnetometer(:,3), 'b');
+% legend('X', 'Y', 'Z');
+% xlabel('Time (s)');
+% ylabel('Flux (G)');
+% title('Magnetometer');
+% hold off;
+% linkaxes(axis, 'x');
+% % fig2plotly()
 
-%% (4) Process sensor data through algorithm
+%% (4a) Process sensor data through algorithm
 % SamplePeriode = 100;
 % BetaQ= 0.05;
 % Kp= 10; Ki=0;
@@ -149,7 +234,7 @@ euler = quatern2euler(quaternConj(quaternion)) * (180/pi);	% use conjugate for s
 % euler = quatern2euler(quaternConj(quaternion));
 offset = 180;
 euler(:,3)=euler(:,3)+offset; % yaw membutuhkan offset
-euler=tuker(euler,1,3); % menukar roll dan yaw, agar formatnya sama seperti data real dan realtime
+euler=tuker(euler,1,3); % menukar roll dan yaw, agar formatnya sama data realtime (r,p,y) ==> (y,p,r)
 euler(:,2:3)=-1*euler(:,2:3); % Switch for NED 
 euler=tuker(euler,2,3); % NED roll dan pitch tertukar
 %% (6) Plot Euler
