@@ -24,17 +24,26 @@ addpath('ximu_matlab_library');
 %clear;
 %clc;
 
-ld = load ('Data/2021-07-16 21-43-46.mat');
+% ld = load ('Data/2021-07-16 21-43-46.mat');
 % acc = ld.sensorData.Accelerometer; %ld.sensorData.Accelerometer(:,1) = ax
 % gyro = ld.sensorData.Gyroscope;
 % mag = ld.sensorData.Magnetometer;
 % time = (0:decim:size(acc,1)-1)/ld.Fs;  %hmmm ???
 % viewer = HelperOrientationViewer;
 
+file = 'F:\Git Ubuntu\BelajarJulia\ahrs\demo.csv';
+% Time = readmatrix(file ,'range','A:A','OutputType','datetime')
+% reuler = readmatrix(file ,'range','B:D','OutputType','double')
+Accelerometer = readmatrix(file ,'range','E:G','OutputType','double')
+Gyroscope = readmatrix(file ,'range','H:J','OutputType','double')
+% Magnetometer = readmatrix(file ,'range','K:M','OutputType','double')
+% aeuler = readmatrix(file ,'range','N:P','OutputType','double')
+time = readmatrix(file ,'range','Y:Y','OutputType','double')
+
 %% -------------------------------------------------------------------------
 % Import data
 
-samplePeriod = 1/256;
+samplePeriod = 1/100;
 %xIMUdata = xIMUdataClass(filePath, 'InertialMagneticSampleRate', 1/samplePeriod);
 % time = ld.sensorData.time;
 % gyrX = ld.sensorData.Gyroscope(:,1);
@@ -43,20 +52,28 @@ samplePeriod = 1/256;
 % accX = ld.sensorData.Accelerometer(:,1);
 % accY = ld.sensorData.Accelerometer(:,2);
 % accZ = ld.sensorData.Accelerometer(:,3);
-time = ld.time;
-gyrX = ld.Gyroscope(:,1);
-gyrY = ld.Gyroscope(:,2);
-gyrZ = ld.Gyroscope(:,3);
-accX = ld.Accelerometer(:,1);
-accY = ld.Accelerometer(:,2);
-accZ = ld.Accelerometer(:,3);
-clear('xIMUdata');
+% time = ld.time;
+% gyrX = ld.Gyroscope(:,1);
+% gyrY = ld.Gyroscope(:,2);
+% gyrZ = ld.Gyroscope(:,3);
+% accX = ld.Accelerometer(:,1);
+% accY = ld.Accelerometer(:,2);
+% accZ = ld.Accelerometer(:,3);
+% clear('xIMUdata');
+
+gyrX = Gyroscope(:,1);
+gyrY = Gyroscope(:,2);
+gyrZ = Gyroscope(:,3);
+accX = Accelerometer(:,1);
+accY = Accelerometer(:,2);
+accZ = Accelerometer(:,3);
+
 
 %% -------------------------------------------------------------------------
 % Manually frame data
 
 startTime = 0;
-stopTime  = 33;
+stopTime  = 27;
 
 indexSel = find(sign(time-startTime)+1, 1) : find(sign(time-stopTime)+1, 1);
 time = time(indexSel);

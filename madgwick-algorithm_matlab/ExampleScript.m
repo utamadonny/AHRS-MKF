@@ -24,17 +24,19 @@ addpath('quaternion_library');      % include quaternion library
 % addpath('Data');                  % add data
 %% Clear 
 close all;                          % close all figures
-clear;                              % clear all variables
-clc;                                % clear the command terminal
+% clear;                              % clear all variables
+% clc;                                % clear the command terminal
+% set(0,'DefaultFigureWindowStyle','docked')
+% set(0,'DefaultFigureWindowStyle','normal')
 %% Debug#0 export csv test
-% file = 'F:\Git Ubuntu\BelajarJulia\ahrs\0c5d250v.csv';
-% Time = readmatrix(file ,'range','A:A','OutputType','datetime');
-% reuler = readmatrix(file ,'range','B:D','OutputType','double');
-% Accelerometer = readmatrix(file ,'range','E:G','OutputType','double');
-% Gyroscope = readmatrix(file ,'range','H:J','OutputType','double');
-% Magnetometer = readmatrix(file ,'range','K:M','OutputType','double');
-% aeuler = readmatrix(file ,'range','N:P','OutputType','double');
-% time = readmatrix(file ,'range','Y:Y','OutputType','double');
+file = 'F:\Git Ubuntu\BelajarJulia\ahrs\2d250v1.csv';
+Time = readmatrix(file ,'range','A:A','OutputType','datetime');
+reuler = readmatrix(file ,'range','B:D','OutputType','double');
+Accelerometer = readmatrix(file ,'range','E:G','OutputType','double');
+Gyroscope = readmatrix(file ,'range','H:J','OutputType','double');
+Magnetometer = readmatrix(file ,'range','K:M','OutputType','double');
+aeuler = readmatrix(file ,'range','N:P','OutputType','double');
+time = readmatrix(file ,'range','Y:Y','OutputType','double');
 %% (1a) Import and plot sensor data
 % load("Nilai Beta");          |       RMSE             | Learning
                           %Beta| Yaw    | Pitch | Roll  | Time
@@ -79,33 +81,54 @@ clc;                                % clear the command terminal
 % KESIMPULAN : Learning time vary karena derajat akhir/goal nya
 %% (1b) Import and plot sensor data  (Semua di 100derajat yaw)
 % load("Nilai Beta");           |       RMSE             | Learning
-                          %Beta | Yaw    | Pitch | Roll  | Time
-% load('Data2/5d100v.mat');    %  5 | 0.7674 |0.1086 |0.2211 |   5
-% load('Data2/5d100v0.mat');   %  5 | 0.8946 |0.1176 |0.2417 |   5
+                               %Beta | Yaw    | Pitch | Roll  | Time
+% save('Data2/5d100v.mat');    %  5 | 0.7674 |0.1086 |0.2211 |   5
+% save('Data2/5d100v0.mat');   %  5 | 0.8946 |0.1176 |0.2417 |   5
 % load('Data2/5d100v1.mat');   %  5 | 0.8390 |0.1241 |0.2539 |   5
+
+% load('Data2/5d150v.mat');    %  5 | 0.4237 |0.2530 |0.2043 |   1
+% load('Data2/5d150v0.mat');   %  5 | 0.5498 |0.2815 |0.2315 |   1.5
+% load('Data2/5d150v1.mat');   %  5 | 0.7935 |0.2894 |0.1823 |   1.6
+
+% load('Data2/5d250v.mat');    %  5 | 1.9919 |0.1518 |0.2826 |   3.6
+% load('Data2/5d250v0.mat');   %  5 | 0.7389 |0.1488 |0.2761 |   4.2
+% load('Data2/5d250v1.mat');   %  5 | 0.7395 |0.1460 |0.2780 |   3.6
+
 % load('Data2/2d100v.mat');    %  2 | 1.1868 |0.1599 |0.2730 |  12
 % load('Data2/2d100v0.mat');   %  2 | 1.2675 |0.1645 |0.2739 |  12
 % load('Data2/2d100v1.mat');   %  2 | 1.0851 |0.1694 |0.2712 |  10
 
+% load('Data2/2d150v.mat');    %  2 | 0.4700 |0.1554 |0.1181 |   4
+% load('Data2/2d150v0.mat');   %  2 | 0.5647 |0.1569 |0.1208 |   4
+% load('Data2/2d150v1.mat');   %  2 | 0.6189 |0.1543 |0.1448 |   4
+
+% load('Data2/2d250v.mat');    %  2 | 1.1767 |0.0805 |0.1504 |  10
+% load('Data2/2d250v0.mat');   %  2 | 1.4208 |0.0830 |0.1464 |   9.7
+% load('Data2/2d250v1.mat');   %  2 | 1.2257 |0.0909 |0.1450 |   9.8
+
 % load('Data2/1d100v.mat');    %  1 | 0.8913 |0.0592 |0.1051 |  22
 % load('Data2/1d100v0.mat');   %  1 | 0.5818 |0.0711 |0.1401 |  21
-% load('Data2/1d100v1.mat');   %  1 | 0.8867 |0.0944 |0.1691 |  21
+% load('Data2/1d100v1.mat');   %  1 | 0.8914 |0.0957 |0.1702 |  21
 
 % load('Data2/1d150v.mat');    %  1 | 0.7892 |0.0800 |0.0730 |   8
-% load('Data2/1d150v0.mat');   %  1 | 0.7832 |0.0811 |0.0676 |   6
-% load('Data2/1d150v1.mat');   %  1 | 0.6540 |0.0807 |0.0651 |   7
+% load('Data2/1d150v0.mat');   %  1 | 0.7831 |0.0811 |0.0676 |   6
+% load('Data2/1d150v1.mat');   %  1 | 0.6479 |0.0800 |0.0650 |   7
+
+% load('Data2/1d250v.mat');    % 0.5| 0.3262 |0.1179 |0.1106 |  20
+% load('Data2/1d250v0.mat');   % 0.5| 0.2914 |0.1003 |0.1037 |  20
+% load('Data2/1d250v1.mat');   % 0.5| 0.3176 |0.1136 |0.1057 |  20
 
 % load('Data2/0c5d100v.mat');  % 0.5| 0.5620 |0.0572 |0.0856 |  41
 % load('Data2/0c5d100v0.mat'); % 0.5| 0.3617 |0.0797 |0.1247 |  41
 % load('Data2/0c5d100v1.mat'); % 0.5| 0.6390 |0.0830 |0.1108 |  41
 
 % load('Data2/0c5d150v.mat');  % 0.5| 0.2675 |0.0607 |0.0615 |  16
-% load('Data2/0c5d150v0.mat'); % 0.5| 0.2751 |0.0542 |0.0427 |  15
+% load('Data2/0c5d150v0.mat'); % 0.5| 0.2796 |0.0540 |0.0423 |  15
 % load('Data2/0c5d150v1.mat'); % 0.5| 0.2223 |0.0503 |0.0391 |  15
 
-load('Data2/0c5d250v.mat');  % 0.5| 0.2675 |0.0607 |0.0615 |  36
-% load('Data2/0c5d250v0.mat'); % 0.5| 0.2751 |0.0542 |0.0427 |  
-% load('Data2/0c5d250v1.mat'); % 0.5| 0.2223 |0.0503 |0.0391 |  
+% load('Data2/0c5d250v.mat');  % 0.5| 0.5192 |0.0713 |0.0618 |  38
+% load('Data2/0c5d250v0.mat'); % 0.5| 0.2823 |0.0837 |0.0599 |  37
+% load('Data2/0c5d250v1.mat'); % 0.5| 0.3649 |0.0772 |0.0591 |  36
 
 % load('Data2/0c3d100v.mat');  % 0.3| 1.1805 |0.3711 |0.0646 | 
 % load('Data2/0c3d100v0.mat'); % 0.3| 0.3291 |0.1873 |0.1282 | 
@@ -115,10 +138,12 @@ load('Data2/0c5d250v.mat');  % 0.5| 0.2675 |0.0607 |0.0615 |  36
 % load('Data2/0c1d100v0.mat'); % 0.1| 1.2564 |0.0499 |0.1374 | 220
 % laod('Data2/0c1d100v1.mat'); % 0.1| 1.1304 |0.0461 |0.1239 | 220
 %% Set Parameter
-A='Time (s) \beta=0.1 Data2=0cvd150v1';
-sta = 695; stb = length(time);
+A='Time (s) \beta=2 Data2=2d250v1';
+
+%% Set Parameter
+sta = 800; stb = length(time);
 SamplePeriode = 100;
-BetaQ= 0.05;
+BetaQ= 0.2;
 % save('Data\aaaaa.mat');
 % Kp= 10; Ki=0;
 %% Debug#1
@@ -300,3 +325,4 @@ writetable(Nums,'2021-07-02 08-47-47M1.csv');
 % writematrix(Nums,'dummy.csv')
 % csvwrite('2021-07-16 21-43-46M.csv',filedata.reuler,filedata.meuler,filedata.euler)
 % save('Data/0c3v.mat');
+%%
