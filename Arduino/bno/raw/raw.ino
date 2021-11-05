@@ -116,9 +116,9 @@ void loop()
   imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
   Serial.print(euler.x()); //yaw
   Serial.print(",");
-  Serial.print(euler.y()); //pitch 
+  Serial.print(euler.z()); //pitch 
   Serial.print(",");
-  Serial.print(euler.z()); //roll
+  Serial.print(euler.y()); //roll
 
   imu::Vector<3> acc = bno.getVector(Adafruit_BNO055::VECTOR_ACCELEROMETER);
   Serial.print(",");
