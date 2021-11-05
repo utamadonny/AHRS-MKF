@@ -158,8 +158,8 @@ void loop()
 //! Choose 6  DoF or 9 DoF. Mahony only use 6 DoF
   // filter.updateIMU(gyr.x(),gyr.y(),gyr.z(),acc.x(),acc.y(),acc.z());
   filter.update(gyr.y(),gyr.x(),-gyr.z(),-acc.y(),-acc.x(),acc.z(),-hag.y(),-hag.x(),hag.z());
-  pitch=-1*filter.getRoll(); //? swit h for NED ?
-  roll=-1*filter.getPitch();
+  roll=-1*filter.getRoll(); //? swit h for NED ?
+  pitch=-1*filter.getPitch();
   yaw=filter.getYaw();
   /* Display orientaion data from filter */
   Serial.print(",");
