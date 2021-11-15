@@ -24,19 +24,47 @@ addpath('quaternion_library');      % include quaternion library
 % addpath('Data');                  % add data
 %% Clear 
 close all;                          % close all figures
-clear;                              % clear all variables
-clc;                                % clear the command terminal
+% clear;                              % clear all variables
+% clc;                                % clear the command terminal
 % set(0,'DefaultFigureWindowStyle','docked')
 % set(0,'DefaultFigureWindowStyle','normal')
 %% Debug#0 export csv test
-% file = 'F:\Git Ubuntu\BelajarJulia\ahrs\2d250v1.csv';
-% Time = readmatrix(file ,'range','A:A','OutputType','datetime');
-% reuler = readmatrix(file ,'range','B:D','OutputType','double');
-% Accelerometer = readmatrix(file ,'range','E:G','OutputType','double');
-% Gyroscope = readmatrix(file ,'range','H:J','OutputType','double');
+file = 'F:\Git Ubuntu\BelajarJulia\ahrs\D1p20Pv.csv';
+%%
+% % Time = readmatrix(file ,'range','A:A','OutputType','datetime');
+% reuler = readmatrix(file ,'range','A:C','OutputType','double');
+% Accelerometer = readmatrix(file ,'range','D:F','OutputType','double');
+% Gyroscope = readmatrix(file ,'range','G:I','OutputType','double');
 % Magnetometer = readmatrix(file ,'range','K:M','OutputType','double');
 % aeuler = readmatrix(file ,'range','N:P','OutputType','double');
-% time = readmatrix(file ,'range','Y:Y','OutputType','double');
+% % time = readmatrix(file ,'range','Y:Y','OutputType','double');
+%%
+Time = readmatrix(file ,'range','A:A','OutputType','datetime');
+reuler = readmatrix(file ,'range','B:D','OutputType','double');
+Accelerometer = readmatrix(file ,'range','E:G','OutputType','double');
+Gyroscope = readmatrix(file ,'range','H:J','OutputType','double');
+Magnetometer = readmatrix(file ,'range','K:M','OutputType','double');
+aeuler = readmatrix(file ,'range','N:P','OutputType','double');
+time = readmatrix(file ,'range','Y:Y','OutputType','double');
+%% NEW to load static file
+% Beta='0c1';
+% X=string(Beta)+'d270v';
+% load ('Data2/'+string(X)+'.mat')
+%% NEW to load Dinamic file
+Beta='D1';
+RPY='P';
+X=string(Beta)+'p20'+string(RPY)+'v';
+% load ('Data2/'+string(X)+'.mat')
+A='Time (s) \beta='+string(Beta)+' Data2='+string(X);
+%% Set Parameter
+% sta = 800; stb = length(time);
+SamplePeriode = 100;
+BetaQ= 0.1;
+% save('Data\aaaaa.mat');
+% Kp= 10; Ki=0;
+% numSamples = size(Accelerometer,1);
+% time = (0:1:(numSamples-1))'/SamplePeriode;
+save ('Data2/'+string(X)+'.mat')
 %% (1a) Import and plot sensor data
 % load("Nilai Beta");          |       RMSE             | Learning
                           %Beta| Yaw    | Pitch | Roll  | Time
@@ -80,9 +108,7 @@ clc;                                % clear the command terminal
 %% (1b) Import and plot sensor data  (Semua di 100derajat yaw)
 % load("Nilai Beta");           |       RMSE             | Learningx`x``
                                %Beta | Yaw    | Pitch | Roll  | Time
-Beta='0c1';
-X=string(Beta)+'d270v';
-load ('Data2/'+string(X)+'.mat')
+
 % load('Data2/5d100v.mat');    %  5 | 0.7674 |0.1086 |0.2211 |   4.28
 % load('Data2/5d100v0.mat');   %  5 | 0.8946 |0.1176 |0.2417 |   5.7 
 % load('Data2/5d100v1.mat');   %  5 | 0.8399 |0.1244 |0.2547 |   4.3
@@ -138,14 +164,7 @@ load ('Data2/'+string(X)+'.mat')
 % load('Data2/0c1d100v.mat');  % 0.1| 0.8591 |0.0529 |0.0560 | 211.916
 % load('Data2/0c1d100v0.mat'); % 0.1| 1.2564 |0.0499 |0.1374 | 212.556
 % load('Data2/0c1d100v1.mat'); % 0.1| 1.1304 |0.0461 |0.1239 | 211.612
-%% Set Parameter
-A='Time (s) \beta='+string(Beta)+' Data2='+string(X);
-%% Set Parameter
-% sta = 800; stb = length(time);
-% SamplePeriode = 100;
-% BetaQ= 0.5;
-% save('Data\aaaaa.mat');
-% Kp= 10; Ki=0;
+
 %% Debug#1
 % Note: beta arduino = 5 ==> beta matlab =0.5
 % Gyroscope = ld.sensorData.AngularVelocity;
@@ -205,7 +224,7 @@ plot(time, Gyroscope(:,1), 'r');
 plot(time, Gyroscope(:,2), 'g');
 plot(time, Gyroscope(:,3), 'b');
 legend('X', 'Y', 'Z');
-xlabel('Time (s)');
+xlabel(string(A)+'RAW');
 ylabel('Angular rate (deg/s)');
 title('Gyroscope');
 hold off;
@@ -215,7 +234,7 @@ plot(time, Accelerometer(:,1), 'r');
 plot(time, Accelerometer(:,2), 'g');
 plot(time, Accelerometer(:,3), 'b');
 legend('X', 'Y', 'Z');
-xlabel('Time (s)');
+xlabel(string(A)+'RAW');
 ylabel('Acceleration (g)');
 title('Accelerometer');
 hold off;
@@ -225,12 +244,12 @@ plot(time, Magnetometer(:,1), 'r');
 plot(time, Magnetometer(:,2), 'g');
 plot(time, Magnetometer(:,3), 'b');
 legend('X', 'Y', 'Z');
-xlabel('Time (s)');
+xlabel(string(A)+'RAW');
 ylabel('Flux (G)');
 title('Magnetometer');
 hold off;
-linkaxes(axis, 'x');
-savefig('Image/input/'+string(X)+'.fig');
+linkaxes(axis, 'xy');
+savefig('E:\OneDrive\Skripsweet\OTW SEMHAS\GambarMatlab\Image\input\'+string(X)+'.fig');
 % % fig2plotly()
 
 %% (4a) Process sensor data through algorithm
@@ -261,10 +280,43 @@ offset = 180;
 euler(:,3)=euler(:,3)+offset; % yaw membutuhkan offset
 euler=tuker(euler,1,3); % menukar roll dan yaw, agar formatnya sama data realtime (r,p,y) ==> (y,p,r)
 euler(:,2:3)=-1*euler(:,2:3); % Switch for NED 
-euler=tuker(euler,2,3); % NED roll dan pitch tertukar
+% euler=tuker(euler,2,3); % NED roll dan pitch tertukar
+% aeuler=tuker(aeuler,2,3); % NED roll dan pitch tertukar
+% reuler=tuker(reuler,2,3); % NED roll dan pitch tertukar
 %% (6) Plot Euler
+figure('Name', 'Sensor Data');
+axis(1) = subplot(4,1,1);
+hold on;
+plot(time, Gyroscope(:,1), 'r');
+plot(time, Gyroscope(:,2), 'g');
+plot(time, Gyroscope(:,3), 'b');
+legend('X', 'Y', 'Z');
+xlabel('Time (s)');
+ylabel('Angular rate (deg/s)');
+title('Gyroscope');
+hold off;
+axis(2) = subplot(4,1,2);
+hold on;
+plot(time, Accelerometer(:,1), 'r');
+plot(time, Accelerometer(:,2), 'g');
+plot(time, Accelerometer(:,3), 'b');
+legend('X', 'Y', 'Z');
+xlabel('Time (s)');
+ylabel('Acceleration (g)');
+title('Accelerometer');
+hold off;
+axis(3) = subplot(4,1,3);
+hold on;
+plot(time, Magnetometer(:,1), 'r');
+plot(time, Magnetometer(:,2), 'g');
+plot(time, Magnetometer(:,3), 'b');
+legend('X', 'Y', 'Z');
+xlabel('Time (s)');
+ylabel('Flux (G)');
+title('Magnetometer');
+hold off;
 
-figure('Name', 'Euler Angles');
+axis(4) = subplot(4,1,4);
 hold on;
 plot(time, euler(:,3), 'r'); %roll
 plot(time, euler(:,2), 'g'); %pitch
@@ -275,7 +327,6 @@ plot(time, aeuler(:,1)); %yaw
 plot(time, reuler(:,3)); %roll
 plot(time, reuler(:,2)); %pitch
 plot(time, reuler(:,1)); %yaw
-title('Euler angles');
 xlabel(A);
 ylabel('Angle (deg)');
 % legend('\phi', '\theta', '\psi')
@@ -284,8 +335,42 @@ legend('matlab\phi', 'matlab\theta', 'matlab\psi'...
     ,'arduino\phi', 'arduino\theta', 'arduino\psi'...
     ,'real\phi', 'real\theta', 'real\psi');
 hold off;
+linkaxes(axis, 'xy');
+% savefig('E:\OneDrive\Skripsweet\OTW SEMHAS\GambarMatlab\Image\all\'+string(X)+'.fig');
 % fig2plotly()
+%%
 
+figure('Name', 'Euler Angles');
+hold on;
+% plot(time, euler(:,3), 'r'); %roll
+% plot(time, euler(:,2), 'g'); %pitch
+% plot(time, euler(:,1), 'b'); %yaw
+% plot(time, aeuler(:,3), 'Color',[0.4940 0.1840 0.5560]); %roll
+% plot(time, aeuler(:,2),'Color', [0.4660 0.6740 0.1880]); %pitch
+% plot(time, aeuler(:,1)); %yaw
+% plot(time, reuler(:,3),'Color', [0.6350 0.0780 0.1840]); %roll
+% plot(time, reuler(:,2),'Color', [0.0000 0.4470 0.7410]); %pitch
+% plot(time, reuler(:,1)); %yaw
+
+plot(time, euler(:,3), 'r'); %roll
+plot(time, euler(:,2), 'g'); %pitch
+plot(time, aeuler(:,3), 'Color',[0.4940 0.1840 0.5560]); %roll
+plot(time, aeuler(:,2),'Color', [0.4660 0.6740 0.1880]); %pitch
+plot(time, reuler(:,3),'Color', [0.6350 0.0780 0.1840]); %roll
+plot(time, reuler(:,2),'Color', [0.0000 0.4470 0.7410]); %pitch
+
+xlabel(A);
+ylabel('Angle (deg)');
+% legend('\phi', '\theta', '\psi')
+% legend('\phi', '\theta', '\psi','a\phi', 'a\theta', 'a\psi');
+% legend('matlab\phi', 'matlab\theta', 'matlab\psi'...
+%     ,'arduino\phi', 'arduino\theta', 'arduino\psi'...
+%     ,'real\phi', 'real\theta', 'real\psi');
+legend('matlab\phi', 'matlab\theta'...
+    ,'arduino\phi', 'arduino\theta'...
+    ,'real\phi', 'real\theta');
+hold off;
+savefig('E:\OneDrive\Skripsweet\OTW SEMHAS\GambarMatlab\Image\output\'+string(X)+'.fig');
 %% End of script
 % sta = 1167; stb = length(time);
 rmsey = sqrt(mean((euler(sta:stb,1) - reuler(sta:stb,1)).^2));
