@@ -29,7 +29,7 @@ close all;                          % close all figures
 % set(0,'DefaultFigureWindowStyle','docked')
 % set(0,'DefaultFigureWindowStyle','normal')
 %% Debug#0 export csv test
-file = 'F:\Git Ubuntu\BelajarJulia\ahrs\D1p20Pv.csv';
+file = 'F:\Git Ubuntu\BelajarJulia\ahrs\0c3d100v1.csv';
 %%
 % % Time = readmatrix(file ,'range','A:A','OutputType','datetime');
 % reuler = readmatrix(file ,'range','A:C','OutputType','double');
@@ -51,15 +51,16 @@ time = readmatrix(file ,'range','Y:Y','OutputType','double');
 % X=string(Beta)+'d270v';
 % load ('Data2/'+string(X)+'.mat')
 %% NEW to load Dinamic file
-Beta='D1';
-RPY='P';
-X=string(Beta)+'p20'+string(RPY)+'v';
+Beta='0c3';
+RPY='';
+X=string(Beta)+'d100'+string(RPY)+'v1';
 % load ('Data2/'+string(X)+'.mat')
 A='Time (s) \beta='+string(Beta)+' Data2='+string(X);
+% save ('Data2/'+string(X)+'.mat')
 %% Set Parameter
 % sta = 800; stb = length(time);
 SamplePeriode = 100;
-BetaQ= 0.1;
+BetaQ= 0.03;
 % save('Data\aaaaa.mat');
 % Kp= 10; Ki=0;
 % numSamples = size(Accelerometer,1);
@@ -86,15 +87,20 @@ save ('Data2/'+string(X)+'.mat')
 % load('Data/0c5v2.mat'); % 0.5| 0.9983 |0.1726 |0.0542 | 65
 % load('Data/0c5v3.mat'); % 0.5| 0.7166 |0.0854 |0.0533 | 10
 % load('Data/0c5v4.mat'); % 0.5| 0.2174 |0.1159 |0.0382 | 72
-% load('Data2/0c5d10v.mat');     % 0.5| 0.5318 |0.1283 |0.0297 | 96.216
-% load('Data2/0c5d125v.mat');    %  1 | 0.6149 |0.2388 |0.2217 | 29.282
-% load('Data/0c3v.mat');  % 0.3| 1.1805 |0.3711 |0.0646 | 108
+
+% load('Data2/0c5d10v.mat');  % 0.5| 0.5318 |0.1283 |0.0297 | 96.216
+% load('Data2/0c5d125v.mat'); %  1 | 0.6149 |0.2388 |0.2217 | 29.282
+
 % load('Data/0c3v0.mat'); % 0.3| 0.3291 |0.1873 |0.1282 | 109
 % load('Data/0c3v1.mat'); % 0.3| 0.2668 |0.3145 |0.3635 | 130
 % load('Data/0c3v2.mat'); % 0.3| 0.1829 |0.2612 |0.2934 | 131
-% load('Data/0c3v3.mat'); % 0.3| 0.3759 |0.3245 |0.4334 | 116.982
-% load('Data/0c3v4.mat'); % 0.3| 0.2295 |0.0993 |0.2221 | 117 
-% load('Data/0c3v5.mat'); % 0.3| 1.0563 |0.3481 |0.0790 | 112
+
+% load('Data2/0c3d50v.mat'); % 0.3| 0.3759 |0.3245 |0.4334 | 116.982
+% load('Data2/0c3d50v0.mat'); % 0.3| 0.2295 |0.0993 |0.2221 | 117 
+
+% load('Data2/0c3d60v.mat');  % 0.3| 1.1805 |0.3711 |0.0646 | 108
+% load('Data2/0c3d60v0.mat'); % 0.3| 1.0563 |0.3481 |0.0790 | 112
+
 % load('Data2/0c1d270v.mat');    % 0.1| 0.5294 |0.2695 |0.0706 | 256.58
 % load('Data/0c1v0.mat'); % 0.1| 0.0610 |0.1356 |0.0579 | 416
 
@@ -157,9 +163,9 @@ save ('Data2/'+string(X)+'.mat')
 % load('Data2/0c5d250v0.mat'); % 0.5| 0.2823 |0.0837 |0.0599 |  37.901
 % load('Data2/0c5d250v1.mat'); % 0.5| 0.3649 |0.0772 |0.0591 |  36
 
-% load('Data2/0c3d100v.mat');  % 0.3| 1.1805 |0.3711 |0.0646 | 
-% load('Data2/0c3d100v0.mat'); % 0.3| 0.3291 |0.1873 |0.1282 | 
-% load('Data2/0c3d100v1.mat'); % 0.3| 0.2668 |0.3145 |0.3635 | 
+% load('Data2/0c3d100v.mat');  % 0.3| 3.9962 |0.2688 |0.2214 |  64
+% load('Data2/0c3d100v0.mat'); % 0.3| 3.3245 |0.1409 |0.0443 |  76
+% load('Data2/0c3d100v1.mat'); % 0.3| 2.0037 |0.0643 |0.1256 |  77
 
 % load('Data2/0c1d100v.mat');  % 0.1| 0.8591 |0.0529 |0.0560 | 211.916
 % load('Data2/0c1d100v0.mat'); % 0.1| 1.2564 |0.0499 |0.1374 | 212.556
@@ -339,7 +345,6 @@ linkaxes(axis, 'xy');
 % savefig('E:\OneDrive\Skripsweet\OTW SEMHAS\GambarMatlab\Image\all\'+string(X)+'.fig');
 % fig2plotly()
 %%
-
 figure('Name', 'Euler Angles');
 hold on;
 % plot(time, euler(:,3), 'r'); %roll
@@ -370,9 +375,32 @@ legend('matlab\phi', 'matlab\theta'...
     ,'arduino\phi', 'arduino\theta'...
     ,'real\phi', 'real\theta');
 hold off;
-savefig('E:\OneDrive\Skripsweet\OTW SEMHAS\GambarMatlab\Image\output\'+string(X)+'.fig');
+% savefig('E:\OneDrive\Skripsweet\OTW SEMHAS\GambarMatlab\Image\output\'+string(X)+'.fig');
+%%
+figure('Name', 'Euler Angles');
+hold on;
+plot(time, euler(:,3), 'r'); %roll
+plot(time, euler(:,2), 'g'); %pitch
+plot(time, euler(:,1), 'b'); %yaw
+plot(time, aeuler(:,3)); %roll
+plot(time, aeuler(:,2)); %pitch
+plot(time, aeuler(:,1)); %yaw
+plot(time, reuler(:,3)); %roll
+plot(time, reuler(:,2)); %pitch
+plot(time, reuler(:,1)); %yaw
+xlabel(A);
+ylabel('Angle (deg)');
+% legend('\phi', '\theta', '\psi')
+% legend('\phi', '\theta', '\psi','a\phi', 'a\theta', 'a\psi');
+legend('matlab\phi', 'matlab\theta', 'matlab\psi'...
+    ,'arduino\phi', 'arduino\theta', 'arduino\psi'...
+    ,'real\phi', 'real\theta', 'real\psi');
+hold off;
+
+% savefig('E:\OneDrive\Skripsweet\OTW SEMHAS\GambarMatlab\Image\all\'+string(X)+'.fig');
+% fig2plotly()
 %% End of script
-% sta = 1167; stb = length(time);
+sta = 3075; stb = length(time);
 rmsey = sqrt(mean((euler(sta:stb,1) - reuler(sta:stb,1)).^2));
 rmsep = sqrt(mean((euler(sta:stb,2) - reuler(sta:stb,2)).^2));
 rmser = sqrt(mean((euler(sta:stb,3) - reuler(sta:stb,3)).^2));

@@ -1,343 +1,343 @@
 <mxfile host="65bd71144e">
     <diagram id="kmAJGGws22bIz-2701WK" name="Page-1">
-        <mxGraphModel dx="997" dy="990" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="806" dy="516" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5" target="11">
+                <mxCell id="13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="5" target="11" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="Desain Filter Madgwick" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="420" y="225" width="70" height="30" as="geometry"/>
+                <mxCell id="5" value="Desain Filter Madgwick" style="rounded=1;whiteSpace=wrap;html=1;arcSize=37;" parent="1" vertex="1">
+                    <mxGeometry x="415" y="220" width="80" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="122" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="7" target="60">
+                <mxCell id="122" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="7" target="60" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="Acceleromter(Acc), Gyroscope(Gyro), Magentometer(Mag)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+                <mxCell id="7" value="Acceleromter(Acc), Gyroscope(Gyro), Magentometer(Mag)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
                     <mxGeometry x="385" y="345" width="140" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="11" target="7">
+                <mxCell id="15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="11" target="7" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="Inisialisasi InverseSampling Rate dan Beta&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="11" value="Inisialisasi InverseSampling Rate dan Beta&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="405" y="275" width="100" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="17">
+                <mxCell id="18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="17" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="585" y="70" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="17" value="Pengujian Pada Robot" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="17" value="Pengujian Pada Robot" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;" parent="1" vertex="1">
                     <mxGeometry x="548.75" y="10" width="72.5" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="21" target="48">
+                <mxCell id="50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="21" target="48" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="Ambil PWM robot&amp;nbsp;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+                <mxCell id="21" value="Ambil PWM robot&amp;nbsp;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
                     <mxGeometry x="537.5" y="70" width="95" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="135" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="24" target="119">
+                <mxCell id="135" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="24" target="119" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" value="PWM didapatkan sesuai sudut" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
-                    <mxGeometry x="666.57" y="100" width="125.62" height="30" as="geometry"/>
+                <mxCell id="24" value="PWM didapatkan sesuai sudut" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+                    <mxGeometry x="675.57" y="99" width="125.62" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="28" target="21">
+                <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="28" target="21" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="645" y="100" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="660" y="210"/>
+                            <mxPoint x="660" y="203"/>
                             <mxPoint x="660" y="85"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="28" target="37">
+                <mxCell id="38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="28" target="37" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="28" value="sudah dapatkan semua pwm?&lt;br&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="545" y="170" width="80" height="80" as="geometry"/>
+                <mxCell id="28" value="sudah dapatkan semua pwm?&lt;br&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="545" y="162.5" width="80" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="31" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                <mxCell id="31" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="1" vertex="1">
                     <mxGeometry x="632.5" y="185" width="30" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="32" target="33">
+                <mxCell id="34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="32" target="33" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="32" value="Mulai" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="32" value="Mulai" style="rounded=1;whiteSpace=wrap;html=1;arcSize=42;" parent="1" vertex="1">
                     <mxGeometry x="37.49999999999997" y="10" width="70" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="105" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="33" target="104">
+                <mxCell id="105" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="33" target="104" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="33" value="Pengujian IMU" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;" vertex="1" parent="1">
+                <mxCell id="33" value="Pengujian IMU" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;" parent="1" vertex="1">
                     <mxGeometry x="19.99999999999997" y="60" width="105" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="207" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="37" target="109">
+                <mxCell id="207" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="37" target="109" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="37" value="Pengujian IMU dan Robot Secara Dinamis" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
-                    <mxGeometry x="530" y="265" width="115" height="45" as="geometry"/>
+                <mxCell id="37" value="Pengujian IMU dan Robot Pada Bidang Miring" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+                    <mxGeometry x="527.5" y="261.5" width="115" height="45" as="geometry"/>
                 </mxCell>
-                <mxCell id="213" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="41" target="42">
+                <mxCell id="213" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="41" target="42" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="41" value="Process Data" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="41" value="Process Data" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;" parent="1" vertex="1">
                     <mxGeometry x="407.5" y="10" width="95" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="85" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="42" target="43">
+                <mxCell id="85" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="42" target="43" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="42" value="Arduino Data (IMU + Filter Realtime)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+                <mxCell id="42" value="Arduino Data (IMU + Filter Realtime)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
                     <mxGeometry x="402.5" y="50" width="105" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="111" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="43" target="110">
+                <mxCell id="111" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="43" target="110" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="43" value="Olah Data IMU dengan MATLAB" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+                <mxCell id="43" value="Olah Data IMU dengan MATLAB" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
                     <mxGeometry x="395" y="110" width="120" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="48" target="28">
+                <mxCell id="51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="48" target="28" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="48" value="Process Data" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+                <mxCell id="48" value="Process Data" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
                     <mxGeometry x="537.5" y="115" width="95" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="125" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="60" target="136">
+                <mxCell id="125" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="60" target="136" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="455.02857142857147" y="485.0137931034484" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="60" value="Algoritma Filter" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+                <mxCell id="60" value="Algoritma Filter" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
                     <mxGeometry x="410" y="425" width="90" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="91" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="66" target="87">
+                <mxCell id="91" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="66" target="87" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="66" value="Pengujian IMU" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="66" value="Pengujian IMU" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="36.25" y="240" width="72.5" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="93" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="87" target="92">
+                <mxCell id="93" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="87" target="92" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="87" value="Uji Statis/Dinamis" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="87" value="Uji &lt;i&gt;roll, pitch, yaw&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="22.5" y="290" width="100" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="103" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="92" target="102">
+                <mxCell id="103" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="92" target="102" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="92" value="Process Data" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;" vertex="1" parent="1">
+                <mxCell id="92" value="Process Data" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="20" y="340" width="105" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="102" value="Selesai&lt;br&gt;(Pengujian IMU)" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-                    <mxGeometry x="20" y="390" width="92.5" height="30" as="geometry"/>
+                <mxCell id="102" value="Selesai&lt;br&gt;(Pengujian IMU)" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="26.25" y="395" width="92.5" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="116" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="104" target="115">
+                <mxCell id="116" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="104" target="115" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="104" value="Pengujian Pada Robot" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;" vertex="1" parent="1">
+                <mxCell id="104" value="Pengujian Pada Robot" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;" parent="1" vertex="1">
                     <mxGeometry x="19.99999999999997" y="120" width="105" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="109" value="Selesai&lt;br&gt;(Pengujian Pada Robot)" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-                    <mxGeometry x="540.32" y="335" width="95" height="40" as="geometry"/>
+                <mxCell id="109" value="Selesai&lt;br&gt;(Pengujian Pada Robot)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;" parent="1" vertex="1">
+                    <mxGeometry x="537.5" y="324" width="95" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="110" value="Selesai&lt;br&gt;(Process Data)" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                <mxCell id="110" value="Selesai&lt;br&gt;(Process Data)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=43;" parent="1" vertex="1">
                     <mxGeometry x="405" y="165" width="100" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="112" value="Selesai&lt;br&gt;(Desain Filter Madgwick)" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                <mxCell id="112" value="Selesai&lt;br&gt;(Desain Filter Madgwick)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=38;" parent="1" vertex="1">
                     <mxGeometry x="405" y="560" width="100" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="115" value="Selesai" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                <mxCell id="115" value="Selesai" style="whiteSpace=wrap;html=1;rounded=1;arcSize=42;" parent="1" vertex="1">
                     <mxGeometry x="32.49999999999997" y="180" width="80" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="127" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="117" target="126">
+                <mxCell id="127" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="117" target="126" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="117" value="Ambil PWM robot&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;" vertex="1" parent="1">
-                    <mxGeometry x="679.38" y="10" width="100" height="25" as="geometry"/>
+                <mxCell id="117" value="Ambil PWM robot&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;" parent="1" vertex="1">
+                    <mxGeometry x="688.38" y="9" width="100" height="25" as="geometry"/>
                 </mxCell>
-                <mxCell id="119" value="Selesai&lt;br&gt;(Ambil PWM robot)" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-                    <mxGeometry x="674.07" y="155" width="110.62" height="30" as="geometry"/>
+                <mxCell id="119" value="Selesai&lt;br&gt;(Ambil PWM robot)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=49;" parent="1" vertex="1">
+                    <mxGeometry x="683.07" y="154" width="110.62" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="140" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="121" target="139">
+                <mxCell id="140" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="121" target="139" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="121" value="Update&lt;br&gt;(9 DoF)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="183.24" y="60" width="62.26" height="30" as="geometry"/>
+                <mxCell id="121" value="Update&lt;br&gt;(9 DoF)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="183.24" y="50" width="62.26" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="132" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="126" target="24">
+                <mxCell id="132" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="126" target="24" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="126" value="Edit Transpiler Robot Hexapod&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="684.38" y="50" width="90" height="30" as="geometry"/>
+                <mxCell id="126" value="&lt;i&gt;Inverse Kinematic&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="693.38" y="49" width="90" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="217" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="136" target="112">
+                <mxCell id="217" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="136" target="112" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="136" value="Roll, Pitch, Yaw&lt;br&gt;(Sudut Euler)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+                <mxCell id="136" value="Roll, Pitch, Yaw&lt;br&gt;(Sudut Euler)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
                     <mxGeometry x="395" y="475" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="147" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="139" target="144">
+                <mxCell id="147" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="139" target="144" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="154" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="139" target="153">
+                <mxCell id="154" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="139" target="153" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="139" value="Mag?" style="rhombus;whiteSpace=wrap;html=1;rounded=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="191.25" y="117.5" width="46.25" height="55" as="geometry"/>
+                <mxCell id="139" value="Mag?" style="rhombus;whiteSpace=wrap;html=1;rounded=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="191.25" y="107.5" width="46.25" height="55" as="geometry"/>
                 </mxCell>
-                <mxCell id="199" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="144" target="196">
+                <mxCell id="199" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="144" target="196" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="144" value="UpdateIMU&lt;br&gt;(6 DoF)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;size=0;" vertex="1" parent="1">
-                    <mxGeometry x="290" y="198.75" width="87.5" height="25" as="geometry"/>
+                <mxCell id="144" value="UpdateIMU&lt;br&gt;(6 DoF)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;size=0;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="188.75" width="87.5" height="25" as="geometry"/>
                 </mxCell>
-                <mxCell id="162" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="153" target="161">
+                <mxCell id="162" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="153" target="161" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="153" value="Convert gyro DPS to Rad/s" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="172.49" y="197.5" width="83.75" height="27.5" as="geometry"/>
+                <mxCell id="153" value="Convert gyro DPS to Rad/s" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="172.49" y="187.5" width="83.75" height="27.5" as="geometry"/>
                 </mxCell>
-                <mxCell id="184" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="155" target="183">
+                <mxCell id="184" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="155" target="183" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="155" value="Normalisasi Mag" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="162.5" y="308.75" width="103.75" height="31.25" as="geometry"/>
+                <mxCell id="155" value="Normalisasi Mag" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="162.5" y="298.75" width="103.75" height="31.25" as="geometry"/>
                 </mxCell>
-                <mxCell id="165" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="158" target="164">
+                <mxCell id="165" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="158" target="164" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="158" value="Gradient Decent (s)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="169.99" y="420" width="86.25" height="30" as="geometry"/>
+                <mxCell id="158" value="Gradient Decent (s)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="169.99" y="410" width="86.25" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="163" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="161" target="155">
+                <mxCell id="163" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="161" target="155" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="161" value="Hitung qDot dari gyro" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="166.24" y="255" width="96.25" height="30" as="geometry"/>
+                <mxCell id="161" value="Hitung qDot dari gyro" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="166.24" y="245" width="96.25" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="167" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="164" target="166">
+                <mxCell id="167" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="164" target="166" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="164" value="Feedback dengan nilai beta (qDot = s * beta)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="153.12" y="475" width="122.51" height="30" as="geometry"/>
+                <mxCell id="164" value="Feedback dengan nilai beta (qDot = s * beta)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="153.12" y="465" width="122.51" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="170" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="166" target="169">
+                <mxCell id="170" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="166" target="169" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="166" value="Hitung nilai quaternion&lt;br&gt;(q = qDot * invSamplingRate)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="134.62" y="525" width="158.43" height="40" as="geometry"/>
+                <mxCell id="166" value="Hitung nilai quaternion&lt;br&gt;(q = qDot * invSamplingRate)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="134.62" y="515" width="158.43" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="172" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="169" target="171">
+                <mxCell id="172" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="169" target="171" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="169" value="Konversi quaternion ke sudut euler" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="146.22" y="590" width="135.24" height="30" as="geometry"/>
+                <mxCell id="169" value="Konversi quaternion ke sudut euler" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="146.22" y="580" width="135.24" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="171" value="Selesai (Algoritma Filter)" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-                    <mxGeometry x="166.87" y="640" width="95.62" height="50" as="geometry"/>
+                <mxCell id="171" value="Selesai (Algoritma Filter)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=31;" parent="1" vertex="1">
+                    <mxGeometry x="166.87" y="630" width="95.62" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="186" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="183" target="158">
+                <mxCell id="186" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="183" target="158" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="183" value="Normalisasi Acc" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="161.96" y="360" width="103.75" height="31.25" as="geometry"/>
+                <mxCell id="183" value="Normalisasi Acc" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="161.96" y="350" width="103.75" height="31.25" as="geometry"/>
                 </mxCell>
-                <mxCell id="194" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="192" target="121">
+                <mxCell id="194" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="192" target="121" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="192" value="Algoritma Filter" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="178.13" y="10" width="72.5" height="30" as="geometry"/>
+                <mxCell id="192" value="Algoritma Filter" style="rounded=1;whiteSpace=wrap;html=1;arcSize=32;" parent="1" vertex="1">
+                    <mxGeometry x="164.15" y="10" width="102.1" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="200" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="196" target="197">
+                <mxCell id="200" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="196" target="197" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="196" value="Convert gyro DPS to Rad/s" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="290" y="252.5" width="83.75" height="27.5" as="geometry"/>
+                <mxCell id="196" value="Convert gyro DPS to Rad/s" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="242.5" width="83.75" height="27.5" as="geometry"/>
                 </mxCell>
-                <mxCell id="201" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="197" target="183">
+                <mxCell id="201" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="197" target="183" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="328.12" y="376"/>
+                            <mxPoint x="328.12" y="366"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="197" value="Hitung qDot dari gyro" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="283.75" y="308.75" width="96.25" height="30" as="geometry"/>
+                <mxCell id="197" value="Hitung qDot dari gyro" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="283.75" y="298.75" width="96.25" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="227" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="208" target="226">
+                <mxCell id="227" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="208" target="226" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="208" value="Olah Data IMU dengan MATLAB" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;" vertex="1" parent="1">
-                    <mxGeometry x="680.31" y="210" width="98.13" height="35" as="geometry"/>
+                <mxCell id="208" value="Olah Data IMU dengan MATLAB" style="rounded=1;whiteSpace=wrap;html=1;arcSize=38;" parent="1" vertex="1">
+                    <mxGeometry x="689.31" y="209" width="98.13" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="219" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="210" target="218">
+                <mxCell id="219" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="210" target="218" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="210" value="Kalibrasi&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" vertex="1" parent="1">
+                <mxCell id="210" value="Kalibrasi&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" parent="1" vertex="1">
                     <mxGeometry x="558.44" y="460" width="70" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="215" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="214" target="210">
+                <mxCell id="215" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="214" target="210" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="214" value="Arduino Data (IMU + Filter Realtime)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;" vertex="1" parent="1">
+                <mxCell id="214" value="Arduino Data (IMU + Filter Realtime)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;" parent="1" vertex="1">
                     <mxGeometry x="540" y="400" width="106.88" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="221" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="218" target="220">
+                <mxCell id="221" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="218" target="220" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="218" value="Desain Filter Madgwick" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" vertex="1" parent="1">
+                <mxCell id="218" value="Desain Filter Madgwick" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" parent="1" vertex="1">
                     <mxGeometry x="554.69" y="510" width="77.5" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="223" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="220" target="222">
+                <mxCell id="223" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="220" target="222" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="220" value="Acc, Gyro, Mag, Roll, Pitch, Yaw" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;arcSize=0;" vertex="1" parent="1">
+                <mxCell id="220" value="Acc, Gyro, Mag, Roll, Pitch, Yaw" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;arcSize=0;" parent="1" vertex="1">
                     <mxGeometry x="540" y="565" width="106.88" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="222" value="Selesai&lt;br&gt;(Arduino Data (IMU + Filter Realtime))" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                <mxCell id="222" value="Selesai&lt;br&gt;(Arduino Data (IMU + Filter Realtime))" style="whiteSpace=wrap;html=1;rounded=1;arcSize=32;" parent="1" vertex="1">
                     <mxGeometry x="540.32" y="630" width="106.56" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="229" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="226" target="228">
+                <mxCell id="229" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="226" target="228" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="226" value="Desain Filter Madgwick" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="690.6200000000001" y="270" width="77.5" height="30" as="geometry"/>
+                <mxCell id="226" value="Desain Filter Madgwick" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="699.6200000000001" y="269" width="77.5" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="231" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="228" target="230">
+                <mxCell id="231" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="228" target="230" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="228" value="Hitung nilai RMSE" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="675.32" y="325" width="108.12" height="25" as="geometry"/>
+                <mxCell id="228" value="Hitung nilai RMSE" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="684.32" y="324" width="108.12" height="25" as="geometry"/>
                 </mxCell>
-                <mxCell id="233" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="230" target="232">
+                <mxCell id="233" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="230" target="232" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="230" value="RMSE, Plot" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="680.17" y="376.25" width="96.87" height="28.75" as="geometry"/>
+                <mxCell id="230" value="RMSE, Plot" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="689.17" y="375.25" width="96.87" height="28.75" as="geometry"/>
                 </mxCell>
-                <mxCell id="232" value="Selesai&lt;br&gt;(Olah Data IMU dengan MATLAB)" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-                    <mxGeometry x="675.3200000000002" y="430" width="106.56" height="50" as="geometry"/>
+                <mxCell id="232" value="Selesai&lt;br&gt;(Olah Data IMU dengan MATLAB)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=32;" parent="1" vertex="1">
+                    <mxGeometry x="684.3200000000002" y="429" width="106.56" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="237" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="235" target="236">
+                <mxCell id="237" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="235" target="236" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="235" value="Pengujian IMU dan Robot Secara Dinamis" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;" vertex="1" parent="1">
-                    <mxGeometry x="682.5" y="505" width="99.38" height="40" as="geometry"/>
+                <mxCell id="235" value="Pengujian IMU dan Robot Pada Bidang Miring" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;" parent="1" vertex="1">
+                    <mxGeometry x="691.5" y="504" width="99.38" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="239" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="236" target="238">
+                <mxCell id="239" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="236" target="238" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="236" value="Test Robot Jalan di Arena" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="691.1" y="570" width="82.19" height="35" as="geometry"/>
+                <mxCell id="236" value="Test Robot di Bidang Miring" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="700.1" y="569" width="82.19" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="243" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="238" target="242">
+                <mxCell id="243" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="238" target="242" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="238" value="Process Data" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;arcSize=0;" vertex="1" parent="1">
-                    <mxGeometry x="686.24" y="630" width="92.2" height="27.5" as="geometry"/>
+                <mxCell id="238" value="Process Data" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;arcSize=0;" parent="1" vertex="1">
+                    <mxGeometry x="695.24" y="629" width="92.2" height="27.5" as="geometry"/>
                 </mxCell>
-                <mxCell id="242" value="Selesai&lt;br&gt;(Pengujian IMU dan Robot Secara Dinamis)" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-                    <mxGeometry x="659.3800000000001" y="680" width="145.62" height="40" as="geometry"/>
+                <mxCell id="242" value="Selesai&lt;br&gt;(Pengujian IMU dan Robot Secara Dinamis)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=38;" parent="1" vertex="1">
+                    <mxGeometry x="668.3800000000001" y="679" width="145.62" height="40" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
