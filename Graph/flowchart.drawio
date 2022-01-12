@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="kmAJGGws22bIz-2701WK" name="Page-1">
-        <mxGraphModel dx="806" dy="516" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="424" dy="187" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -24,41 +24,17 @@
                 </mxCell>
                 <mxCell id="18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="17" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="585" y="70" as="targetPoint"/>
+                        <mxPoint x="592.5" y="61" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="17" value="Pengujian Pada Robot" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;" parent="1" vertex="1">
-                    <mxGeometry x="548.75" y="10" width="72.5" height="30" as="geometry"/>
+                <mxCell id="17" value="Pengujian Inverse Kinematics" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;" parent="1" vertex="1">
+                    <mxGeometry x="536.13" y="10" width="112.75" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="21" target="48" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="Ambil PWM robot&amp;nbsp;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
-                    <mxGeometry x="537.5" y="70" width="95" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="135" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="24" target="119" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="24" value="PWM didapatkan sesuai sudut" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
-                    <mxGeometry x="675.57" y="99" width="125.62" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="28" target="21" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="645" y="100" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="660" y="203"/>
-                            <mxPoint x="660" y="85"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="28" target="37" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="28" value="sudah dapatkan semua pwm?&lt;br&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="545" y="162.5" width="80" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="31" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="632.5" y="185" width="30" height="20" as="geometry"/>
+                <mxCell id="21" value="Simulasi dan Ambil PWM robot&amp;nbsp;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;size=0;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="60" width="105" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="32" target="33" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -71,12 +47,6 @@
                 </mxCell>
                 <mxCell id="33" value="Pengujian IMU" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;" parent="1" vertex="1">
                     <mxGeometry x="19.99999999999997" y="60" width="105" height="35" as="geometry"/>
-                </mxCell>
-                <mxCell id="207" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="37" target="109" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="37" value="Pengujian IMU dan Robot Pada Bidang Miring" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
-                    <mxGeometry x="527.5" y="261.5" width="115" height="45" as="geometry"/>
                 </mxCell>
                 <mxCell id="213" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="41" target="42" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -96,11 +66,13 @@
                 <mxCell id="43" value="Olah Data IMU dengan MATLAB" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
                     <mxGeometry x="395" y="110" width="120" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="48" target="28" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="48" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="592.5" y="151" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="48" value="Process Data" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
-                    <mxGeometry x="537.5" y="115" width="95" height="30" as="geometry"/>
+                    <mxGeometry x="544.19" y="111" width="96.62" height="17" as="geometry"/>
                 </mxCell>
                 <mxCell id="125" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="60" target="136" edge="1">
                     <mxGeometry relative="1" as="geometry">
@@ -113,7 +85,7 @@
                 <mxCell id="91" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="66" target="87" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="66" value="Pengujian IMU" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="66" value="Pengujian IMU" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;" parent="1" vertex="1">
                     <mxGeometry x="36.25" y="240" width="72.5" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="93" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="87" target="92" edge="1">
@@ -128,7 +100,7 @@
                 <mxCell id="92" value="Process Data" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="20" y="340" width="105" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="102" value="Selesai&lt;br&gt;(Pengujian IMU)" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+                <mxCell id="102" value="Selesai&lt;br&gt;(Pengujian IMU)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=39;" parent="1" vertex="1">
                     <mxGeometry x="26.25" y="395" width="92.5" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="116" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="104" target="115" edge="1">
@@ -136,9 +108,6 @@
                 </mxCell>
                 <mxCell id="104" value="Pengujian Pada Robot" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;" parent="1" vertex="1">
                     <mxGeometry x="19.99999999999997" y="120" width="105" height="35" as="geometry"/>
-                </mxCell>
-                <mxCell id="109" value="Selesai&lt;br&gt;(Pengujian Pada Robot)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;" parent="1" vertex="1">
-                    <mxGeometry x="537.5" y="324" width="95" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="110" value="Selesai&lt;br&gt;(Process Data)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=43;" parent="1" vertex="1">
                     <mxGeometry x="405" y="165" width="100" height="30" as="geometry"/>
@@ -149,26 +118,11 @@
                 <mxCell id="115" value="Selesai" style="whiteSpace=wrap;html=1;rounded=1;arcSize=42;" parent="1" vertex="1">
                     <mxGeometry x="32.49999999999997" y="180" width="80" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="127" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="117" target="126" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="117" value="Ambil PWM robot&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;" parent="1" vertex="1">
-                    <mxGeometry x="688.38" y="9" width="100" height="25" as="geometry"/>
-                </mxCell>
-                <mxCell id="119" value="Selesai&lt;br&gt;(Ambil PWM robot)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=49;" parent="1" vertex="1">
-                    <mxGeometry x="683.07" y="154" width="110.62" height="30" as="geometry"/>
-                </mxCell>
                 <mxCell id="140" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="121" target="139" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="121" value="Update&lt;br&gt;(9 DoF)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" parent="1" vertex="1">
                     <mxGeometry x="183.24" y="50" width="62.26" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="132" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="126" target="24" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="126" value="&lt;i&gt;Inverse Kinematic&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="693.38" y="49" width="90" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="217" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="136" target="112" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -268,7 +222,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="208" value="Olah Data IMU dengan MATLAB" style="rounded=1;whiteSpace=wrap;html=1;arcSize=38;" parent="1" vertex="1">
-                    <mxGeometry x="689.31" y="209" width="98.13" height="35" as="geometry"/>
+                    <mxGeometry x="709.4899999999999" y="205.5" width="98.13" height="35" as="geometry"/>
                 </mxCell>
                 <mxCell id="219" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="210" target="218" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -301,43 +255,110 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="226" value="Desain Filter Madgwick" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" parent="1" vertex="1">
-                    <mxGeometry x="699.6200000000001" y="269" width="77.5" height="30" as="geometry"/>
+                    <mxGeometry x="719.8000000000001" y="265.5" width="77.5" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="231" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="228" target="230" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="228" value="Hitung nilai RMSE" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" parent="1" vertex="1">
-                    <mxGeometry x="684.32" y="324" width="108.12" height="25" as="geometry"/>
+                    <mxGeometry x="704.5" y="320.5" width="108.12" height="25" as="geometry"/>
                 </mxCell>
                 <mxCell id="233" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="230" target="232" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="230" value="RMSE, Plot" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;arcSize=0;" parent="1" vertex="1">
-                    <mxGeometry x="689.17" y="375.25" width="96.87" height="28.75" as="geometry"/>
+                    <mxGeometry x="709.3499999999999" y="371.75" width="96.87" height="28.75" as="geometry"/>
                 </mxCell>
                 <mxCell id="232" value="Selesai&lt;br&gt;(Olah Data IMU dengan MATLAB)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=32;" parent="1" vertex="1">
-                    <mxGeometry x="684.3200000000002" y="429" width="106.56" height="50" as="geometry"/>
+                    <mxGeometry x="704.5000000000001" y="425.5" width="106.56" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="237" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="235" target="236" edge="1">
+                <mxCell id="254" style="edgeStyle=none;html=1;entryX=0.525;entryY=0.013;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="235" target="236" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="235" value="Pengujian IMU dan Robot Pada Bidang Miring" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;" parent="1" vertex="1">
-                    <mxGeometry x="691.5" y="504" width="99.38" height="40" as="geometry"/>
+                <mxCell id="235" value="Pengujian IMU dan Robot Pada Bidang Miring" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;" parent="1" vertex="1">
+                    <mxGeometry x="686.93" y="495" width="99.38" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="239" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="236" target="238" edge="1">
+                <mxCell id="250" value="" style="edgeStyle=none;html=1;" parent="1" source="236" target="244" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="236" value="Test Robot di Bidang Miring" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" parent="1" vertex="1">
-                    <mxGeometry x="700.1" y="569" width="82.19" height="35" as="geometry"/>
-                </mxCell>
-                <mxCell id="243" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="238" target="242" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="238" value="Process Data" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;arcSize=0;" parent="1" vertex="1">
-                    <mxGeometry x="695.24" y="629" width="92.2" height="27.5" as="geometry"/>
+                    <mxGeometry x="692.72" y="552" width="82.19" height="35" as="geometry"/>
                 </mxCell>
                 <mxCell id="242" value="Selesai&lt;br&gt;(Pengujian IMU dan Robot Secara Dinamis)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=38;" parent="1" vertex="1">
-                    <mxGeometry x="668.3800000000001" y="679" width="145.62" height="40" as="geometry"/>
+                    <mxGeometry x="661.0000000000001" y="680" width="145.62" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="248" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="244" target="236" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="794.62" y="634"/>
+                            <mxPoint x="794.62" y="570"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="251" value="" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="244" target="242" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="733.8087991266375" y="677" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="244" value="Robot stabil?" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="704.4999999999999" y="604" width="58.61" height="59" as="geometry"/>
+                </mxCell>
+                <mxCell id="259" value="Selesai&lt;br&gt;(Pengujian Inverse Kinematics)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;" vertex="1" parent="1">
+                    <mxGeometry x="533.65" y="149" width="119.9" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="264" value="Selesai&lt;br&gt;(Pengujian IMU(Robot) Pada Bidang Miring)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;" vertex="1" parent="1">
+                    <mxGeometry x="325.58999999999986" y="825" width="138" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="273" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="266" target="272">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="266" value="Process Data" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+                    <mxGeometry x="346.15" y="745.5" width="96.88" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="267" style="edgeStyle=none;html=1;" edge="1" parent="1" source="268" target="270">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="268" value="Pengujian IMU(Robot) Pada Bidang Miring" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;" vertex="1" parent="1">
+                    <mxGeometry x="325.1099999999999" y="636" width="135.45" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="269" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="270" target="266">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="270" value="Membaca kemiringan robot dan memberikan feedback PWM" style="whiteSpace=wrap;html=1;rounded=1;arcSize=0;" vertex="1" parent="1">
+                    <mxGeometry x="309.9999999999999" y="689.5" width="165.78" height="43" as="geometry"/>
+                </mxCell>
+                <mxCell id="274" style="edgeStyle=none;html=1;" edge="1" parent="1" source="272" target="264">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="272" value="Robot Stabil (Roll, Pitch=0)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+                    <mxGeometry x="304.97999999999996" y="782" width="179.22" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="285" style="edgeStyle=none;html=1;" edge="1" parent="1" source="276" target="279">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="276" value="PWM didapatkan sesuai sudut uji" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+                    <mxGeometry x="515.09" y="850" width="125.62" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="277" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="278" target="281">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="278" value="Simulasi &lt;i&gt;Inverse Kinematics&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;" vertex="1" parent="1">
+                    <mxGeometry x="522.5" y="720" width="110.62" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="279" value="Selesai&lt;br&gt;(Simulasi Inverse Kinematicst)" style="whiteSpace=wrap;html=1;rounded=1;arcSize=50;" vertex="1" parent="1">
+                    <mxGeometry x="516.4300000000001" y="895" width="122.93" height="41" as="geometry"/>
+                </mxCell>
+                <mxCell id="283" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="281" target="282">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="281" value="Simulasi IK(&lt;i&gt;Software&lt;/i&gt;)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="532.81" y="759" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="284" style="edgeStyle=none;html=1;" edge="1" parent="1" source="282" target="276">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="282" value="Simulasi IK(&lt;i&gt;Hardware&lt;/i&gt;)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="532.8099999999998" y="805" width="90" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

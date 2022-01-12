@@ -8,10 +8,10 @@ close all;                          % close all figures
 % set(0,'DefaultFigureWindowStyle','normal')
 %% FILENAME
 % load('Data2/5d100v0.mat');   %  5 | 0.8946 |0.1176 |0.2417 |   5.7 
-load('Data2/1d250v.mat'); 
+load('Data2/1d100v.mat'); 
 Beta='perbandingan';
 RPY='';
-X=string(Beta)+'1d250'+string(RPY)+'v';
+X=string(Beta)+''+string(RPY)+'v';
 % load ('Data2/'+string(X)+'.mat')
 A='Time (s) \beta='+string(Beta)+' Data2='+string(X);
 % save ('Data2/'+string(X)+'.mat')
@@ -273,12 +273,12 @@ stb=length(reuler);
 % rmsey0c3 = sqrt(mean((euler0c3(720:stb,1) - reuler(720:stb,1)).^2));
 % rmsey0c1 = sqrt(mean((euler0c1(2939:stb,1) - reuler(2939:stb,1)).^2));
 %% 250
-% rmsey5 = sqrt(mean((euler5(80:stb,1) - reuler(80:stb,1)).^2));
-% rmsey2 = sqrt(mean((euler2(486:stb,1) - reuler(486:stb,1)).^2));
-% rmsey1 = sqrt(mean((euler1(867:stb,1) - reuler(867:stb,1)).^2));
-% rmsey0c5 = sqrt(mean((euler0c5(1470:stb,1) - reuler(1470:stb,1)).^2));
-% rmsey0c3 = sqrt(mean((euler0c3(2554:stb,1) - reuler(2554:stb,1)).^2));
-% rmsey0c1 = sqrt(mean((euler0c1(7815:stb,1) - reuler(7815:stb,1)).^2));
+rmsey5 = sqrt(mean((euler5(80:stb,1) - reuler(80:stb,1)).^2));
+rmsey2 = sqrt(mean((euler2(486:stb,1) - reuler(486:stb,1)).^2));
+rmsey1 = sqrt(mean((euler1(867:stb,1) - reuler(867:stb,1)).^2));
+rmsey0c5 = sqrt(mean((euler0c5(1470:stb,1) - reuler(1470:stb,1)).^2));
+rmsey0c3 = sqrt(mean((euler0c3(2554:stb,1) - reuler(2554:stb,1)).^2));
+rmsey0c1 = sqrt(mean((euler0c1(7815:stb,1) - reuler(7815:stb,1)).^2));
 
 rmsey5
 rmsey2
@@ -286,3 +286,100 @@ rmsey1
 rmsey0c5
 rmsey0c3
 rmsey0c1
+
+%%
+a100 = load('Data2/perbandingan1d100v.mat'); 
+a150 = load('Data2/perbandingan1d150v.mat'); 
+a250 = load('Data2/perbandingan1d250v.mat'); 
+
+figure('Name', 'Euler Angles');
+hold on;
+plot(a100.time, a100.euler5(:,1),'--b','DisplayName','Beta=5'); %roll
+plot(a100.time, a100.euler2(:,1),'k','DisplayName','Beta=2'); %roll
+plot(a100.time, a100.euler1(:,1),':m','DisplayName','Beta=1'); %roll
+plot(a100.time, a100.euler0c5(:,1),'--y','DisplayName','Beta=0.5'); %roll
+plot(a100.time, a100.euler0c3(:,1),'r','DisplayName','Beta=0.3'); %roll
+plot(a100.time, a100.euler0c1(:,1),'-.g','DisplayName','Beta=0.1'); %roll
+plot(a100.time, a100.reuler(:,1),'DisplayName','real'); %roll
+
+plot(a150.time, a150.euler5(:,1),'--b','DisplayName','Beta=5'); %roll
+plot(a150.time, a150.euler2(:,1),'k','DisplayName','Beta=2'); %roll
+plot(a150.time, a150.euler1(:,1),':m','DisplayName','Beta=1'); %roll
+plot(a150.time, a150.euler0c5(:,1),'--y','DisplayName','Beta=0.5'); %roll
+plot(a150.time, a150.euler0c3(:,1),'r','DisplayName','Beta=0.3'); %roll
+plot(a150.time, a150.euler0c1(:,1),'-.g','DisplayName','Beta=0.1'); %roll
+plot(a150.time, a150.reuler(:,1),'DisplayName','real'); %roll
+
+plot(a250.time, a250.euler5(:,1),'--b','DisplayName','Beta=5'); %roll
+plot(a250.time, a250.euler2(:,1),'k','DisplayName','Beta=2'); %roll
+plot(a250.time, a250.euler1(:,1),':m','DisplayName','Beta=1'); %roll
+plot(a250.time, a250.euler0c5(:,1),'--y','DisplayName','Beta=0.5'); %roll
+plot(a250.time, a250.euler0c3(:,1),'r','DisplayName','Beta=0.3'); %roll
+plot(a250.time, a250.euler0c1(:,1),'-.g','DisplayName','Beta=0.1'); %roll
+plot(a250.time, a250.reuler(:,1),'DisplayName','real'); %roll
+
+
+xlabel(A);
+ylabel('Angle (deg)');
+legend(legendUnq())
+
+hold off;
+savefig('E:\Documents\SKRIPSI\OTW SEMHAS\GambarMatlab\Image\perbandingan\'+string(X)+'2.fig');
+%% 
+figure();
+beta    = [0.1 0.3 0.5 1 2 5];
+rmse100 = [a100.rmsey0c1 a100.rmsey0c3 a100.rmsey0c5 a100.rmsey1 a100.rmsey2 a100.rmsey5];
+rmse150 = [a150.rmsey0c1 a150.rmsey0c3 a150.rmsey0c5 a150.rmsey1 a150.rmsey2 a150.rmsey5];
+rmse250 = [a250.rmsey0c1 a250.rmsey0c3 a250.rmsey0c5 a250.rmsey1 a250.rmsey2 a250.rmsey5];
+hold on;
+plot(beta, rmse100,'--+k','DisplayName','100 deg');
+plot(beta, rmse150,':or', 'DisplayName','150 deg' );
+plot(beta, rmse250,'-.*b','DisplayName','250 deg');
+
+xlabel('\beta');
+ylabel('RMSE');
+legend(legendUnq())
+hold off;
+savefig('E:\Documents\SKRIPSI\OTW SEMHAS\GambarMatlab\Image\perbandingan\'+string(X)+'3.fig');
+
+%%
+subplot(211)
+hold on;
+plot(a100.time, a100.euler5(:,1),'--b','DisplayName','Beta=5'); %roll
+plot(a100.time, a100.euler2(:,1),'k','DisplayName','Beta=2'); %roll
+plot(a100.time, a100.euler1(:,1),':m','DisplayName','Beta=1'); %roll
+plot(a100.time, a100.euler0c5(:,1),'--y','DisplayName','Beta=0.5'); %roll
+plot(a100.time, a100.euler0c3(:,1),'r','DisplayName','Beta=0.3'); %roll
+plot(a100.time, a100.euler0c1(:,1),'-.g','DisplayName','Beta=0.1'); %roll
+plot(a100.time, a100.reuler(:,1),'DisplayName','real'); %roll
+
+plot(a150.time, a150.euler5(:,1),'--b','DisplayName','Beta=5'); %roll
+plot(a150.time, a150.euler2(:,1),'k','DisplayName','Beta=2'); %roll
+plot(a150.time, a150.euler1(:,1),':m','DisplayName','Beta=1'); %roll
+plot(a150.time, a150.euler0c5(:,1),'--y','DisplayName','Beta=0.5'); %roll
+plot(a150.time, a150.euler0c3(:,1),'r','DisplayName','Beta=0.3'); %roll
+plot(a150.time, a150.euler0c1(:,1),'-.g','DisplayName','Beta=0.1'); %roll
+plot(a150.time, a150.reuler(:,1),'DisplayName','real'); %roll
+
+plot(a250.time, a250.euler5(:,1),'--b','DisplayName','Beta=5'); %roll
+plot(a250.time, a250.euler2(:,1),'k','DisplayName','Beta=2'); %roll
+plot(a250.time, a250.euler1(:,1),':m','DisplayName','Beta=1'); %roll
+plot(a250.time, a250.euler0c5(:,1),'--y','DisplayName','Beta=0.5'); %roll
+plot(a250.time, a250.euler0c3(:,1),'r','DisplayName','Beta=0.3'); %roll
+plot(a250.time, a250.euler0c1(:,1),'-.g','DisplayName','Beta=0.1'); %roll
+plot(a250.time, a250.reuler(:,1),'DisplayName','real'); %roll
+xlabel(A);
+ylabel('Angle (deg)');
+legend(legendUnq())
+
+hold off;
+subplot(212)
+hold on;
+plot(beta, rmse100,'--+k','DisplayName','100 deg');
+plot(beta, rmse150,':or', 'DisplayName','150 deg' );
+plot(beta, rmse250,'-.*b','DisplayName','250 deg');
+
+xlabel('\beta');
+ylabel('RMSE');
+legend(legendUnq())
+hold off;

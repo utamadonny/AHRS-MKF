@@ -29,7 +29,7 @@ close all;                          % close all figures
 % set(0,'DefaultFigureWindowStyle','docked')
 % set(0,'DefaultFigureWindowStyle','normal')
 %% Debug#0 export csv test
-file = 'F:\Git Ubuntu\BelajarJulia\ahrs\0c3d100v1.csv';
+% file = 'F:\Git Ubuntu\BelajarJulia\ahrs\D1m15Rv.csv';
 %%
 % % Time = readmatrix(file ,'range','A:A','OutputType','datetime');
 % reuler = readmatrix(file ,'range','A:C','OutputType','double');
@@ -39,33 +39,33 @@ file = 'F:\Git Ubuntu\BelajarJulia\ahrs\0c3d100v1.csv';
 % aeuler = readmatrix(file ,'range','N:P','OutputType','double');
 % % time = readmatrix(file ,'range','Y:Y','OutputType','double');
 %%
-Time = readmatrix(file ,'range','A:A','OutputType','datetime');
-reuler = readmatrix(file ,'range','B:D','OutputType','double');
-Accelerometer = readmatrix(file ,'range','E:G','OutputType','double');
-Gyroscope = readmatrix(file ,'range','H:J','OutputType','double');
-Magnetometer = readmatrix(file ,'range','K:M','OutputType','double');
-aeuler = readmatrix(file ,'range','N:P','OutputType','double');
-time = readmatrix(file ,'range','Y:Y','OutputType','double');
+% Time = readmatrix(file ,'range','A:A','OutputType','datetime');
+% reuler = readmatrix(file ,'range','B:D','OutputType','double');
+% Accelerometer = readmatrix(file ,'range','E:G','OutputType','double');
+% Gyroscope = readmatrix(file ,'range','H:J','OutputType','double');
+% Magnetometer = readmatrix(file ,'range','K:M','OutputType','double');
+% aeuler = readmatrix(file ,'range','N:P','OutputType','double');
+% time = readmatrix(file ,'range','Y:Y','OutputType','double');
 %% NEW to load static file
 % Beta='0c1';
 % X=string(Beta)+'d270v';
 % load ('Data2/'+string(X)+'.mat')
 %% NEW to load Dinamic file
-Beta='0c3';
-RPY='';
-X=string(Beta)+'d100'+string(RPY)+'v1';
-% load ('Data2/'+string(X)+'.mat')
+Beta='D1';
+RPY='R';
+X=string(Beta)+'p20'+string(RPY)+'v';
+load ('Data2/'+string(X)+'.mat')
 A='Time (s) \beta='+string(Beta)+' Data2='+string(X);
 % save ('Data2/'+string(X)+'.mat')
 %% Set Parameter
 % sta = 800; stb = length(time);
 SamplePeriode = 100;
-BetaQ= 0.03;
+BetaQ= 0.1;
 % save('Data\aaaaa.mat');
 % Kp= 10; Ki=0;
 % numSamples = size(Accelerometer,1);
 % time = (0:1:(numSamples-1))'/SamplePeriode;
-save ('Data2/'+string(X)+'.mat')
+% save ('Data2/'+string(X)+'.mat')
 %% (1a) Import and plot sensor data
 % load("Nilai Beta");          |       RMSE             | Learning
                           %Beta| Yaw    | Pitch | Roll  | Time
@@ -241,7 +241,7 @@ plot(time, Accelerometer(:,2), 'g');
 plot(time, Accelerometer(:,3), 'b');
 legend('X', 'Y', 'Z');
 xlabel(string(A)+'RAW');
-ylabel('Acceleration (g)');
+ylabel('Acceleration (m/s)');
 title('Accelerometer');
 hold off;
 axis(3) = subplot(3,1,3);
